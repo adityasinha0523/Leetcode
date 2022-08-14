@@ -9,11 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
-class HashMap{
+class problem1748{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,51 +44,31 @@ class HashMap{
         
         //scan.nextLine();
         //To take array as input
-        String[] string1=new String[2];
-        for (int i = 0; i < string1.length; i++) {
-            string1[i]=scan.nextLine();
+        int[] num=new int[4];
+        for (int i = 0; i < num.length; i++) {
+            num[i]=scan.nextInt();
         }
-        String[] string2=new String[2];
-        for (int i = 0; i < string2.length; i++) {
-            string2[i]=scan.nextLine();
-        }
-        boolean answer=arrayStringsAreEqual(string1,string2);
+        int sol=sumOfUnique(num);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(answer);
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        HashMap<Character,Integer> hMap1=new HashMap<>();
-        for (int i = 0; i < word1.length; i++) {
-            for (int j = 0; j < word1[i].length(); j++) {
-                char c=word1[i].charAt(j);
-                hMap1.put(c, hMap1.getOrDefault(c, 0)+1);
-            }
-            
+    public static int sumOfUnique(int[] nums) {
+        int solution=0;
+        HashMap<Integer,Integer> hMap=new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            hMap.put(nums[i], hMap.getOrDefault(nums[i], 0)+1);
         }
-        HashMap<Character,Integer> hMap2=new HashMap<>();
-        for (int i = 0; i < word2.length; i++) {
-            for (int j = 0; j < word2[i].length(); j++) {
-                char c=word2[i].charAt(j);
-                hMap2.put(c, hMap2.getOrDefault(c, 0)+1);
-            }    
-        }
-        
-        for (Map.Entry<Character,Integer> hEntry: hMap2.entrySet()) {
-            char value=hEntry.getKey();
-            int count=hEntry.getValue();
-            if(hMap1.containsKey(value) ){
-                int count2=hMap1.get(value);
-                if(count!=count2){
-                    return false;
-                }
-            }else{
-                return false;
+        for (Map.Entry<Integer,Integer> hEntry : hMap.entrySet()) {
+            int key=hEntry.getKey();
+            int value=hEntry.getValue();
+            if(value==1){
+                solution+=key;
             }
         }
-        return true;
+        return solution;
     }
 }  

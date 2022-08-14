@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.List;
 
-class template{
+class problem1365{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -49,12 +49,28 @@ class template{
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
-        /*for(int i=0;i<sol.length;i++){
+        int[] sol=smallerNumbersThanCurrent(num);
+        for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }*/
+        }
         //System.out.println(sol);
         scan.close();
     }  
 
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] solution=new int[nums.length];
+        int k=0;
+        //Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int num=nums[i];
+            int count=0;
+            for (int j = 0; j < nums.length; j++) {
+                if(nums[j]<num){
+                    count++;
+                }
+            }
+            solution[k++]=count;
+        }
+        return solution;
+    }
 }  

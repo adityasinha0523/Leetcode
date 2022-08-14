@@ -10,9 +10,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
 import java.util.List;
 
-class template{
+class problem1475{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,16 +48,35 @@ class template{
         
         //scan.nextLine();
         //To take array as input
-        int[] num=new int[4];
+        int[] num=new int[5];
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
-        /*for(int i=0;i<sol.length;i++){
+        int[] sol=finalPrices(num);
+        for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }*/
+        }
         //System.out.println(sol);
         scan.close();
     }  
 
+    public static int[] finalPrices(int[] prices) {
+        int[] solution=new int[prices.length];
+        int k=0;
+        for (int i = 0; i < prices.length; i++) {
+            int temp=prices[i];
+            boolean flag=false;
+            for (int j = i+1; j < prices.length; j++) {
+                if(prices[j]<=temp){
+                    solution[k++]=temp-prices[j];
+                    flag=true;
+                    break;
+                }
+            }
+            if(flag==false){
+                solution[k++]=temp;
+            }
+        }
+        return solution;
+    }
 }  

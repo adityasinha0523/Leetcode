@@ -10,9 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.Scanner;
-import java.util.List;
 
-class template{
+class problem1672{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,16 +44,30 @@ class template{
         
         //scan.nextLine();
         //To take array as input
-        int[] num=new int[4];
+        int[][] num=new int[2][3];
         for (int i = 0; i < num.length; i++) {
-            num[i]=scan.nextInt();
+            for (int j = 0; j < num.length; j++) {
+                num[i][j]=scan.nextInt();
+            }
         }
-        
+        int sol=maximumWealth(num);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int maximumWealth(int[][] accounts) {
+        //int solution=0;
+        int maxValue=Integer.MIN_VALUE;
+        for (int i = 0; i < accounts.length; i++) {
+            int sum=0;
+            for (int j = 0; j < accounts[0].length; j++) {
+                sum+=accounts[i][j];
+            }
+            maxValue=sum>maxValue?sum:maxValue;
+        }
+        return maxValue;
+    }
 }  
