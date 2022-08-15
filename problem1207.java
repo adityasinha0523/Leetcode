@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1207{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -47,16 +45,31 @@ class template{
         
         //scan.nextLine();
         //To take array as input
-        int[] num=new int[4];
+        int[] num=new int[6];
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
+        boolean sol=uniqueOccurrences(num);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static boolean uniqueOccurrences(int[] arr) {
+        boolean solution=true;
+        Map<Integer,Integer> hMap=new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            hMap.put(arr[i], hMap.getOrDefault(arr[i], 0)+1);
+        }
+        Set<Integer> set= new HashSet<>();
+        for (Map.Entry<Integer,Integer> hEntry : hMap.entrySet()) {
+            if(set.contains(hEntry.getValue())){
+                return false;
+            }
+            set.add(hEntry.getValue());
+        }
+        return solution;
+    }
 }  

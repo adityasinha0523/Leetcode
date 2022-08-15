@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1085{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -51,12 +51,26 @@ class template{
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
+        int sol=sumOfDigits(num);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int sumOfDigits(int[] nums) {
+        Arrays.sort(nums);
+        int n=nums[0];
+        int sum=0;
+        while(n!=0){
+            int temp=n%10;
+            n=n/10;
+            sum+=temp;
+        }
+        if(sum%2==0){
+            return 1;
+        }
+        return 0;
+    }
 }  

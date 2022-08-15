@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1351{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -47,16 +47,34 @@ class template{
         
         //scan.nextLine();
         //To take array as input
-        int[] num=new int[4];
+        /*int[] num=new int[4];
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
-        }
+        }*/
+        int[][] num=new int[4][4];
         
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        for (int i = 0; i < num.length; i++) {
+            for (int j = 0; j < num[0].length; j++) {
+                num[i][j]=scan.nextInt();
+            }
+        }
+        int sol=countNegatives(num);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int countNegatives(int[][] grid) {
+        int solution=0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j]<0){
+                    solution++;
+                }
+            }
+        }
+        return solution;
+    }
 }  

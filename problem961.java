@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem961{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -51,12 +49,25 @@ class template{
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
+        int sol=repeatedNTimes(num);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int repeatedNTimes(int[] nums) {
+        int solution=0;
+        Map<Integer,Integer> hMap= new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            hMap.put(nums[i], hMap.getOrDefault(nums[i], 0)+1);
+        }
+        for (Map.Entry<Integer,Integer> hEntry : hMap.entrySet()) {
+            if(hEntry.getValue()==nums.length/2){
+                return hEntry.getKey();
+            }
+        }
+        return solution;
+    }
 }  
