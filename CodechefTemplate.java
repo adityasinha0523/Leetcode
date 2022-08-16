@@ -1,92 +1,63 @@
-// Java Program that is been setup in Sublime Text
-// for Competitive Coding
+// You don't need to add/edit anything to the below solution. 
+// Click on the SUBMIT button to solve your first problem on CodeChef.
 
-// Importing input output classes
-import java.io.*;
-import java.lang.reflect.Array;
-// Importing Scanner class from java.util package
-import java.util.*;
-import java.util.concurrent.PriorityBlockingQueue;
 import java.io.OutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.InputStream;
 
 
+// Remember that the class name should be "Main" and should be "public".
+public class CodechefTemplate {
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+		InputStream inputStream = System.in;
 
-// Replace with Main Class during submission
-public class CodechefTemplate  {
-	// Main driver method
-	public static void main(String[] args){
+		InputReader in = new InputReader(inputStream);
 
-		// Setting up the input stream
-		// You can use buffered reader too
-		Scanner read = new Scanner(System.in);
+		// Read the number of test casese.		
+		int T = in.nextInt();
+		while (T-- > 0) {
+			// Read the numbers a and b.
+			int a = in.nextInt();
+			int b = in.nextInt();
+			int c=in.nextInt();
+			// Compute the sum of a and b.
+			if(c>a &&c<b){
+                System.out.println("YES");
+            }else{
+                System.out.println("No");
+            }
+		}
+	}
 
-		// If You Are Running Your Code
-		// in Sublime Text then set The
-		// System Out to output.txt and
-		// Input Stream to input.txt
-		// otherwise leave it as standard
-		// ones for ONLINE JUDGE
-		
-			// Try block to check for exceptions
-			/*try {
-				// Sets the Output Stream
-				// to output.txt
-				System.setOut(new PrintStream(
-					new FileOutputStream("output.txt")));
+	static class InputReader {
+		public BufferedReader reader;
+		public StringTokenizer tokenizer;
 
-				// Change the input stream
-				// to input.txt
-				read = new Scanner(new File("input.txt"));
-			}
+		public InputReader(InputStream stream) {
+			reader = new BufferedReader(new InputStreamReader(stream), 32768);
+			tokenizer = null;
+		}
 
-			// Catch block to handle the exceptions
-			catch (Exception e) {
-			}*/
-		
-
-		// Your Code Start Here
-
-		// Read input
-		//String str= read.nextLine();
-		//int power=	read.nextInt();
-		//int module=read.nextInt();
-		//int n=read.nextInt();
-		//int array[]=new int[n];
-		//int hashValue=read.nextInt();
-		/*for (int i = 0; i < n; i++) {
-			array[i]=read.nextInt();
-		}*/
-
-		int t=read.nextInt();
-		while(t-- >0){
-			int first=read.nextInt();
-			String val=read.next();
-			int solution=0;
-			Map<Character,Integer> hMap=new HashMap<>();
-			for (int i = 0; i < val.length(); i++) {
-				if(hMap.containsKey(val.charAt(i))){
-					if(hMap.get(val.charAt(i))==i-1){
-						hMap.remove(val.charAt(i));
-					}
-					else{
-						hMap.put(val.charAt(i),i);
-						solution++;
-					}
-				}else{
-					hMap.put(val.charAt(i),i);
-					solution++;
+		public String next() {
+			while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+				try {
+				    tokenizer = new StringTokenizer(reader.readLine());
+				} catch (IOException e) {
+				    throw new RuntimeException(e);
 				}
 			}
+			return tokenizer.nextToken();
+		}
 
-			System.out.println(solution);
-			
-		}		
+		public int nextInt() {
+			return Integer.parseInt(next());
+		}
 	}
-}	
+}
