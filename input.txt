@@ -1,4 +1,7 @@
-hello
-world
-leetcode
-welldonehoneyr
+practice
+makes
+perfect
+coding
+makes
+coding
+practice
