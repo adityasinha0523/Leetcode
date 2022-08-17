@@ -1,7 +1,5 @@
-practice
-makes
-perfect
-coding
-makes
-coding
-practice
+1
+3
+5 10 3
+000
+
