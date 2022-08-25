@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.lang.*;
 import java.util.*;
+import java.lang.*;
 
-class problem2089{
+class problem349{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -47,30 +45,42 @@ class problem2089{
         
         //scan.nextLine();
         //To take array as input
-        int[] num=new int[4];
-        for (int i = 0; i < num.length; i++) {
-            num[i]=scan.nextInt();
+        int[] nums1=new int[4];
+        for (int i = 0; i < nums1.length; i++) {
+            nums1[i]=scan.nextInt();
         }
-        int target=scan.nextInt();
-        List<Integer> solution=targetIndices(num,target);
-        /*for(int i=0;i<sol.length;i++){
+        int[] nums2=new int[2];
+        for (int i = 0; i < nums2.length; i++) {
+            nums2[i]=scan.nextInt();
+        }
+        int[] sol=intersection(nums1,nums2);
+        for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }*/
-        for (Integer integer : solution) {
-            System.out.println(integer);
         }
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static List<Integer> targetIndices(int[] nums, int target) {
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        int[] sol1=new int[1001];
+        int[] sol2=new int[1001];
         List<Integer> list=new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==target){
+        for (int i = 0; i < nums1.length; i++) {
+            sol1[nums1[i]]++;
+        }
+        for (int i = 0; i < nums2.length; i++) {
+            sol2[nums2[i]]++;
+        }
+        for (int i = 0; i < sol2.length; i++) {
+            if(sol1[i]>0 &&sol2[i]>0){
                 list.add(i);
             }
         }
-        return list;
+        int[] solution=new int[list.size()];
+        int k=0;
+        for (Integer integer : list) {
+            solution[k++]=integer;
+        }
+        return solution;
     }
 }  
