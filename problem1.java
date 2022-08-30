@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class problemString{
+class problem1{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,22 +43,32 @@ class problemString{
         }*/
 
         
-        /*
-         * 1.To convert character array to string use String.valueOf(char[] obj).
-         * Example:
-         */
-        String s="hello";
-        char[] c=s.toCharArray();
-        String string=String.valueOf(c);
-        
-        /*
-         * 2.To convert String to character array use s.toCharArray();
-         * Example:
-         */
-
-        String s1="hello";
-        char[] charString=s.toCharArray();
+        //scan.nextLine();
+        //To take array as input
+        int[] nums=new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i]=scan.nextInt();
+        }
+        int target=scan.nextInt();
+        int[] sol=twoSum(nums, target);
+        for(int i=0;i<sol.length;i++){
+            System.out.println(sol[i]);
+        }
+        //System.out.println(sol);
         scan.close();
     }  
 
+    public static int[] twoSum(int[] nums, int target) {
+        int[] solution=new int[2];
+        Map<Integer,Integer> hMap=new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if(hMap.containsKey(target-nums[i])){
+                solution[0]=i;
+                solution[1]=hMap.get(target-nums[i]);
+            }else{
+                hMap.put(nums[i], i);
+            }
+        }
+        return solution;
+    }
 }  

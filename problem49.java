@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class problemString{
+class problem49{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,22 +43,30 @@ class problemString{
         }*/
 
         
-        /*
-         * 1.To convert character array to string use String.valueOf(char[] obj).
-         * Example:
-         */
-        String s="hello";
-        char[] c=s.toCharArray();
-        String string=String.valueOf(c);
+        //scan.nextLine();
+        //To take array as input
+        int[] num=new int[4];
+        for (int i = 0; i < num.length; i++) {
+            num[i]=scan.nextInt();
+        }
         
-        /*
-         * 2.To convert String to character array use s.toCharArray();
-         * Example:
-         */
-
-        String s1="hello";
-        char[] charString=s.toCharArray();
+        /*for(int i=0;i<sol.length;i++){
+            System.out.println(sol[i]);
+        }*/
+        //System.out.println(sol);
         scan.close();
     }  
 
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> groups=new HashMap<>();
+        for (String s : strs) {
+            char[] chars=s.toCharArray();
+            Arrays.sort(chars);
+
+            String key=String.valueOf(chars);
+            groups.putIfAbsent(key, new ArrayList<>());
+            groups.get(key).add(s);
+        }
+        return new ArrayList<>(groups.values());
+    }
 }  

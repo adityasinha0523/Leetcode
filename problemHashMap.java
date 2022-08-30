@@ -32,65 +32,37 @@ class problemHashMap{
             System.setOut(ps);
         }
         Scanner scan = new Scanner(System.in);
-        //For reading string from input file
-        //String myLine = scan.nextLine();
-        //For reading integer from input file
-        //int a=scan.nextInt();
-        //String temp1="leetcodeisacommunityforcoders";
-        //int temp2=4;
-        /*int [] input=new int[4];
-        for (int i = 0; i < input.length; i++) {
-            input[i]=scan.nextInt();
-        }*/
+        /*
+         * 1.To Initialize hashmap use below command.
+         * Example:
+         */
+        Map<Integer,Integer> hMap=new HashMap<>();
 
-        
-        //scan.nextLine();
-        //To take array as input
-        String[] string1=new String[2];
-        for (int i = 0; i < string1.length; i++) {
-            string1[i]=scan.nextLine();
-        }
-        String[] string2=new String[2];
-        for (int i = 0; i < string2.length; i++) {
-            string2[i]=scan.nextLine();
-        }
-        boolean answer=arrayStringsAreEqual(string1,string2);
-        /*for(int i=0;i<sol.length;i++){
-            System.out.println(sol[i]);
-        }*/
-        System.out.println(answer);
+        /*
+         * 2.To Insert value in HashMap use below command.
+         * Example:
+         */
+        hMap.put(1, 2);
+
+        /*
+         * 3.To insert value when it is already not present use putIfAbsent().
+         * It will only insert in hashmap if key is not present in hashmap.
+         * JDK Doc states that
+         *  If the specified key is not already associated with a value
+         *  (or is mapped to null) associates it with the given value 
+         * and returns null, else returns the current value. 
+         * Example:
+         */
+        hMap.putIfAbsent(2, 3);
+
+        /*
+         * 4.To add value with default value use getOrDefault() function below command.
+         * Example:
+         */
+        hMap.put(5, hMap.getOrDefault(10, 0)+1);
+
         scan.close();
     }  
 
-    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
-        HashMap<Character,Integer> hMap1=new HashMap<>();
-        for (int i = 0; i < word1.length; i++) {
-            for (int j = 0; j < word1[i].length(); j++) {
-                char c=word1[i].charAt(j);
-                hMap1.put(c, hMap1.getOrDefault(c, 0)+1);
-            }
-            
-        }
-        HashMap<Character,Integer> hMap2=new HashMap<>();
-        for (int i = 0; i < word2.length; i++) {
-            for (int j = 0; j < word2[i].length(); j++) {
-                char c=word2[i].charAt(j);
-                hMap2.put(c, hMap2.getOrDefault(c, 0)+1);
-            }    
-        }
-        
-        for (Map.Entry<Character,Integer> hEntry: hMap2.entrySet()) {
-            char value=hEntry.getKey();
-            int count=hEntry.getValue();
-            if(hMap1.containsKey(value) ){
-                int count2=hMap1.get(value);
-                if(count!=count2){
-                    return false;
-                }
-            }else{
-                return false;
-            }
-        }
-        return true;
-    }
+    
 }  
