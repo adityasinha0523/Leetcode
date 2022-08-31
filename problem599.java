@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class problem189{
+class problem599{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,28 +43,43 @@ class problem189{
         }*/
 
         
-        //scan.nextLine();
-        //To take array as input
-        int[] nums=new int[4];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i]=scan.nextInt();
+        String[] list1=new String[3];
+        for (int i = 0; i < list1.length; i++) {
+            list1[i]=scan.nextLine();
         }
-        int k=5;
-        rotate(nums, k);
-        /*for(int i=0;i<sol.length;i++){
+        String[] list2=new String[3];
+        for (int i = 0; i < list2.length; i++) {
+            list2[i]=scan.nextLine();
+        }
+        String[] sol=findRestaurant(list1, list2);
+        for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }*/
-        //System.out.println(sol);
+        }
         scan.close();
     }  
 
-    public static void rotate(int[] nums, int k) {
-        int[] a=new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            a[(i+k)%nums.length]=nums[i];
+    public static String[] findRestaurant(String[] list1, String[] list2) {
+        Map<String,Integer> hMap=new HashMap<>();
+        List<String> res=new LinkedList<>();
+        int minIndex=Integer.MAX_VALUE;
+        for (int i = 0; i < list1.length; i++) {
+            hMap.put(list1[i], i);
         }
-        for (int i = 0; i < nums.length; i++) {
-            nums[i]=a[i];
+        for (int i = 0; i < list2.length; i++) {
+            if(hMap.containsKey(list2[i])){
+                int value=hMap.get(list2[i])+i;
+                if(value==minIndex){
+                    res.add(list2[i]);
+                }
+                if(value<minIndex){
+                    res.clear();
+                    res.add(list2[i]);
+                    minIndex=value;
+                }
+            }
         }
+        String[] sol=new String[res.size()];
+        String[] newString=res.toArray(sol);
+        return sol;
     }
 }  
