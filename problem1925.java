@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1925{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,12 +42,27 @@ class template{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+        int sol=countTriples(10);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int countTriples(int n) {
+        int solution=0;
+        for (int i = 1; i <=n; i++) {
+            int firstVal=i*i;
+            for (int j = i+1; j <=n; j++) {
+                int secondVal=j*j;
+                int thirdVal=(int)Math.sqrt(firstVal+secondVal);
+                if(thirdVal*thirdVal==(firstVal+secondVal) &&thirdVal<=n){
+                    solution=solution+2;
+                }
+                
+            }
+        }
+        return solution;
+    }
 }  

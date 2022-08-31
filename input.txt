@@ -1,6 +1,0 @@
-happy
-sad
-good
-sad
-happy
-good
