@@ -12,6 +12,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 class problemHashMap{
     public static void main(String args[]) throws IOException{  
@@ -61,6 +62,24 @@ class problemHashMap{
          */
         hMap.put(5, hMap.getOrDefault(10, 0)+1);
 
+        /*
+         * 5. To print key and value in hashmap.
+         */
+        for (Map.Entry<Integer,Integer> hEntry : hMap.entrySet()) {
+            int key=hEntry.getKey();
+            int value=hEntry.getValue();
+            System.out.println(key);
+            System.out.println(value);
+        }
+
+        /*
+         * 6.To insert value in hashmap in sorted order we can use TreeMap instead
+         * of Hashmap.Example
+         */
+        Map<Integer,Integer> hMap2=new TreeMap<>();
+        hMap2.put(10, 1);
+        hMap2.put(1, 5);
+        //Will put the value in order 1,10 internally in TreeMap.
         scan.close();
     }  
 
