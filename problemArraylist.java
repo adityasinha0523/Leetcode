@@ -59,6 +59,17 @@ class problemArraylist{
         for (Integer integer : solution) {
             System.out.println(integer);
         }
+
+        Integer[] array = {1,2,3};
+        List<Integer> list = Arrays.asList(array);
+        array[1] = 10;
+        System.out.println(list); // Prints [1, 10, 3]
+
+        Integer[] array1 = {1,2,3};
+        //Part of java 9
+        //List<Integer> list1 = List.of(array1);
+        //array1[1] = 10;
+        //System.out.println(list1); // Prints [1, 2, 3]
         //System.out.println(sol);
         scan.close();
     }  
