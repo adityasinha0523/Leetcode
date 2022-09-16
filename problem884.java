@@ -76,11 +76,8 @@ class problem884{
                 solution.add(hEntry.getKey());
             }
         }
-        String[] sol=new String[solution.size()];
-        int k=0;
-        for (String string : solution) {
-            sol[k++]=string;
-        }
+        String[] sol=solution.toArray(new String[0]);
+        
         return sol;
     }
 }  
