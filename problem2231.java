@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1805{
+class problem2231{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -33,20 +33,14 @@ class problem1805{
         Scanner scan = new Scanner(System.in);
         //For reading string from input file
         //String myLine = scan.nextLine();
-        //For reading integer from input file
-        //int a=scan.nextInt();
-        //String temp1="leetcodeisacommunityforcoders";
-        //int temp2=4;
-        /*int [] input=new int[4];
-        for (int i = 0; i < input.length; i++) {
-            input[i]=scan.nextInt();
-        }*/
-
-        
         //scan.nextLine();
-        //To take array as input
-        String word=scan.nextLine();
-        int sol=numDifferentIntegers2(word);
+        //To take int array as input
+
+        /*int[] nums=new int[4];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i]=scan.nextInt();
+        }*/
+        int sol=largestInteger(65875);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -54,26 +48,36 @@ class problem1805{
         scan.close();
     }  
 
-    
-    
-    public static int numDifferentIntegers2(String word) {
-        Set<String> set=new HashSet<>();
-        int start=0;
-        while(start<word.length()){
-            if(Character.isDigit(word.charAt(start))){
-                int end=start;
-                while(end<word.length() && Character.isDigit(word.charAt(end))){
-                    end++;
-                }
-                while(start<word.length() && word.charAt(start)=='0'){
-                    start++;
-                }
-                set.add(word.substring(start, end));
-                start=end;
+    public static int largestInteger(int num) {
+        List<Integer> oddList=new ArrayList<>();
+        List<Integer> evenList=new ArrayList<>();
+        List<Integer> number=new ArrayList<>();
+        while(num>0){
+            int temp=num%10;
+            if(temp%2==0){
+                evenList.add(temp);
             }else{
-                start++;
+                oddList.add(temp);
             }
+            number.add(temp);
+            num=num/10;
         }
-        return set.size();
+        Collections.sort(oddList);
+        Collections.sort(evenList);
+        int multiply=1;
+        int solution=0;
+        int odd=0;
+        int even=0;
+        for (int i = 0; i < number.size(); i++) {
+            if(number.get(i)%2==0){
+                solution+=multiply*evenList.get(even);
+                even++;
+            }else{
+                solution+=multiply*oddList.get(odd);
+                odd++;
+            }
+            multiply*=10;
+        }
+        return solution;
     }
 }  
