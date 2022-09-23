@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem771{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,12 +40,26 @@ class template{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+        int sol=numJewelsInStones("aA", "aAAaBBB");
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int numJewelsInStones(String jewels, String stones) {
+        List<Character> list=new ArrayList<>();
+        for (int i = 0; i < jewels.length(); i++) {
+            Character c=jewels.charAt(i);
+            list.add(c);
+        }
+        int count=0;
+        for (int i = 0; i < stones.length(); i++) {
+            if(list.contains(stones.charAt(i))){
+                count++;
+            }
+        }
+        return count;
+    }
 }  

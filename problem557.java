@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem557{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,12 +40,39 @@ class template{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+        String sol=reverseWords("Let's take LeetCode contest");
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        char[] temp1=new char[]{'h','e','l','l','o'};
+        reverseString(temp1);
+
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static String reverseWords(String s) {
+        String[] stringArr=s.split(" ");
+        StringBuilder solution=new StringBuilder();
+        for (int i = 0; i < stringArr.length; i++) {
+            StringBuilder sb=new StringBuilder();
+            String string=stringArr[i];
+            sb.append(string);
+            sb.reverse();
+            solution.append(sb);
+            if(i!=stringArr.length-1){
+                solution.append(" ");
+            }
+        }
+        return solution.toString();
+    }
+    public static void reverseString(char[] s) {
+        int i=s[0];
+        int j=s.length-1;
+        while(i<j){
+            char temp=s[i];
+            s[i++]=s[j];
+            s[j--]=temp;
+        }
+    }
 }  
