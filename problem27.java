@@ -42,7 +42,7 @@ class problem27{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        int[] nums=new int[]{1,2,3,3,2,7};
+        int[] nums=new int[]{1,2,3,342,7};
         int val=2;
         int sol=removeElement(nums, val);
         /*for(int i=0;i<sol.length;i++){
