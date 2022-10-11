@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem845{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -47,4 +47,28 @@ class template{
         scan.close();
     }  
 
+    public static int longestMountain(int[] arr) {
+        int base=0;
+        int end=0;
+        int ans=0;
+        int N=arr.length;
+        while(base<N){
+            base=end;
+            if(end<N-1 &&arr[end]<arr[end+1]){
+                while(end<N-1 &&arr[end]<arr[end+1]){
+                    end++;
+                }
+            
+            if(end<N-1 &&arr[end]>arr[end+1]){
+                while(end<N-1 &&arr[end]>arr[end+1]){
+                    end++;
+                }
+                ans=Math.max(ans, end-base+1);
+            }
+            base=Math.max(base+1, end);
+            }
+        }
+
+        return ans;
+    }
 }  
