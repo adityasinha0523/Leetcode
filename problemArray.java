@@ -80,6 +80,12 @@ class problemArray{
         array2D[2][2]=9;
         Arrays.sort(array2D, (a,b)->b[1]-a[1]);
         
+        /*
+         * 4.To convert number into binary number.
+         */
+        int x=4;
+        String xValue=Integer.toBinaryString(x);//Output will "100" in string format.
+
         scan.close();
     }  
 

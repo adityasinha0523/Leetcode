@@ -53,7 +53,32 @@ class problem461{
 
     public static int hammingDistance(int x, int y) {
         int solution=0;
-        
+        String xValue=Integer.toBinaryString(x);
+        String yValue=Integer.toBinaryString(y);
+        int range=xValue.length()>yValue.length()?yValue.length():xValue.length();
+        int xIndex=xValue.length()-1;
+        int yIndex=yValue.length()-1;
+        for (int i = 0; i < range; i++) {
+            if(xValue.charAt(xIndex--)!=yValue.charAt(yIndex--)){
+                solution++;
+            }
+        }
+        if(xIndex!=-1){
+            while(xIndex!=-1){
+                if(xValue.charAt(xIndex)=='1'){
+                    solution++;
+                }
+                xIndex--;
+            }
+        }
+        if(yIndex!=-1){
+            while(yIndex!=-1){
+                if(yValue.charAt(yIndex)=='1'){
+                    solution++;
+                }
+                yIndex--;
+            }
+        }
         return solution;
     }
 }  
