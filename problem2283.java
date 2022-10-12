@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem2283{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,12 +40,28 @@ class template{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+        boolean sol= digitCount("030");
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static boolean digitCount(String num) {
+        int[] index=new int[10];
+        for (int i = 0; i < num.length(); i++) {
+            char c=num.charAt(i);
+            int k=Character.getNumericValue(c);
+            index[k]++;
+        }
+        for (int i = 0; i < num.length(); i++) {
+            char c=num.charAt(i);
+            int k=Character.getNumericValue(c);
+            if(index[i]!=k){
+                return false;
+            }
+        }
+        return true;
+    }
 }  
