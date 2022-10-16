@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class FrequencyAnalysis {
+public class Frequency2 {
 
 	static Scanner sc = new Scanner(System.in);
 
@@ -41,68 +41,31 @@ public class FrequencyAnalysis {
 		s = spl(st);
 		//System.out.println(s.length()); 
 		System.out.println("\nCipher text is: "+s);
-		HashMap<Character,Character> hMap=new HashMap<>();
-		hMap.put('e','z');
-		hMap.put('f','a');
-		hMap.put('g','b');
-		hMap.put('h','c');
-		hMap.put('i','d');
-		hMap.put('j','e');
-		hMap.put('k','f');
-		hMap.put('l','g');
-		hMap.put('m','h');
-		hMap.put('n','i');
-		hMap.put('o','j');
-		hMap.put('p','k');
-		hMap.put('q','l');
-		hMap.put('r','m');
-		hMap.put('s','n');
-		hMap.put('t','o');
-		hMap.put('u','p');
-		hMap.put('v','q');
-		hMap.put('w','r');
-		hMap.put('x','s');
-		hMap.put('y','t');
-		hMap.put('z','u');
-		hMap.put('a','v');
-		hMap.put('b','w');
-		hMap.put('c','x');
-		hMap.put('d','y');
 
-StringBuilder sb=new StringBuilder();
-for (int i = 0; i < s.length(); i++) {
-	char x=s.charAt(i);
-	sb.append(hMap.get(x));
-}
-System.out.println(sb.toString());
-/* 
+ 
 		int [] ch = new int[26];
 		for (int i=0; i<s.length(); i++)
 			ch[s.charAt(i)-'a']++;
-		int max=0, l=0, k;
-		for (int i=0; i<ch.length; i++)
-		{
-			if (ch[i]>max)
-			{
-				max = ch[i];
-				l=i;
+		int max=Integer.MIN_VALUE, l=0, k;
+        List<Integer> l1=new ArrayList<>();
+		for (int i=0; i<ch.length; i++){
+			if (ch[i]>0){
+                l1.add(i);
 			}
 		}
-		k=l-4; 
-		StringBuilder p = new StringBuilder();
-		for (int i=0; i<s.length(); i++)
-		{
-			int x = s.charAt(i)-'a'-k;
-			if (x<0)
-				x=x+123;
-			else
-				x=x+65;
-			p.append((char)(x));
-		}
+        
+        for (int t = 0; t < l1.size(); t++) {
+            for (int tt = 0;tt < 26; tt++) {
+            
+            StringBuffer result= new StringBuffer();
+            k=l1.get(t)-tt; 
+            for (int i=0; i<s.length(); i++){
+			char ch1 = (char)(((int)s.charAt(i) -k -97)%26  + 97);
+            result.append(ch1);}
 
 		System.out.println("The key is "+k);
-		System.out.println("The plaintext message is "+p);
-		*/
-	}
-
+		System.out.println("The plaintext message is "+result);
+            }
+        }
+    }
 }
