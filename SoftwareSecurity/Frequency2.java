@@ -46,26 +46,34 @@ public class Frequency2 {
 		int [] ch = new int[26];
 		for (int i=0; i<s.length(); i++)
 			ch[s.charAt(i)-'a']++;
-		int max=Integer.MIN_VALUE, l=0, k;
-        List<Integer> l1=new ArrayList<>();
+		int max=Integer.MIN_VALUE, k;
+        List<Integer> totalIndexPresent=new ArrayList<>();
+        List<Integer> maxFreqCount=new ArrayList<>();
 		for (int i=0; i<ch.length; i++){
 			if (ch[i]>0){
-                l1.add(i);
+                totalIndexPresent.add(i);
 			}
+            if(ch[i]>max){
+                maxFreqCount.clear();
+                maxFreqCount.add(i);
+                max=ch[i];
+            }else if(ch[i]==max){
+                maxFreqCount.add(i);
+            }
 		}
         
-        for (int t = 0; t < l1.size(); t++) {
-            for (int tt = 0;tt < 26; tt++) {
-            
+        for (int t = 0; t < totalIndexPresent.size(); t++) {
+            for (int tt = 0;tt < totalIndexPresent.size(); tt++) {
             StringBuffer result= new StringBuffer();
-            k=l1.get(t)-tt; 
-            for (int i=0; i<s.length(); i++){
-			char ch1 = (char)(((int)s.charAt(i) -k -97)%26  + 97);
-            result.append(ch1);}
+            k=totalIndexPresent.get(t)-totalIndexPresent.get(tt); 
+                for (int i=0; i<s.length(); i++){
+                    char ch1 = (char)(((int)s.charAt(i) -k -97)%26  + 97);
+                    result.append(ch1);
+                }
 
 		System.out.println("The key is "+k);
-        System.out.println("L1 value is "+l1.get(t));
-        System.out.println("Value of Index is "+tt);
+        System.out.println("Value of t is "+totalIndexPresent.get(t));
+        System.out.println("Value of tt is "+totalIndexPresent.get(tt));
 		System.out.println("The plaintext message is "+result);
             }
         }
