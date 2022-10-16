@@ -13,3 +13,6 @@ Updated list of problems that involved 1 or 2 passes from left to right/right to
 
 Trie problem
 1.https://leetcode.com/problems/index-pairs-of-a-string/
+
+Tree problem
+1.https://leetcode.com/problems/correct-a-binary-tree/
