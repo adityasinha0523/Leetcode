@@ -64,6 +64,8 @@ public class Frequency2 {
             result.append(ch1);}
 
 		System.out.println("The key is "+k);
+        System.out.println("L1 value is "+l1.get(t));
+        System.out.println("Value of Index is "+tt);
 		System.out.println("The plaintext message is "+result);
             }
         }

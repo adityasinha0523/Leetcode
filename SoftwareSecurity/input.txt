@@ -1,627 +1,523 @@
 Enter the ciphertext to be decrypted: 
 
-Cipher text is: xtkybfwjxjhzwnyd
+Cipher text is: kcecmks
+The key is 2
+L1 value is 2
+Value of Index is 0
+The plaintext message is iacakiq
 The key is 1
-The plaintext message is wsjxaeviwigyvmxc
+L1 value is 2
+Value of Index is 1
+The plaintext message is jbdbljr
 The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 2
+Value of Index is 2
+The plaintext message is kcecmks
 The key is -1
-The plaintext message is yulzcgxkykiaxoze
+L1 value is 2
+Value of Index is 3
+The plaintext message is ldfdnlt
 The key is -2
-The plaintext message is zvmadhylzljbypaf
+L1 value is 2
+Value of Index is 4
+The plaintext message is megeomu
 The key is -3
-The plaintext message is awnbeizmamkczqbg
+L1 value is 2
+Value of Index is 5
+The plaintext message is nfhfpnv
 The key is -4
-The plaintext message is bxocfjanbnldarch
+L1 value is 2
+Value of Index is 6
+The plaintext message is ogigqow
 The key is -5
-The plaintext message is cypdgkbocomebsdi
+L1 value is 2
+Value of Index is 7
+The plaintext message is phjhrpx
 The key is -6
-The plaintext message is dzqehlcpdpnfctej
+L1 value is 2
+Value of Index is 8
+The plaintext message is qikisqy
 The key is -7
-The plaintext message is earfimdqeqogdufk
+L1 value is 2
+Value of Index is 9
+The plaintext message is rjljtrz
 The key is -8
-The plaintext message is fbsgjnerfrphevgl
+L1 value is 2
+Value of Index is 10
+The plaintext message is skmkusa
 The key is -9
-The plaintext message is gcthkofsgsqifwhm
+L1 value is 2
+Value of Index is 11
+The plaintext message is tlnlvtb
 The key is -10
-The plaintext message is hduilpgthtrjgxin
+L1 value is 2
+Value of Index is 12
+The plaintext message is umomwuc
 The key is -11
-The plaintext message is ievjmqhuiuskhyjo
+L1 value is 2
+Value of Index is 13
+The plaintext message is vnpnxvd
 The key is -12
-The plaintext message is jfwknrivjvtlizkp
+L1 value is 2
+Value of Index is 14
+The plaintext message is woqoywe
 The key is -13
-The plaintext message is kgxlosjwkwumjalq
+L1 value is 2
+Value of Index is 15
+The plaintext message is xprpzxf
 The key is -14
-The plaintext message is lhymptkxlxvnkbmr
+L1 value is 2
+Value of Index is 16
+The plaintext message is yqsqayg
 The key is -15
-The plaintext message is miznqulymywolcns
+L1 value is 2
+Value of Index is 17
+The plaintext message is zrtrbzh
 The key is -16
-The plaintext message is njaorvmznzxpmdot
+L1 value is 2
+Value of Index is 18
+The plaintext message is asuscai
 The key is -17
-The plaintext message is okbpswnaoayqnepu
+L1 value is 2
+Value of Index is 19
+The plaintext message is btvtdbj
 The key is -18
-The plaintext message is plcqtxobpbzrofqv
+L1 value is 2
+Value of Index is 20
+The plaintext message is cuwueck
 The key is -19
-The plaintext message is qmdruypcqcaspgrw
+L1 value is 2
+Value of Index is 21
+The plaintext message is dvxvfdl
 The key is -20
-The plaintext message is rnesvzqdrdbtqhsx
+L1 value is 2
+Value of Index is 22
+The plaintext message is ewywgem
 The key is -21
-The plaintext message is softwaresecurity
+L1 value is 2
+Value of Index is 23
+The plaintext message is fxzxhfn
 The key is -22
-The plaintext message is tpguxbsftfdvsjuz
+L1 value is 2
+Value of Index is 24
+The plaintext message is gyayigo
 The key is -23
-The plaintext message is uqhvyctgugewtkva
-The key is -24
-The plaintext message is vriwzduhvhfxulwb
+L1 value is 2
+Value of Index is 25
+The plaintext message is hzbzjhp
+The key is 4
+L1 value is 4
+Value of Index is 0
+The plaintext message is g_a_igo
 The key is 3
-The plaintext message is uqhv_ctgugewtkva
+L1 value is 4
+Value of Index is 1
+The plaintext message is h`b`jhp
 The key is 2
-The plaintext message is vriw`duhvhfxulwb
+L1 value is 4
+Value of Index is 2
+The plaintext message is iacakiq
 The key is 1
-The plaintext message is wsjxaeviwigyvmxc
+L1 value is 4
+Value of Index is 3
+The plaintext message is jbdbljr
 The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 4
+Value of Index is 4
+The plaintext message is kcecmks
 The key is -1
-The plaintext message is yulzcgxkykiaxoze
+L1 value is 4
+Value of Index is 5
+The plaintext message is ldfdnlt
 The key is -2
-The plaintext message is zvmadhylzljbypaf
+L1 value is 4
+Value of Index is 6
+The plaintext message is megeomu
 The key is -3
-The plaintext message is awnbeizmamkczqbg
+L1 value is 4
+Value of Index is 7
+The plaintext message is nfhfpnv
 The key is -4
-The plaintext message is bxocfjanbnldarch
+L1 value is 4
+Value of Index is 8
+The plaintext message is ogigqow
 The key is -5
-The plaintext message is cypdgkbocomebsdi
+L1 value is 4
+Value of Index is 9
+The plaintext message is phjhrpx
 The key is -6
-The plaintext message is dzqehlcpdpnfctej
+L1 value is 4
+Value of Index is 10
+The plaintext message is qikisqy
 The key is -7
-The plaintext message is earfimdqeqogdufk
+L1 value is 4
+Value of Index is 11
+The plaintext message is rjljtrz
 The key is -8
-The plaintext message is fbsgjnerfrphevgl
+L1 value is 4
+Value of Index is 12
+The plaintext message is skmkusa
 The key is -9
-The plaintext message is gcthkofsgsqifwhm
+L1 value is 4
+Value of Index is 13
+The plaintext message is tlnlvtb
 The key is -10
-The plaintext message is hduilpgthtrjgxin
+L1 value is 4
+Value of Index is 14
+The plaintext message is umomwuc
 The key is -11
-The plaintext message is ievjmqhuiuskhyjo
+L1 value is 4
+Value of Index is 15
+The plaintext message is vnpnxvd
 The key is -12
-The plaintext message is jfwknrivjvtlizkp
+L1 value is 4
+Value of Index is 16
+The plaintext message is woqoywe
 The key is -13
-The plaintext message is kgxlosjwkwumjalq
+L1 value is 4
+Value of Index is 17
+The plaintext message is xprpzxf
 The key is -14
-The plaintext message is lhymptkxlxvnkbmr
+L1 value is 4
+Value of Index is 18
+The plaintext message is yqsqayg
 The key is -15
-The plaintext message is miznqulymywolcns
+L1 value is 4
+Value of Index is 19
+The plaintext message is zrtrbzh
 The key is -16
-The plaintext message is njaorvmznzxpmdot
+L1 value is 4
+Value of Index is 20
+The plaintext message is asuscai
 The key is -17
-The plaintext message is okbpswnaoayqnepu
+L1 value is 4
+Value of Index is 21
+The plaintext message is btvtdbj
 The key is -18
-The plaintext message is plcqtxobpbzrofqv
+L1 value is 4
+Value of Index is 22
+The plaintext message is cuwueck
 The key is -19
-The plaintext message is qmdruypcqcaspgrw
+L1 value is 4
+Value of Index is 23
+The plaintext message is dvxvfdl
 The key is -20
-The plaintext message is rnesvzqdrdbtqhsx
+L1 value is 4
+Value of Index is 24
+The plaintext message is ewywgem
 The key is -21
-The plaintext message is softwaresecurity
-The key is -22
-The plaintext message is tpguxbsftfdvsjuz
+L1 value is 4
+Value of Index is 25
+The plaintext message is fxzxhfn
+The key is 10
+L1 value is 10
+Value of Index is 0
+The plaintext message is aY[Ycai
+The key is 9
+L1 value is 10
+Value of Index is 1
+The plaintext message is bZ\Zdbj
+The key is 8
+L1 value is 10
+Value of Index is 2
+The plaintext message is c[][eck
+The key is 7
+L1 value is 10
+Value of Index is 3
+The plaintext message is d\^\fdl
+The key is 6
+L1 value is 10
+Value of Index is 4
+The plaintext message is e]_]gem
 The key is 5
-The plaintext message is soft]aresecurit_
+L1 value is 10
+Value of Index is 5
+The plaintext message is f^`^hfn
 The key is 4
-The plaintext message is tpgu^bsftfdvsju`
+L1 value is 10
+Value of Index is 6
+The plaintext message is g_a_igo
 The key is 3
-The plaintext message is uqhv_ctgugewtkva
+L1 value is 10
+Value of Index is 7
+The plaintext message is h`b`jhp
 The key is 2
-The plaintext message is vriw`duhvhfxulwb
+L1 value is 10
+Value of Index is 8
+The plaintext message is iacakiq
 The key is 1
-The plaintext message is wsjxaeviwigyvmxc
+L1 value is 10
+Value of Index is 9
+The plaintext message is jbdbljr
 The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 10
+Value of Index is 10
+The plaintext message is kcecmks
 The key is -1
-The plaintext message is yulzcgxkykiaxoze
+L1 value is 10
+Value of Index is 11
+The plaintext message is ldfdnlt
 The key is -2
-The plaintext message is zvmadhylzljbypaf
+L1 value is 10
+Value of Index is 12
+The plaintext message is megeomu
 The key is -3
-The plaintext message is awnbeizmamkczqbg
+L1 value is 10
+Value of Index is 13
+The plaintext message is nfhfpnv
 The key is -4
-The plaintext message is bxocfjanbnldarch
+L1 value is 10
+Value of Index is 14
+The plaintext message is ogigqow
 The key is -5
-The plaintext message is cypdgkbocomebsdi
+L1 value is 10
+Value of Index is 15
+The plaintext message is phjhrpx
 The key is -6
-The plaintext message is dzqehlcpdpnfctej
+L1 value is 10
+Value of Index is 16
+The plaintext message is qikisqy
 The key is -7
-The plaintext message is earfimdqeqogdufk
+L1 value is 10
+Value of Index is 17
+The plaintext message is rjljtrz
 The key is -8
-The plaintext message is fbsgjnerfrphevgl
+L1 value is 10
+Value of Index is 18
+The plaintext message is skmkusa
 The key is -9
-The plaintext message is gcthkofsgsqifwhm
+L1 value is 10
+Value of Index is 19
+The plaintext message is tlnlvtb
 The key is -10
-The plaintext message is hduilpgthtrjgxin
+L1 value is 10
+Value of Index is 20
+The plaintext message is umomwuc
 The key is -11
-The plaintext message is ievjmqhuiuskhyjo
+L1 value is 10
+Value of Index is 21
+The plaintext message is vnpnxvd
 The key is -12
-The plaintext message is jfwknrivjvtlizkp
+L1 value is 10
+Value of Index is 22
+The plaintext message is woqoywe
 The key is -13
-The plaintext message is kgxlosjwkwumjalq
+L1 value is 10
+Value of Index is 23
+The plaintext message is xprpzxf
 The key is -14
-The plaintext message is lhymptkxlxvnkbmr
+L1 value is 10
+Value of Index is 24
+The plaintext message is yqsqayg
 The key is -15
-The plaintext message is miznqulymywolcns
-The key is -16
-The plaintext message is njaorvmznzxpmdot
-The key is -17
-The plaintext message is okbpswnaoayqnepu
-The key is -18
-The plaintext message is plcqtxobpbzrofqv
-The key is -19
-The plaintext message is qmdruypcqcaspgrw
-The key is -20
-The plaintext message is rnesvzqdrdbtqhsx
+L1 value is 10
+Value of Index is 25
+The plaintext message is zrtrbzh
+The key is 12
+L1 value is 12
+Value of Index is 0
+The plaintext message is _WYWa_g
+The key is 11
+L1 value is 12
+Value of Index is 1
+The plaintext message is `XZXb`h
+The key is 10
+L1 value is 12
+Value of Index is 2
+The plaintext message is aY[Ycai
+The key is 9
+L1 value is 12
+Value of Index is 3
+The plaintext message is bZ\Zdbj
+The key is 8
+L1 value is 12
+Value of Index is 4
+The plaintext message is c[][eck
 The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
+L1 value is 12
+Value of Index is 5
+The plaintext message is d\^\fdl
 The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
+L1 value is 12
+Value of Index is 6
+The plaintext message is e]_]gem
 The key is 5
-The plaintext message is soft]aresecurit_
+L1 value is 12
+Value of Index is 7
+The plaintext message is f^`^hfn
 The key is 4
-The plaintext message is tpgu^bsftfdvsju`
+L1 value is 12
+Value of Index is 8
+The plaintext message is g_a_igo
 The key is 3
-The plaintext message is uqhv_ctgugewtkva
+L1 value is 12
+Value of Index is 9
+The plaintext message is h`b`jhp
 The key is 2
-The plaintext message is vriw`duhvhfxulwb
+L1 value is 12
+Value of Index is 10
+The plaintext message is iacakiq
 The key is 1
-The plaintext message is wsjxaeviwigyvmxc
+L1 value is 12
+Value of Index is 11
+The plaintext message is jbdbljr
 The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 12
+Value of Index is 12
+The plaintext message is kcecmks
 The key is -1
-The plaintext message is yulzcgxkykiaxoze
+L1 value is 12
+Value of Index is 13
+The plaintext message is ldfdnlt
 The key is -2
-The plaintext message is zvmadhylzljbypaf
+L1 value is 12
+Value of Index is 14
+The plaintext message is megeomu
 The key is -3
-The plaintext message is awnbeizmamkczqbg
+L1 value is 12
+Value of Index is 15
+The plaintext message is nfhfpnv
 The key is -4
-The plaintext message is bxocfjanbnldarch
+L1 value is 12
+Value of Index is 16
+The plaintext message is ogigqow
 The key is -5
-The plaintext message is cypdgkbocomebsdi
+L1 value is 12
+Value of Index is 17
+The plaintext message is phjhrpx
 The key is -6
-The plaintext message is dzqehlcpdpnfctej
+L1 value is 12
+Value of Index is 18
+The plaintext message is qikisqy
 The key is -7
-The plaintext message is earfimdqeqogdufk
+L1 value is 12
+Value of Index is 19
+The plaintext message is rjljtrz
 The key is -8
-The plaintext message is fbsgjnerfrphevgl
+L1 value is 12
+Value of Index is 20
+The plaintext message is skmkusa
 The key is -9
-The plaintext message is gcthkofsgsqifwhm
+L1 value is 12
+Value of Index is 21
+The plaintext message is tlnlvtb
 The key is -10
-The plaintext message is hduilpgthtrjgxin
+L1 value is 12
+Value of Index is 22
+The plaintext message is umomwuc
 The key is -11
-The plaintext message is ievjmqhuiuskhyjo
+L1 value is 12
+Value of Index is 23
+The plaintext message is vnpnxvd
 The key is -12
-The plaintext message is jfwknrivjvtlizkp
+L1 value is 12
+Value of Index is 24
+The plaintext message is woqoywe
 The key is -13
-The plaintext message is kgxlosjwkwumjalq
-The key is -14
-The plaintext message is lhymptkxlxvnkbmr
-The key is -15
-The plaintext message is miznqulymywolcns
-The key is -16
-The plaintext message is njaorvmznzxpmdot
-The key is -17
-The plaintext message is okbpswnaoayqnepu
-The key is -18
-The plaintext message is plcqtxobpbzrofqv
+L1 value is 12
+Value of Index is 25
+The plaintext message is xprpzxf
+The key is 18
+L1 value is 18
+Value of Index is 0
+The plaintext message is YQSQ[Ya
+The key is 17
+L1 value is 18
+Value of Index is 1
+The plaintext message is ZRTR\Zb
+The key is 16
+L1 value is 18
+Value of Index is 2
+The plaintext message is [SUS][c
+The key is 15
+L1 value is 18
+Value of Index is 3
+The plaintext message is \TVT^\d
+The key is 14
+L1 value is 18
+Value of Index is 4
+The plaintext message is ]UWU_]e
+The key is 13
+L1 value is 18
+Value of Index is 5
+The plaintext message is ^VXV`^f
+The key is 12
+L1 value is 18
+Value of Index is 6
+The plaintext message is _WYWa_g
+The key is 11
+L1 value is 18
+Value of Index is 7
+The plaintext message is `XZXb`h
+The key is 10
+L1 value is 18
+Value of Index is 8
+The plaintext message is aY[Ycai
 The key is 9
-The plaintext message is okbpY]naoa_qnep[
+L1 value is 18
+Value of Index is 9
+The plaintext message is bZ\Zdbj
 The key is 8
-The plaintext message is plcqZ^obpb`rofq\
+L1 value is 18
+Value of Index is 10
+The plaintext message is c[][eck
 The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
+L1 value is 18
+Value of Index is 11
+The plaintext message is d\^\fdl
 The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
+L1 value is 18
+Value of Index is 12
+The plaintext message is e]_]gem
 The key is 5
-The plaintext message is soft]aresecurit_
+L1 value is 18
+Value of Index is 13
+The plaintext message is f^`^hfn
 The key is 4
-The plaintext message is tpgu^bsftfdvsju`
+L1 value is 18
+Value of Index is 14
+The plaintext message is g_a_igo
 The key is 3
-The plaintext message is uqhv_ctgugewtkva
+L1 value is 18
+Value of Index is 15
+The plaintext message is h`b`jhp
 The key is 2
-The plaintext message is vriw`duhvhfxulwb
+L1 value is 18
+Value of Index is 16
+The plaintext message is iacakiq
 The key is 1
-The plaintext message is wsjxaeviwigyvmxc
+L1 value is 18
+Value of Index is 17
+The plaintext message is jbdbljr
 The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 18
+Value of Index is 18
+The plaintext message is kcecmks
 The key is -1
-The plaintext message is yulzcgxkykiaxoze
+L1 value is 18
+Value of Index is 19
+The plaintext message is ldfdnlt
 The key is -2
-The plaintext message is zvmadhylzljbypaf
+L1 value is 18
+Value of Index is 20
+The plaintext message is megeomu
 The key is -3
-The plaintext message is awnbeizmamkczqbg
+L1 value is 18
+Value of Index is 21
+The plaintext message is nfhfpnv
 The key is -4
-The plaintext message is bxocfjanbnldarch
+L1 value is 18
+Value of Index is 22
+The plaintext message is ogigqow
 The key is -5
-The plaintext message is cypdgkbocomebsdi
+L1 value is 18
+Value of Index is 23
+The plaintext message is phjhrpx
 The key is -6
-The plaintext message is dzqehlcpdpnfctej
+L1 value is 18
+Value of Index is 24
+The plaintext message is qikisqy
 The key is -7
-The plaintext message is earfimdqeqogdufk
-The key is -8
-The plaintext message is fbsgjnerfrphevgl
-The key is -9
-The plaintext message is gcthkofsgsqifwhm
-The key is -10
-The plaintext message is hduilpgthtrjgxin
-The key is -11
-The plaintext message is ievjmqhuiuskhyjo
-The key is -12
-The plaintext message is jfwknrivjvtlizkp
-The key is -13
-The plaintext message is kgxlosjwkwumjalq
-The key is -14
-The plaintext message is lhymptkxlxvnkbmr
-The key is -15
-The plaintext message is miznqulymywolcns
-The key is -16
-The plaintext message is njaorvmznzxpmdot
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is -2
-The plaintext message is zvmadhylzljbypaf
-The key is -3
-The plaintext message is awnbeizmamkczqbg
-The key is -4
-The plaintext message is bxocfjanbnldarch
-The key is -5
-The plaintext message is cypdgkbocomebsdi
-The key is -6
-The plaintext message is dzqehlcpdpnfctej
-The key is -7
-The plaintext message is earfimdqeqogdufk
-The key is -8
-The plaintext message is fbsgjnerfrphevgl
-The key is -9
-The plaintext message is gcthkofsgsqifwhm
-The key is -10
-The plaintext message is hduilpgthtrjgxin
-The key is -11
-The plaintext message is ievjmqhuiuskhyjo
-The key is -12
-The plaintext message is jfwknrivjvtlizkp
-The key is -13
-The plaintext message is kgxlosjwkwumjalq
-The key is -14
-The plaintext message is lhymptkxlxvnkbmr
-The key is -15
-The plaintext message is miznqulymywolcns
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is -2
-The plaintext message is zvmadhylzljbypaf
-The key is -3
-The plaintext message is awnbeizmamkczqbg
-The key is -4
-The plaintext message is bxocfjanbnldarch
-The key is -5
-The plaintext message is cypdgkbocomebsdi
-The key is -6
-The plaintext message is dzqehlcpdpnfctej
-The key is -7
-The plaintext message is earfimdqeqogdufk
-The key is -8
-The plaintext message is fbsgjnerfrphevgl
-The key is -9
-The plaintext message is gcthkofsgsqifwhm
-The key is -10
-The plaintext message is hduilpgthtrjgxin
-The key is -11
-The plaintext message is ievjmqhuiuskhyjo
-The key is -12
-The plaintext message is jfwknrivjvtlizkp
-The key is 19
-The plaintext message is eaXfOSdWeWUgd[fQ
-The key is 18
-The plaintext message is fbYgPTeXfXVhe\gR
-The key is 17
-The plaintext message is gcZhQUfYgYWif]hS
-The key is 16
-The plaintext message is hd[iRVgZhZXjg^iT
-The key is 15
-The plaintext message is ie\jSWh[i[Ykh_jU
-The key is 14
-The plaintext message is jf]kTXi\j\Zli`kV
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is -2
-The plaintext message is zvmadhylzljbypaf
-The key is -3
-The plaintext message is awnbeizmamkczqbg
-The key is -4
-The plaintext message is bxocfjanbnldarch
-The key is -5
-The plaintext message is cypdgkbocomebsdi
-The key is -6
-The plaintext message is dzqehlcpdpnfctej
-The key is 22
-The plaintext message is b^UcLPaTbTRdaXcN
-The key is 21
-The plaintext message is c_VdMQbUcUSebYdO
-The key is 20
-The plaintext message is d`WeNRcVdVTfcZeP
-The key is 19
-The plaintext message is eaXfOSdWeWUgd[fQ
-The key is 18
-The plaintext message is fbYgPTeXfXVhe\gR
-The key is 17
-The plaintext message is gcZhQUfYgYWif]hS
-The key is 16
-The plaintext message is hd[iRVgZhZXjg^iT
-The key is 15
-The plaintext message is ie\jSWh[i[Ykh_jU
-The key is 14
-The plaintext message is jf]kTXi\j\Zli`kV
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is -2
-The plaintext message is zvmadhylzljbypaf
-The key is -3
-The plaintext message is awnbeizmamkczqbg
-The key is 23
-The plaintext message is a]TbKO`SaSQc`WbM
-The key is 22
-The plaintext message is b^UcLPaTbTRdaXcN
-The key is 21
-The plaintext message is c_VdMQbUcUSebYdO
-The key is 20
-The plaintext message is d`WeNRcVdVTfcZeP
-The key is 19
-The plaintext message is eaXfOSdWeWUgd[fQ
-The key is 18
-The plaintext message is fbYgPTeXfXVhe\gR
-The key is 17
-The plaintext message is gcZhQUfYgYWif]hS
-The key is 16
-The plaintext message is hd[iRVgZhZXjg^iT
-The key is 15
-The plaintext message is ie\jSWh[i[Ykh_jU
-The key is 14
-The plaintext message is jf]kTXi\j\Zli`kV
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is -2
-The plaintext message is zvmadhylzljbypaf
-The key is 24
-The plaintext message is `\SaJN_R`RPb_VaL
-The key is 23
-The plaintext message is a]TbKO`SaSQc`WbM
-The key is 22
-The plaintext message is b^UcLPaTbTRdaXcN
-The key is 21
-The plaintext message is c_VdMQbUcUSebYdO
-The key is 20
-The plaintext message is d`WeNRcVdVTfcZeP
-The key is 19
-The plaintext message is eaXfOSdWeWUgd[fQ
-The key is 18
-The plaintext message is fbYgPTeXfXVhe\gR
-The key is 17
-The plaintext message is gcZhQUfYgYWif]hS
-The key is 16
-The plaintext message is hd[iRVgZhZXjg^iT
-The key is 15
-The plaintext message is ie\jSWh[i[Ykh_jU
-The key is 14
-The plaintext message is jf]kTXi\j\Zli`kV
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
-The key is -1
-The plaintext message is yulzcgxkykiaxoze
-The key is 25
-The plaintext message is _[R`IM^Q_QOa^U`K
-The key is 24
-The plaintext message is `\SaJN_R`RPb_VaL
-The key is 23
-The plaintext message is a]TbKO`SaSQc`WbM
-The key is 22
-The plaintext message is b^UcLPaTbTRdaXcN
-The key is 21
-The plaintext message is c_VdMQbUcUSebYdO
-The key is 20
-The plaintext message is d`WeNRcVdVTfcZeP
-The key is 19
-The plaintext message is eaXfOSdWeWUgd[fQ
-The key is 18
-The plaintext message is fbYgPTeXfXVhe\gR
-The key is 17
-The plaintext message is gcZhQUfYgYWif]hS
-The key is 16
-The plaintext message is hd[iRVgZhZXjg^iT
-The key is 15
-The plaintext message is ie\jSWh[i[Ykh_jU
-The key is 14
-The plaintext message is jf]kTXi\j\Zli`kV
-The key is 13
-The plaintext message is kg^lUYj]k][mjalW
-The key is 12
-The plaintext message is lh_mVZk^l^\nkbmX
-The key is 11
-The plaintext message is mi`nW[l_m_]olcnY
-The key is 10
-The plaintext message is njaoX\m`n`^pmdoZ
-The key is 9
-The plaintext message is okbpY]naoa_qnep[
-The key is 8
-The plaintext message is plcqZ^obpb`rofq\
-The key is 7
-The plaintext message is qmdr[_pcqcaspgr]
-The key is 6
-The plaintext message is rnes\`qdrdbtqhs^
-The key is 5
-The plaintext message is soft]aresecurit_
-The key is 4
-The plaintext message is tpgu^bsftfdvsju`
-The key is 3
-The plaintext message is uqhv_ctgugewtkva
-The key is 2
-The plaintext message is vriw`duhvhfxulwb
-The key is 1
-The plaintext message is wsjxaeviwigyvmxc
-The key is 0
-The plaintext message is xtkybfwjxjhzwnyd
+L1 value is 18
+Value of Index is 25
+The plaintext message is rjljtrz
