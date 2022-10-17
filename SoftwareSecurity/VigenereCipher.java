@@ -100,6 +100,24 @@ static String LowerToUpper(String s)
 
 public static List<String> Keygeneration() {
     List<String> list1 = new ArrayList<String>();
+    for(char c1='a'; c1<='z'; c1++)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(c1);
+        String s=sb.toString();
+        s=s.toUpperCase(); 
+        list1.add(s);
+    }
+    for(char c1='a'; c1<='z'; c1++){
+        for(char c2='a'; c2<='z'; c2++){
+        StringBuilder sb = new StringBuilder();
+        sb.append(c1);
+        sb.append(c2);
+        String s=sb.toString();
+        s=s.toUpperCase(); 
+        list1.add(s); 
+    }
+    }
     for (char c1 ='a'; c1<='z'; c1++){
         for(char c2 ='a'; c2<='z'; c2++){
             for(char c3 ='a'; c3<='z'; c3++){
