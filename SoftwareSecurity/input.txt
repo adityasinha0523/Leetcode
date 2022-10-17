@@ -1,0 +1,579 @@
+Enter the ciphertext to be decrypted: 
+
+Cipher text is: xtkybfwjxjhzwnyd
+The key is 0
+Value of t is 1
+Value of tt is 1
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -2
+Value of t is 1
+Value of tt is 3
+The plaintext message is zvmadhylzljbypaf
+The key is -4
+Value of t is 1
+Value of tt is 5
+The plaintext message is bxocfjanbnldarch
+The key is -6
+Value of t is 1
+Value of tt is 7
+The plaintext message is dzqehlcpdpnfctej
+The key is -8
+Value of t is 1
+Value of tt is 9
+The plaintext message is fbsgjnerfrphevgl
+The key is -9
+Value of t is 1
+Value of tt is 10
+The plaintext message is gcthkofsgsqifwhm
+The key is -12
+Value of t is 1
+Value of tt is 13
+The plaintext message is jfwknrivjvtlizkp
+The key is -18
+Value of t is 1
+Value of tt is 19
+The plaintext message is plcqtxobpbzrofqv
+The key is -21
+Value of t is 1
+Value of tt is 22
+The plaintext message is softwaresecurity
+The key is -22
+Value of t is 1
+Value of tt is 23
+The plaintext message is tpguxbsftfdvsjuz
+The key is -23
+Value of t is 1
+Value of tt is 24
+The plaintext message is uqhvyctgugewtkva
+The key is -24
+Value of t is 1
+Value of tt is 25
+The plaintext message is vriwzduhvhfxulwb
+The key is 2
+Value of t is 3
+Value of tt is 1
+The plaintext message is vriw`duhvhfxulwb
+The key is 0
+Value of t is 3
+Value of tt is 3
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -2
+Value of t is 3
+Value of tt is 5
+The plaintext message is zvmadhylzljbypaf
+The key is -4
+Value of t is 3
+Value of tt is 7
+The plaintext message is bxocfjanbnldarch
+The key is -6
+Value of t is 3
+Value of tt is 9
+The plaintext message is dzqehlcpdpnfctej
+The key is -7
+Value of t is 3
+Value of tt is 10
+The plaintext message is earfimdqeqogdufk
+The key is -10
+Value of t is 3
+Value of tt is 13
+The plaintext message is hduilpgthtrjgxin
+The key is -16
+Value of t is 3
+Value of tt is 19
+The plaintext message is njaorvmznzxpmdot
+The key is -19
+Value of t is 3
+Value of tt is 22
+The plaintext message is qmdruypcqcaspgrw
+The key is -20
+Value of t is 3
+Value of tt is 23
+The plaintext message is rnesvzqdrdbtqhsx
+The key is -21
+Value of t is 3
+Value of tt is 24
+The plaintext message is softwaresecurity
+The key is -22
+Value of t is 3
+Value of tt is 25
+The plaintext message is tpguxbsftfdvsjuz
+The key is 4
+Value of t is 5
+Value of tt is 1
+The plaintext message is tpgu^bsftfdvsju`
+The key is 2
+Value of t is 5
+Value of tt is 3
+The plaintext message is vriw`duhvhfxulwb
+The key is 0
+Value of t is 5
+Value of tt is 5
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -2
+Value of t is 5
+Value of tt is 7
+The plaintext message is zvmadhylzljbypaf
+The key is -4
+Value of t is 5
+Value of tt is 9
+The plaintext message is bxocfjanbnldarch
+The key is -5
+Value of t is 5
+Value of tt is 10
+The plaintext message is cypdgkbocomebsdi
+The key is -8
+Value of t is 5
+Value of tt is 13
+The plaintext message is fbsgjnerfrphevgl
+The key is -14
+Value of t is 5
+Value of tt is 19
+The plaintext message is lhymptkxlxvnkbmr
+The key is -17
+Value of t is 5
+Value of tt is 22
+The plaintext message is okbpswnaoayqnepu
+The key is -18
+Value of t is 5
+Value of tt is 23
+The plaintext message is plcqtxobpbzrofqv
+The key is -19
+Value of t is 5
+Value of tt is 24
+The plaintext message is qmdruypcqcaspgrw
+The key is -20
+Value of t is 5
+Value of tt is 25
+The plaintext message is rnesvzqdrdbtqhsx
+The key is 6
+Value of t is 7
+Value of tt is 1
+The plaintext message is rnes\`qdrdbtqhs^
+The key is 4
+Value of t is 7
+Value of tt is 3
+The plaintext message is tpgu^bsftfdvsju`
+The key is 2
+Value of t is 7
+Value of tt is 5
+The plaintext message is vriw`duhvhfxulwb
+The key is 0
+Value of t is 7
+Value of tt is 7
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -2
+Value of t is 7
+Value of tt is 9
+The plaintext message is zvmadhylzljbypaf
+The key is -3
+Value of t is 7
+Value of tt is 10
+The plaintext message is awnbeizmamkczqbg
+The key is -6
+Value of t is 7
+Value of tt is 13
+The plaintext message is dzqehlcpdpnfctej
+The key is -12
+Value of t is 7
+Value of tt is 19
+The plaintext message is jfwknrivjvtlizkp
+The key is -15
+Value of t is 7
+Value of tt is 22
+The plaintext message is miznqulymywolcns
+The key is -16
+Value of t is 7
+Value of tt is 23
+The plaintext message is njaorvmznzxpmdot
+The key is -17
+Value of t is 7
+Value of tt is 24
+The plaintext message is okbpswnaoayqnepu
+The key is -18
+Value of t is 7
+Value of tt is 25
+The plaintext message is plcqtxobpbzrofqv
+The key is 8
+Value of t is 9
+Value of tt is 1
+The plaintext message is plcqZ^obpb`rofq\
+The key is 6
+Value of t is 9
+Value of tt is 3
+The plaintext message is rnes\`qdrdbtqhs^
+The key is 4
+Value of t is 9
+Value of tt is 5
+The plaintext message is tpgu^bsftfdvsju`
+The key is 2
+Value of t is 9
+Value of tt is 7
+The plaintext message is vriw`duhvhfxulwb
+The key is 0
+Value of t is 9
+Value of tt is 9
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -1
+Value of t is 9
+Value of tt is 10
+The plaintext message is yulzcgxkykiaxoze
+The key is -4
+Value of t is 9
+Value of tt is 13
+The plaintext message is bxocfjanbnldarch
+The key is -10
+Value of t is 9
+Value of tt is 19
+The plaintext message is hduilpgthtrjgxin
+The key is -13
+Value of t is 9
+Value of tt is 22
+The plaintext message is kgxlosjwkwumjalq
+The key is -14
+Value of t is 9
+Value of tt is 23
+The plaintext message is lhymptkxlxvnkbmr
+The key is -15
+Value of t is 9
+Value of tt is 24
+The plaintext message is miznqulymywolcns
+The key is -16
+Value of t is 9
+Value of tt is 25
+The plaintext message is njaorvmznzxpmdot
+The key is 9
+Value of t is 10
+Value of tt is 1
+The plaintext message is okbpY]naoa_qnep[
+The key is 7
+Value of t is 10
+Value of tt is 3
+The plaintext message is qmdr[_pcqcaspgr]
+The key is 5
+Value of t is 10
+Value of tt is 5
+The plaintext message is soft]aresecurit_
+The key is 3
+Value of t is 10
+Value of tt is 7
+The plaintext message is uqhv_ctgugewtkva
+The key is 1
+Value of t is 10
+Value of tt is 9
+The plaintext message is wsjxaeviwigyvmxc
+The key is 0
+Value of t is 10
+Value of tt is 10
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -3
+Value of t is 10
+Value of tt is 13
+The plaintext message is awnbeizmamkczqbg
+The key is -9
+Value of t is 10
+Value of tt is 19
+The plaintext message is gcthkofsgsqifwhm
+The key is -12
+Value of t is 10
+Value of tt is 22
+The plaintext message is jfwknrivjvtlizkp
+The key is -13
+Value of t is 10
+Value of tt is 23
+The plaintext message is kgxlosjwkwumjalq
+The key is -14
+Value of t is 10
+Value of tt is 24
+The plaintext message is lhymptkxlxvnkbmr
+The key is -15
+Value of t is 10
+Value of tt is 25
+The plaintext message is miznqulymywolcns
+The key is 12
+Value of t is 13
+Value of tt is 1
+The plaintext message is lh_mVZk^l^\nkbmX
+The key is 10
+Value of t is 13
+Value of tt is 3
+The plaintext message is njaoX\m`n`^pmdoZ
+The key is 8
+Value of t is 13
+Value of tt is 5
+The plaintext message is plcqZ^obpb`rofq\
+The key is 6
+Value of t is 13
+Value of tt is 7
+The plaintext message is rnes\`qdrdbtqhs^
+The key is 4
+Value of t is 13
+Value of tt is 9
+The plaintext message is tpgu^bsftfdvsju`
+The key is 3
+Value of t is 13
+Value of tt is 10
+The plaintext message is uqhv_ctgugewtkva
+The key is 0
+Value of t is 13
+Value of tt is 13
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -6
+Value of t is 13
+Value of tt is 19
+The plaintext message is dzqehlcpdpnfctej
+The key is -9
+Value of t is 13
+Value of tt is 22
+The plaintext message is gcthkofsgsqifwhm
+The key is -10
+Value of t is 13
+Value of tt is 23
+The plaintext message is hduilpgthtrjgxin
+The key is -11
+Value of t is 13
+Value of tt is 24
+The plaintext message is ievjmqhuiuskhyjo
+The key is -12
+Value of t is 13
+Value of tt is 25
+The plaintext message is jfwknrivjvtlizkp
+The key is 18
+Value of t is 19
+Value of tt is 1
+The plaintext message is fbYgPTeXfXVhe\gR
+The key is 16
+Value of t is 19
+Value of tt is 3
+The plaintext message is hd[iRVgZhZXjg^iT
+The key is 14
+Value of t is 19
+Value of tt is 5
+The plaintext message is jf]kTXi\j\Zli`kV
+The key is 12
+Value of t is 19
+Value of tt is 7
+The plaintext message is lh_mVZk^l^\nkbmX
+The key is 10
+Value of t is 19
+Value of tt is 9
+The plaintext message is njaoX\m`n`^pmdoZ
+The key is 9
+Value of t is 19
+Value of tt is 10
+The plaintext message is okbpY]naoa_qnep[
+The key is 6
+Value of t is 19
+Value of tt is 13
+The plaintext message is rnes\`qdrdbtqhs^
+The key is 0
+Value of t is 19
+Value of tt is 19
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -3
+Value of t is 19
+Value of tt is 22
+The plaintext message is awnbeizmamkczqbg
+The key is -4
+Value of t is 19
+Value of tt is 23
+The plaintext message is bxocfjanbnldarch
+The key is -5
+Value of t is 19
+Value of tt is 24
+The plaintext message is cypdgkbocomebsdi
+The key is -6
+Value of t is 19
+Value of tt is 25
+The plaintext message is dzqehlcpdpnfctej
+The key is 21
+Value of t is 22
+Value of tt is 1
+The plaintext message is c_VdMQbUcUSebYdO
+The key is 19
+Value of t is 22
+Value of tt is 3
+The plaintext message is eaXfOSdWeWUgd[fQ
+The key is 17
+Value of t is 22
+Value of tt is 5
+The plaintext message is gcZhQUfYgYWif]hS
+The key is 15
+Value of t is 22
+Value of tt is 7
+The plaintext message is ie\jSWh[i[Ykh_jU
+The key is 13
+Value of t is 22
+Value of tt is 9
+The plaintext message is kg^lUYj]k][mjalW
+The key is 12
+Value of t is 22
+Value of tt is 10
+The plaintext message is lh_mVZk^l^\nkbmX
+The key is 9
+Value of t is 22
+Value of tt is 13
+The plaintext message is okbpY]naoa_qnep[
+The key is 3
+Value of t is 22
+Value of tt is 19
+The plaintext message is uqhv_ctgugewtkva
+The key is 0
+Value of t is 22
+Value of tt is 22
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -1
+Value of t is 22
+Value of tt is 23
+The plaintext message is yulzcgxkykiaxoze
+The key is -2
+Value of t is 22
+Value of tt is 24
+The plaintext message is zvmadhylzljbypaf
+The key is -3
+Value of t is 22
+Value of tt is 25
+The plaintext message is awnbeizmamkczqbg
+The key is 22
+Value of t is 23
+Value of tt is 1
+The plaintext message is b^UcLPaTbTRdaXcN
+The key is 20
+Value of t is 23
+Value of tt is 3
+The plaintext message is d`WeNRcVdVTfcZeP
+The key is 18
+Value of t is 23
+Value of tt is 5
+The plaintext message is fbYgPTeXfXVhe\gR
+The key is 16
+Value of t is 23
+Value of tt is 7
+The plaintext message is hd[iRVgZhZXjg^iT
+The key is 14
+Value of t is 23
+Value of tt is 9
+The plaintext message is jf]kTXi\j\Zli`kV
+The key is 13
+Value of t is 23
+Value of tt is 10
+The plaintext message is kg^lUYj]k][mjalW
+The key is 10
+Value of t is 23
+Value of tt is 13
+The plaintext message is njaoX\m`n`^pmdoZ
+The key is 4
+Value of t is 23
+Value of tt is 19
+The plaintext message is tpgu^bsftfdvsju`
+The key is 1
+Value of t is 23
+Value of tt is 22
+The plaintext message is wsjxaeviwigyvmxc
+The key is 0
+Value of t is 23
+Value of tt is 23
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -1
+Value of t is 23
+Value of tt is 24
+The plaintext message is yulzcgxkykiaxoze
+The key is -2
+Value of t is 23
+Value of tt is 25
+The plaintext message is zvmadhylzljbypaf
+The key is 23
+Value of t is 24
+Value of tt is 1
+The plaintext message is a]TbKO`SaSQc`WbM
+The key is 21
+Value of t is 24
+Value of tt is 3
+The plaintext message is c_VdMQbUcUSebYdO
+The key is 19
+Value of t is 24
+Value of tt is 5
+The plaintext message is eaXfOSdWeWUgd[fQ
+The key is 17
+Value of t is 24
+Value of tt is 7
+The plaintext message is gcZhQUfYgYWif]hS
+The key is 15
+Value of t is 24
+Value of tt is 9
+The plaintext message is ie\jSWh[i[Ykh_jU
+The key is 14
+Value of t is 24
+Value of tt is 10
+The plaintext message is jf]kTXi\j\Zli`kV
+The key is 11
+Value of t is 24
+Value of tt is 13
+The plaintext message is mi`nW[l_m_]olcnY
+The key is 5
+Value of t is 24
+Value of tt is 19
+The plaintext message is soft]aresecurit_
+The key is 2
+Value of t is 24
+Value of tt is 22
+The plaintext message is vriw`duhvhfxulwb
+The key is 1
+Value of t is 24
+Value of tt is 23
+The plaintext message is wsjxaeviwigyvmxc
+The key is 0
+Value of t is 24
+Value of tt is 24
+The plaintext message is xtkybfwjxjhzwnyd
+The key is -1
+Value of t is 24
+Value of tt is 25
+The plaintext message is yulzcgxkykiaxoze
+The key is 24
+Value of t is 25
+Value of tt is 1
+The plaintext message is `\SaJN_R`RPb_VaL
+The key is 22
+Value of t is 25
+Value of tt is 3
+The plaintext message is b^UcLPaTbTRdaXcN
+The key is 20
+Value of t is 25
+Value of tt is 5
+The plaintext message is d`WeNRcVdVTfcZeP
+The key is 18
+Value of t is 25
+Value of tt is 7
+The plaintext message is fbYgPTeXfXVhe\gR
+The key is 16
+Value of t is 25
+Value of tt is 9
+The plaintext message is hd[iRVgZhZXjg^iT
+The key is 15
+Value of t is 25
+Value of tt is 10
+The plaintext message is ie\jSWh[i[Ykh_jU
+The key is 12
+Value of t is 25
+Value of tt is 13
+The plaintext message is lh_mVZk^l^\nkbmX
+The key is 6
+Value of t is 25
+Value of tt is 19
+The plaintext message is rnes\`qdrdbtqhs^
+The key is 3
+Value of t is 25
+Value of tt is 22
+The plaintext message is uqhv_ctgugewtkva
+The key is 2
+Value of t is 25
+Value of tt is 23
+The plaintext message is vriw`duhvhfxulwb
+The key is 1
+Value of t is 25
+Value of tt is 24
+The plaintext message is wsjxaeviwigyvmxc
+The key is 0
+Value of t is 25
+Value of tt is 25
+The plaintext message is xtkybfwjxjhzwnyd
