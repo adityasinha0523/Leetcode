@@ -12,26 +12,36 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-
 class VigenereCipher
 {
  
 // This function generates the key in
 // a cyclic manner until it's length isn't
 // equal to the length of original text
-static String generateKey(String str, String key)
+ public static String generateKey(String str, List<String> keys, String cipher_text )
 {
+    String res="";
     int x = str.length();
- 
+    for(int j= 0; j<keys.size(); j++){
+        String orginalKey =keys.get(j);
+        String currentKey = keys.get(j);
     for (int i = 0; ; i++)
-    {
+    {   
         if (x == i)
             i = 0;
-        if (key.length() == str.length())
+        if (currentKey.length() == str.length())
             break;
-        key+=(key.charAt(i));
+        currentKey+=(currentKey.charAt(i));
     }
-    return key;
+    //System.out.println("Current key value"+currentKey);
+    res =cipherText(str,currentKey );
+    //System.out.println("Res value is "+res);
+    if (res.equals(cipher_text.toLowerCase())){
+        //System.out.println("Inside if");
+        return orginalKey; 
+    }
+    }
+    return "";
 }
  
 // This function returns the encrypted text
@@ -39,14 +49,13 @@ static String generateKey(String str, String key)
 static String cipherText(String str, String key)
 {
     String cipher_text="";
- 
     for (int i = 0; i < str.length(); i++)
     {
         // converting in range 0-25
         int x = (str.charAt(i) + key.charAt(i)) %26;
  
         // convert into alphabets(ASCII)
-        x += 'A';
+        x += 'a';
  
         cipher_text+=(char)(x);
     }
@@ -87,23 +96,37 @@ static String LowerToUpper(String s)
     s = str.toString();
     return s;
 }
- 
+
+
+public static List<String> Keygeneration() {
+    List<String> list1 = new ArrayList<String>();
+    for (char c1 ='a'; c1<='z'; c1++){
+        for(char c2 ='a'; c2<='z'; c2++){
+            for(char c3 ='a'; c3<='z'; c3++){
+            StringBuilder sb=new StringBuilder();
+            sb.append(c1);
+            sb.append(c2);
+            sb.append(c3);
+            String s=sb.toString();
+            s=s.toUpperCase();  
+            list1.add(s);
+            }
+        }
+    }
+    return list1;
+    }
+
 // Driver code
 public static void main(String[] args)
-{
-    String Str = "SOFTWARESECURITY";
-    String Keyword = "AYU";//Length is 3
-       
-    String str = LowerToUpper(Str);
-    String keyword = LowerToUpper(Keyword);
- 
-    String key = generateKey(str, keyword);
-    String cipher_text = cipherText(str, key);
- 
-    System.out.println("Ciphertext : "
-        + cipher_text + "\n");
- 
-    System.out.println("Original/Decrypted Text : "
-        + originalText(cipher_text, key));
+{  List<String> KeysList= Keygeneration();
+    String Str1 = "ARIZONASTATEUNIVERSITY";    
+    String cipher_text1 = "EUCDRHEVNEWYYQCZHLWLNC";
+
+    String key1 = generateKey(Str1, KeysList,cipher_text1);
+    System.out.println("Key for First Input:"+ key1);
+    String Str2 = "COMPUTERSCIENCE";    
+    String cipher_text2 = "GRGTXNIUMGLYRFY";
+    String key2 = generateKey(Str2, KeysList,cipher_text2);
+    System.out.println("Key for Second Input:"+ key2);
     }
 }
