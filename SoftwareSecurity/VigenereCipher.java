@@ -137,9 +137,7 @@ public static List<String> Keygeneration() {
 // Driver code
 public static void main(String[] args)
 {  List<String> KeysList= Keygeneration();
-    for (int i = 0; i < KeysList.size(); i++) {
-        System.out.println(KeysList.get(i));
-    }
+    
     String Str1 = "ARIZONASTATEUNIVERSITY";    
     String cipher_text1 = "EUCDRHEVNEWYYQCZHLWLNC";
 
