@@ -9,12 +9,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
-class problem2185{
+class problem1588{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -35,42 +33,40 @@ class problem2185{
         Scanner scan = new Scanner(System.in);
         //For reading string from input file
         //String myLine = scan.nextLine();
-        //For reading integer from input file
-        //int a=scan.nextInt();
-        //String temp1="leetcodeisacommunityforcoders";
-        //int temp2=4;
-        /*int [] input=new int[4];
-        for (int i = 0; i < input.length; i++) {
-            input[i]=scan.nextInt();
-        }*/
-
-        
         //scan.nextLine();
-        //To take array as input
-        String[] words=new String[4];
-        for (int i = 0; i < words.length; i++) {
-            words[i]=scan.nextLine();
+        //To take int array as input
+        
+        int[] nums=new int[5];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i]=scan.nextInt();
         }
-        String pref=scan.nextLine();
-        int sol=prefixCount(words,pref);
+        int sol=sumOddLengthSubarrays(nums);
+        /*for(int i=0;i<sol.length;i++){
+            System.out.println(sol[i]);
+        }*/
         System.out.println(sol);
         scan.close();
     }  
 
-    public static int prefixCount(String[] words, String pref) {
+    public static int sumOddLengthSubarrays(int[] arr) {
+        int n=arr.length;
+        int k=1;
         int solution=0;
-        for (int i = 0; i < words.length; i++) {
-            String str=words[i];
-            boolean notEqual=false;
-            for (int j = 0; j < pref.length(); j++) {
-                if(pref.charAt(j)!=str.charAt(j)){
-                    notEqual=true;
+        while(k<=n){
+            if(k==1){
+                for (int i = 0; i < arr.length; i++) {
+                    solution+=arr[i];
+                }
+            }else{
+                for (int i = 0; i <=arr.length-k; i++) {
+                    for (int j = i; j <i+k; j++) {
+                        int temp=arr[j];
+                        solution+=temp;
+                    }
                 }
             }
-            if(notEqual==false){
-                solution++;
-            }
+            k=k+2;
         }
-        return solution;
+    return solution;
     }
 }  
