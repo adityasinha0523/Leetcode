@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1389{
+class template{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -36,26 +36,32 @@ class problem1389{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[] nums=new int[4];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
-        
-        /*for(int i=0;i<sol.length;i++){
+        }
+        int[] sol=decompressRLElist(nums);
+        for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }*/
+        }
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static int[] createTargetArray(int[] nums, int[] index) {
-        List<Integer> arr=new ArrayList<>();
-        for (int i = 0; i < index.length; i++) {
-            arr.add(index[i],nums[i]);
+    public static int[] decompressRLElist(int[] nums) {
+        List<Integer> solution=new ArrayList<>();
+        for (int i = 0; i < nums.length-1; i=i+2) {
+            int freq=nums[i];
+            int value=nums[i+1];
+            List<Integer> list=new ArrayList<>();
+            for (int j = 0; j < freq; j++) {
+                list.add(value);
+            }
+            solution.addAll(list);
         }
-        int[] sol=new int[index.length];
-        for (int i = 0; i <arr.size(); i++) {
-            sol[i]=arr.get(i);
+        int[] sol=new int[solution.size()];
+        for (int i = 0; i < sol.length; i++) {
+            sol[i]=solution.get(i);
         }
         return sol;
     }
