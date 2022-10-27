@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1704{
+class problem2000{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,40 +40,30 @@ class problem1704{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        boolean sol= halvesAreAlike("textbook");
+        
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static boolean halvesAreAlike(String s) {
-        Set<Character> set=new HashSet<>();
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('A');
-        set.add('E');
-        set.add('I');
-        set.add('O');
-        set.add('U');
-        int sol1=0;
-        int sol2=0;
-        for (int i = 0; i < s.length()/2; i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol1++;
+    public static String reversePrefix(String word, char ch) {
+        int locate=0;
+        char[] c=word.toCharArray();
+        for (int i = 0; i < word.length(); i++) {
+            if(word.charAt(i)==ch){
+                locate=i;
+                break;
             }
         }
-        for (int i = s.length()/2; i < s.length(); i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol2++;
-            }
+        char[] sol=new char[word.length()];
+        for (int i = 0; i < locate; i++) {
+            sol[i]=c[locate-i];
         }
-        return sol1==sol2?true:false;
+        for (int i = locate+1; i < word.length(); i++) {
+            sol[i]=c[i];
+        }
+        return String.valueOf(word);
     }
 }  

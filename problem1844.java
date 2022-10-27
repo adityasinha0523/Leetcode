@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1704{
+class problem1844{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,7 +40,7 @@ class problem1704{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        boolean sol= halvesAreAlike("textbook");
+        String sol=replaceDigits("a1b2c3d4e");
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -48,32 +48,18 @@ class problem1704{
         scan.close();
     }  
 
-    public static boolean halvesAreAlike(String s) {
-        Set<Character> set=new HashSet<>();
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('A');
-        set.add('E');
-        set.add('I');
-        set.add('O');
-        set.add('U');
-        int sol1=0;
-        int sol2=0;
-        for (int i = 0; i < s.length()/2; i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol1++;
-            }
+    public static String replaceDigits(String s) {
+        StringBuilder sb=new StringBuilder();
+        for (int i = 0; i < s.length()-1; i=i+2) {
+            int first=s.charAt(i)-'a';
+            int second=Character.getNumericValue(s.charAt(i+1));
+            char c=(char)(first+second+97);
+            sb.append(s.charAt(i));
+            sb.append(c);
         }
-        for (int i = s.length()/2; i < s.length(); i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol2++;
-            }
+        if(s.length()%2!=0){
+            sb.append(s.charAt(s.length()-1));
         }
-        return sol1==sol2?true:false;
+        return sb.toString();
     }
 }  

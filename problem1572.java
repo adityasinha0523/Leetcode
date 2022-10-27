@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1704{
+class problem1572{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -40,40 +40,33 @@ class problem1704{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        boolean sol= halvesAreAlike("textbook");
+        
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static boolean halvesAreAlike(String s) {
-        Set<Character> set=new HashSet<>();
-        set.add('a');
-        set.add('e');
-        set.add('i');
-        set.add('o');
-        set.add('u');
-        set.add('A');
-        set.add('E');
-        set.add('I');
-        set.add('O');
-        set.add('U');
-        int sol1=0;
-        int sol2=0;
-        for (int i = 0; i < s.length()/2; i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol1++;
+    public static int diagonalSum(int[][] mat) {
+        int leftToRight=0;
+        int rightToLeft=0;
+        int n=0;
+        int m=mat.length;
+        //int sum=m-1;
+        for (int i = 0; i < mat.length; i++) {
+            for (int j = 0; j < mat[0].length; j++) {
+                if(i==j){
+                    leftToRight+=mat[i][j];
+                }
             }
         }
-        for (int i = s.length()/2; i < s.length(); i++) {
-            char c=s.charAt(i);
-            if(set.contains(c)){
-                sol2++;
-            }
+        for (int i = 0; i < mat.length; i++) {
+            rightToLeft+=mat[m-1-i][i];
         }
-        return sol1==sol2?true:false;
+        if(mat.length%2!=0){
+            rightToLeft-=mat[m/2][m/2];
+        }
+        return leftToRight+rightToLeft;
     }
 }  
