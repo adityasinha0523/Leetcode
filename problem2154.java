@@ -61,6 +61,20 @@ class problem2154{
     }  
 
     public static int findFinalValue(int[] nums, int original) {
+        Set<Integer> set=new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        while(true){
+            if(set.contains(original)){
+                original=original*2;
+            }else{
+                return original;
+            }
+        }
+    }
+
+    public static int findFinalValue2(int[] nums, int original) {
         int solution=original;
         Set<Integer> set=new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
