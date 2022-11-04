@@ -1,0 +1,7 @@
+1.Convert List to Array
+List<Integer> list=new ArrayList<>();
+//added some value in list.
+Foo[] array = new Foo[list.size()];
+list.toArray(array); // fill the array
+
+2.
