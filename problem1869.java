@@ -42,7 +42,7 @@ class problem1869{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        String s="01";
+        String s="0111010011";
         boolean sol=checkZeroOnes(s);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -52,6 +52,30 @@ class problem1869{
     }  
 
     public static boolean checkZeroOnes(String s) {
+        boolean solution=true;
+        int maxOne=0;
+        int maxZero=0;
+        int countOne=0;
+        int countZero=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='0'){
+                countZero++;
+                maxOne=Math.max(maxOne, countOne);
+                countOne=0;
+            }else{
+                countOne++;
+                maxZero=Math.max(maxZero, countZero);
+                countZero=0;
+            }
+        }
+        maxOne=Math.max(maxOne, countOne);
+        maxZero=Math.max(maxZero, countZero);
+        if(maxOne>maxZero){
+            return true;
+        }
+        return false;
+    }
+    public static boolean checkZeroOnes2(String s) {
         int oneCount=0;
         int zeroCount=0;
         int maxOneCount=0;
