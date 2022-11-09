@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem860{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -36,19 +36,34 @@ class template{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[] nums=new int[5];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
-        
+        }
+        boolean sol=lemonadeChange(nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        /*for (Integer integer : sol) {
-            System.out.println(integer);
-        }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static boolean lemonadeChange(int[] bills) {
+        int totalSum=0;
+        for (int i = 0; i < bills.length; i++) {
+            int value=bills[i];
+            if(value<=5){
+                totalSum+=value;
+            }else{
+                int diff=value-5;
+                if(totalSum>=diff){
+                    totalSum-=diff;
+                    totalSum+=value;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }  

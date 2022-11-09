@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem744{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -44,11 +44,18 @@ class template{
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        /*for (Integer integer : sol) {
-            System.out.println(integer);
-        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
+    public static char nextGreatestLetter(char[] letters, char target) {
+        int key=target-'a';
+        for (int i = 0; i < letters.length; i++) {
+            int value=letters[i]-'a';
+            if(value>key){
+                return letters[i];
+            }
+        }
+        return letters[0];
+    }
 }  

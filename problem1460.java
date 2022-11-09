@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1460{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -51,4 +51,20 @@ class template{
         scan.close();
     }  
 
+    public static boolean canBeEqual(int[] target, int[] arr) {
+        int[] count1=new int[1001];
+        int[] count2=new int[1001];
+        for (int i = 0; i < target.length; i++) {
+            count1[target[i]]++;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            count2[arr[i]]++;
+        }
+        for (int i = 0; i < count2.length; i++) {
+            if(count1[i]!=count2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
 }  
