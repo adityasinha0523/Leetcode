@@ -12,15 +12,21 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem2441{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
+ 
             // as ONLINE_JUDGE constant is not defined which
             // means
+ 
             // the code is not running on an online judge
-            PrintStream ps= new PrintStream(new File("output.txt"));
-            InputStream is= new FileInputStream("input.txt");
+ 
+            PrintStream ps
+                = new PrintStream(new File("output.txt"));
+            InputStream is
+                = new FileInputStream("input.txt");
+ 
             System.setIn(is);
             System.setOut(ps);
         }
@@ -45,4 +51,19 @@ class template{
         scan.close();
     }  
 
+    public static int findMaxK(int[] nums) {
+        Set<Integer> set=new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        for (int i = nums.length-1; i >=0; i--) {
+            int value=nums[i];
+            value=value*-1;
+            if(set.contains(value)){
+                return -1*value;
+            }
+        }
+        return -1;
+    }
 }  
