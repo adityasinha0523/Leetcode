@@ -61,6 +61,16 @@ class problemString{
         String s1="hello";
         char[] charString=s.toCharArray();
         scan.close();
+
+        /*
+         * 3.To compare two character whether they are equal or not.
+         */
+        char a='a';
+        char b='b';
+        int value=Character.compare(a, b);//Should return 0 if they are equal.
+        if(value==0){
+            System.out.println("Both character are equal");
+        }
     }  
 
 }  
