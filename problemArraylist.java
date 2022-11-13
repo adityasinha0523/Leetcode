@@ -72,16 +72,16 @@ class problemArraylist{
         //System.out.println(list1); // Prints [1, 2, 3]
         //System.out.println(sol);
         scan.close();
+        /*
+         * 1.To sort ArrayList in ascending order
+         */
+        List<Integer> list1=new ArrayList<>();
+        Collections.sort(list1);
+        /*
+         * 2.To sort a list in descending order
+         */
+        List<Integer> list2=new ArrayList<>();
+        Collections.sort(list2);
+        Collections.reverse(list2);
     }  
-
-    public static List<Integer> targetIndices(int[] nums, int target) {
-        List<Integer> list=new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==target){
-                list.add(i);
-            }
-        }
-        return list;
-    }
 }  
