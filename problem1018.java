@@ -12,21 +12,15 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1313{
+class problem1018{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -36,33 +30,41 @@ class problem1313{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[4];
+        int[] nums=new int[6];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }
-        int[] sol=decompressRLElist(nums);
-        for(int i=0;i<sol.length;i++){
+        List<Boolean> sol=prefixesDivBy5(nums);
+        /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
+        }*/
+        for (Boolean integer : sol) {
+            System.out.println(integer);
         }
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static int[] decompressRLElist(int[] nums) {
-        List<Integer> solution=new ArrayList<>();
-        for (int i = 0; i < nums.length-1; i=i+2) {
-            int freq=nums[i];
-            int value=nums[i+1];
-            List<Integer> list=new ArrayList<>();
-            for (int j = 0; j < freq; j++) {
-                list.add(value);
+    public static List<Boolean> prefixesDivBy5(int[] nums) {
+        //Boolean[] sol=new Boolean[nums.length];
+        List<Boolean> sol=new ArrayList<>();
+        int lastIndex=nums.length-1;
+        for (int i = nums.length-1; i >=0; i--) {
+            int starting=i;
+            int k=0;
+            int sum=0;
+            for (int j = starting; j >=0; j--) {
+                sum+=(int)Math.pow(2, k++)*nums[j];
             }
-            solution.addAll(list);
+            if(sum%5==0){
+                sol.add(true);
+                //sol[lastIndex--]=false;
+            }else{
+                sol.add(false);
+                //sol[lastIndex--]=true;
+            }
         }
-        int[] sol=new int[solution.size()];
-        for (int i = 0; i < sol.length; i++) {
-            sol[i]=solution.get(i);
-        }
+        Collections.reverse(sol);
         return sol;
     }
 }  

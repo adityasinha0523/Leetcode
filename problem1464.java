@@ -9,9 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.net.Inet4Address;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.PriorityQueue;
 
 class problem1464{
     public static void main(String args[]) throws IOException{  
@@ -58,11 +61,21 @@ class problem1464{
         scan.close();
     }  
 
-    public static int maxProduct(int[] nums) {
+    public static int maxProduct2(int[] nums) {
         Arrays.sort(nums);
         int last=nums[nums.length-1];
         int secondLast=nums[nums.length-2];
         int solution=(last-1)*(secondLast-1);
         return solution;
     }
+    public static int maxProduct(int[] nums){
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < nums.length; i++) {
+            pq.add(nums[i]);
+        }
+        int first=pq.poll();
+        int second=pq.poll();
+        return (first-1)*(second-1);
+    }
+
 }  

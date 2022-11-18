@@ -12,21 +12,15 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1313{
+class problem628{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -40,29 +34,24 @@ class problem1313{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }
-        int[] sol=decompressRLElist(nums);
-        for(int i=0;i<sol.length;i++){
+        int sol=maximumProduct(nums);
+        /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
-        }
-        //System.out.println(sol);
+        }*/
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static int[] decompressRLElist(int[] nums) {
-        List<Integer> solution=new ArrayList<>();
-        for (int i = 0; i < nums.length-1; i=i+2) {
-            int freq=nums[i];
-            int value=nums[i+1];
-            List<Integer> list=new ArrayList<>();
-            for (int j = 0; j < freq; j++) {
-                list.add(value);
-            }
-            solution.addAll(list);
+    public static int maximumProduct(int[] nums) {
+        Arrays.sort(nums);
+        int first=nums[0];
+        int second=nums[1];
+        if(first*second>nums[nums.length-2]*nums[nums.length-3]){
+            return first *second*nums[nums.length-1];
         }
-        int[] sol=new int[solution.size()];
-        for (int i = 0; i < sol.length; i++) {
-            sol[i]=solution.get(i);
-        }
-        return sol;
+        return nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3];
     }
 }  

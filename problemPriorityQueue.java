@@ -20,4 +20,9 @@ public class problemPriorityQueue {
     PriorityQueue<int[]> queue = new PriorityQueue<>((a, b)->b[1] - a[1]);
     //queue.addAll(Arrays.asList(boxTypes));
 
+    /*
+     * 2.PriorityQueue in reverse order
+     */
+    PriorityQueue<Integer> pQueue= new PriorityQueue<Integer>(Collections.reverseOrder());
+
 }
