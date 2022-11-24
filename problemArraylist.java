@@ -52,13 +52,13 @@ class problemArraylist{
             num[i]=scan.nextInt();
         }
         int target=scan.nextInt();
-        List<Integer> solution=targetIndices(num,target);
+        //List<Integer> solution=targetIndices(num,target);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        for (Integer integer : solution) {
+        /*for (Integer integer : solution) {
             System.out.println(integer);
-        }
+        }*/
 
         Integer[] array = {1,2,3};
         List<Integer> list = Arrays.asList(array);

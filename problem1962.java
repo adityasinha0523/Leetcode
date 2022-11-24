@@ -10,11 +10,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
-
-
 import java.lang.*;
 
-class problem2363{
+class problem1962{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -32,33 +30,38 @@ class problem2363{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[] nums=new int[4];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
-        
+        }
+        int sol=minStoneSum(nums, 3);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
-        TreeMap<Integer,Integer> cnt=new TreeMap<>();
-        for (int[] is : items1) {
-            cnt.merge(is[0], is[1], Integer::sum);
+    public static int minStoneSum(int[] piles, int k) {
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < piles.length; i++) {
+            pq.add(piles[i]);
         }
-        for (int[] is : items2) {
-            cnt.merge(is[0], is[1], Integer::sum);
+        int counter=0;
+        while(counter!=k){
+            int x=pq.poll();
+            double key=Math.floor(x/2);
+            pq.add(x-(int)key);
+            counter++;
         }
-        List<List<Integer>> sol=new ArrayList<>();  
-        for (Map.Entry<Integer,Integer> e : cnt.entrySet()) {
-            sol.add(Arrays.asList(e.getKey(),e.getValue()));
+        int size=pq.size();
+        int sum=0;
+        for (int i = 0; i < size; i++) {
+            sum+=pq.poll();
         }
-        return sol;
+        return sum;
     }
 }  

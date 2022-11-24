@@ -48,7 +48,7 @@ class problem1450{
     public static int busyStudent(int[] startTime, int[] endTime, int queryTime) {
         int last=0;
         for (int i = 0; i < endTime.length; i++) {
-            last=Math.max(last, endTime[i])
+            last=Math.max(last, endTime[i]);
         }
         int[] arr=new int[last+1];
         if(queryTime>last){
