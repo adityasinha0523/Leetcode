@@ -30,22 +30,48 @@ class problem2285{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[][] nums=new int[6][2];
         for (int i = 0; i < nums.length; i++) {
-            nums[i]=scan.nextInt();
-        }*/
-        
+            for(int j=0;j<nums[0].length;j++){
+                nums[i][j]=scan.nextInt();
+            }
+        }
+        long sol=maximumImportance(5, nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static long maximumImportance2(int n, int[][] roads) {
+        int[] degree = new int[n];
+        for (int[] r : roads) {
+            ++degree[r[0]];
+            ++degree[r[1]];
+        }
+        Arrays.sort(degree);
+        long importance = 0;
+        for (int i = 0; i < n; ++i) {
+            importance += (i + 1L) * degree[i];
+        }
+        return importance;
+    }
+
     public static long maximumImportance(int n, int[][] roads) {
-        
+        int[] degree=new int[n];
+        for (int[] i : roads) {
+            degree[i[0]]++;
+            degree[i[1]]++;
+        }
+        Arrays.sort(degree);
+        long importance=0L;
+        for (int i = 0; i < n; i++) {
+            importance+=(i+1L)*degree[i];
+        }
+        return importance;
     }
 }  
