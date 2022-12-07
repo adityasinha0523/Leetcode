@@ -1,0 +1,9 @@
+1) Download and install python 3.10 or above to run our python code
+2) To run the code successfully please install the following python libraries/packages:
+Pip install numpy
+Pip install pandas
+Pip install seaborn
+Pip install matplotlib
+Pip install BeautifulSoup
+Pip install wordcloud
+Pip install sklearn
