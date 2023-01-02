@@ -57,12 +57,42 @@ class problem2133{
         scan.close();
     }  
 
-    public static boolean checkValid(int[][] matrix) {
+    /*public static boolean checkValid(int[][] matrix) {
         for(int r=0,n=matrix.length;r<n;r++){
             Set<Integer> row=new HashSet<>();
             Set<Integer> col=new HashSet<>();
             for (int c = 0; c < n; c++) {
                 if(!row.add(matrix[r][c])||!col.add(matrix[c][r])){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }*/
+    public static boolean checkValid(int[][] matrix) {
+        List<List<Integer>> rowSet=new ArrayList<>();
+        //List<Integer> list=new ArrayList<>();
+        List<List<Integer>> colSet=new ArrayList<>();
+        for (int i = 0; i < matrix.length; i++) {
+            List<Integer> rowSet1=new ArrayList<>();
+            for (int j = 0; j < matrix[0].length; j++) {
+                rowSet1.add(matrix[i][j]);
+            }
+            rowSet.add(rowSet1);
+        }
+        for (int i = 0; i < matrix[0].length; i++) {
+            List<Integer> colSet1=new ArrayList<>();
+            for (int j = 0; j < matrix.length; j++) {
+                colSet1.add(matrix[j][i]);
+            }
+            colSet.add(colSet1);
+        }
+        int index=0;
+
+        for (List<Integer> list : rowSet) {
+            List<Integer> colValue=colSet.get(index++);
+            for (int i = 1; i <=matrix.length; i++) {
+                if(!list.contains(i)|| !colValue.contains(i)){
                     return false;
                 }
             }
