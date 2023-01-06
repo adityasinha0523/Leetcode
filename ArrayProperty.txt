@@ -4,4 +4,5 @@ List<Integer> list=new ArrayList<>();
 Foo[] array = new Foo[list.size()];
 list.toArray(array); // fill the array
 
-2.
+2.To convert Integer to binary values with specifying base : 
+Integer.toString(number,base) func is used
