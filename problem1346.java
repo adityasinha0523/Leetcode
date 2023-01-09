@@ -60,11 +60,20 @@ class problem1346{
     public static boolean checkIfExist(int[] arr) {
         boolean solution=false;
         Set<Integer> set=new HashSet<>();
+        int zeroVal=0;
         for (int i = 0; i < arr.length; i++) {
             set.add(arr[i]);
+            if(arr[i]==0){
+                zeroVal++;
+            }
         }
         for (int i = 0; i < arr.length; i++) {
-            if(set.contains(arr[i]*2)){
+            if(arr[i]==0 ){
+                    if(zeroVal>=2){
+                        return true;
+                    }
+            }
+            else if(set.contains(arr[i]*2)){
                 return true;
             }
         }
