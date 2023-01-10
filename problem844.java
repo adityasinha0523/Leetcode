@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem125{
+class problem844{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -34,7 +34,9 @@ class problem125{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        boolean sol=isPalindrome("A man, a plan, a canal: Panama");
+        String s=scan.nextLine();
+        String t=scan.nextLine();
+        boolean sol=backspaceCompare(s,t);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -45,25 +47,34 @@ class problem125{
         scan.close();
     }  
 
-    public static boolean isPalindrome(String s) {
-        StringBuilder sb=new StringBuilder();
-        String s1=s.toLowerCase();
-        for (int i = 0; i < s1.length(); i++) {
-            if(Character.isLetterOrDigit(s1.charAt(i))){
-                sb.append(s1.charAt(i));
+    public static boolean backspaceCompare(String s, String t) {
+        Stack<Character> s1=new Stack<Character>();
+        Stack<Character> t1=new Stack<Character>();
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)!='#'){
+                s1.add(s.charAt(i));
+            }else{
+                if(!s1.isEmpty()){
+                    s1.pop();
+                }
             }
         }
-        if(sb.length()==1){
-            return false;
+        for (int i = 0; i < t.length(); i++) {
+            if(t.charAt(i)!='#'){
+                t1.add(t.charAt(i));
+            }else{
+                if(!t1.isEmpty()){
+                    t1.pop();
+                }
+            }
         }
-        int first=0;
-        int last=sb.length()-1;
-        while(first<=last){
-            if(sb.charAt(first)!=sb.charAt(last)){
+        while(!s1.isEmpty() && !t1.isEmpty()){
+            if(!s1.pop().equals(t1.pop())){
                 return false;
             }
-            first++;
-            last--;
+        }
+        if(!s1.isEmpty()|| !t1.isEmpty()){
+            return false;
         }
         return true;
     }

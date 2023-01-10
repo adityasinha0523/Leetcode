@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem125{
+class problem2511{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -34,37 +34,37 @@ class problem125{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        boolean sol=isPalindrome("A man, a plan, a canal: Panama");
+        
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static boolean isPalindrome(String s) {
-        StringBuilder sb=new StringBuilder();
-        String s1=s.toLowerCase();
-        for (int i = 0; i < s1.length(); i++) {
-            if(Character.isLetterOrDigit(s1.charAt(i))){
-                sb.append(s1.charAt(i));
+    public static int captureForts2(int[] forts) {
+        int ans = 0; 
+		for (int i = 0, ii = 0; i < forts.length; ++i) 
+			if (forts[i] != 0) {
+				if (forts[ii] == -forts[i]) ans = Math.max(ans, i-ii-1); 
+				ii = i; 
+			}
+		return ans; 
+    }
+
+    public static int captureForts(int[] forts) {
+        int ans=0;
+        for (int i = 0 ,ii=0; i < forts.length; i++) {
+            if(forts[i]!=0){
+                if(forts[ii]==-forts[i]){
+                    ans=Math.max(ans, i-ii-1);
+                }
+                ii=i;
             }
         }
-        if(sb.length()==1){
-            return false;
-        }
-        int first=0;
-        int last=sb.length()-1;
-        while(first<=last){
-            if(sb.charAt(first)!=sb.charAt(last)){
-                return false;
-            }
-            first++;
-            last--;
-        }
-        return true;
+        return ans; 
     }
 }  
