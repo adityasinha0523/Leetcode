@@ -12,7 +12,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1184{
+class problem2210{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,22 +45,44 @@ class problem1184{
         scan.close();
     }  
 
-    public static int distanceBetweenBusStops(int[] distance, int start, int destination) {
-        int forwardSum=0;
-        int backwardSum=0;
-        int totalSum=0;
-        if(start>destination){
-            int temp=destination;
-            destination=start;
-            start=temp;
+    boolean valley=false;
+    boolean hill=false;
+    public int countHillValley(int[] nums) {
+        int solution=0;
+        for (int i = 1; i < nums.length-1; i++) {
+            if(i==1 && nums[i]==nums[i-1]){
+                continue;
+            }else{
+            int backward=i-1;
+            int valueBack=0;
+            while(backward!=-1){
+                if(nums[i]!=nums[backward]){
+                    valueBack=nums[backward];
+                    break;
+                }
+                backward--;
+            }
+            int forward=i+1;
+            int valueForward=0;
+            while(forward!=nums.length){
+                if(nums[i]!=nums[forward]){
+                    valueForward=nums[forward];
+                    break;
+                }
+                forward++;
+            }
+            if(nums[i]>valueBack && nums[i]>valueForward && hill==false && valueForward!=0 && valueBack!=0){
+                solution++;
+                hill=true;
+                valley=false;
+            }
+            if(nums[i]<valueBack && nums[i]<valueForward && valley==false && valueForward!=0 && valueBack!=0){
+                solution++;
+                valley=true;
+                hill=false;
+            }
         }
-        for (int i = 0; i < distance.length; i++) {
-            totalSum+=distance[i];
-        }
-        for (int i = start; i < destination; i++) {
-            forwardSum+=distance[i];
-        }
-        backwardSum=totalSum-forwardSum;
-        return Math.min(forwardSum, backwardSum);  
+        } 
+        return solution;
     }
 }  
