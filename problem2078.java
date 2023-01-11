@@ -36,7 +36,7 @@ class problem2078{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[7];
+        int[] nums=new int[2];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }
@@ -48,7 +48,7 @@ class problem2078{
         scan.close();
     }  
 
-    public static int maxDistance(int[] colors) {
+    public static int maxDistance2(int[] colors) {
         int right=colors.length-1;
         int n=colors.length-1;
         int left=0;
@@ -59,5 +59,26 @@ class problem2078{
             right--;
         }
         return Math.max(right, n-left);
+    }
+
+    public static int maxDistance(int[] colors) {
+        int last=colors.length-1;
+        int first=0;
+        int solution=0;
+        while(first<last){
+            if(colors[last]!=colors[first]){
+                solution=Math.max(solution,Math.abs(last-first));
+            }
+            last--;
+        }
+        first=0;
+        last=colors.length-1;
+        while(first<last){
+            if(colors[last]!=colors[first]){
+                solution=Math.max(solution,Math.abs(last-first));
+            }
+            first++;
+        }
+        return solution;
     }
 }  

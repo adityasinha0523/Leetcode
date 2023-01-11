@@ -52,7 +52,7 @@ class problem1652{
             num[i]=scan.nextInt();
         }
         int k=scan.nextInt();
-        int[] sol=decrypt(num, k);
+        int[] sol=decrypt2(num, k);
         
         for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -94,5 +94,37 @@ class problem1652{
             }
             return solution;
         }
+    }
+
+    public static int[] decrypt2(int[] code, int k) {
+        int[] sol=new int[code.length];
+        if(k>0){
+            for (int i = 0; i < sol.length; i++) {
+                int start=i+1;
+                int sum=0;
+                int temp=k;
+                while(temp!=0){
+                    sum+=code[start%code.length];
+                    start++;
+                    temp--;
+                }
+                sol[i]=sum;
+            }
+        }else if(k==0){
+            return sol;
+        }else{
+            for (int i = 0; i < sol.length; i++) {
+                int start=i+code.length-1;
+                int sum=0;
+                int temp=k*-1;
+                while(temp!=0){
+                    sum+=code[start%code.length];
+                    start--;
+                    temp--;
+                }
+                sol[i]=sum;
+            }
+        }
+        return sol;
     }
 }  
