@@ -67,4 +67,20 @@ class problem1446{
         }
         return Math.max(maxValue,currentValue);
     }
+
+    public static int maxPower2(String s) {
+        int maxValue=0;
+        int counter=1;
+        for (int i = 1; i < s.length(); i++) {
+            char prev=s.charAt(i-1);
+            char current=s.charAt(i);
+            if(prev==current){
+                counter++;
+            }else{
+                maxValue=Math.max(maxValue, counter);
+                counter=1;
+            }
+        }
+        return Math.max(maxValue, counter);
+    }
 }  
