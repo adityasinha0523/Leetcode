@@ -72,4 +72,29 @@ class problem821{
         }
         return sol;
     }
+
+
+    public static int[] shortestToChar2(String s, char c) {
+        List<Integer> list=new ArrayList<>();
+        int[] sol=new int[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)==c){
+                list.add(i);
+            }
+        }
+        int k=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)==c){
+                sol[k++]=0;
+            }else{
+                int minDis=Integer.MAX_VALUE;
+                for (int j = 0; j < list.size(); j++) {
+                    int value=list.get(j);
+                    minDis=Math.min(minDis, Math.abs(i-value));
+                }
+                sol[k++]=minDis;
+            }
+        }
+        return sol;
+    }
 }  
