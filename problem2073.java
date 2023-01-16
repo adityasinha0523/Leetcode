@@ -69,15 +69,13 @@ class problem2073{
         int solution=0;
         while(true){
             for (int i = 0; i < tickets.length; i++) {
-                if(i==k && tickets[i]==0){
-                    return solution;
-                }else{
                     if(tickets[i]!=0){
                         solution++;
                         tickets[i]-=1;
                     }
-                    
-                }
+                    if(tickets[i]==0 && i==k){
+                        return solution;
+                    }
             }
         }
     }
