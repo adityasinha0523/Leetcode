@@ -82,4 +82,38 @@ class problem599{
         String[] newString=res.toArray(sol);
         return sol;
     }
+
+    public static String[] findRestaurant2(String[] list1, String[] list2) {
+        List<String> sol=new ArrayList<>();
+        HashMap<String,Integer> hMap1=new HashMap<>();
+        HashMap<String,Integer> hMap2=new HashMap<>();
+        for (int i = 0; i < list1.length; i++) {
+            hMap1.put(list1[i],i);
+        }
+        for (int i = 0; i < list2.length; i++) {
+            hMap2.put(list2[i],i);
+        }
+        int minSum=Integer.MAX_VALUE;
+        for (Map.Entry<String,Integer> hEntry : hMap1.entrySet()) {
+            String key=hEntry.getKey();
+            if(hMap2.containsKey(key)){
+                int value1=hEntry.getValue();
+                int value2=hMap2.get(key);
+                int sum=value1+value2;
+                if(sum<minSum){
+                    sol.clear();
+                    sol.add(key);
+                    minSum=sum;
+                }else if(sum==minSum){
+                    sol.add(key);
+                    minSum=sum;
+                }
+            }
+        }
+        String[] solution=new String[sol.size()];
+        for (int i = 0; i < sol.size(); i++) {
+            solution[i]=sol.get(i);
+        }
+        return solution;
+    }
 }  
