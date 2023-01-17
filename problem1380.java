@@ -70,4 +70,30 @@ class problem1380{
         }
         return solution;
     }
+
+    public static List<Integer> luckyNumbers2 (int[][] matrix) {
+        List<Integer> row=new ArrayList<>();
+        List<Integer> col=new ArrayList<>();
+        List<Integer> sol=new ArrayList<>();
+        for (int i = 0; i < matrix.length; i++) {
+            int min=Integer.MAX_VALUE;
+            for (int j = 0; j < matrix.length; j++) {
+                min=Math.min(min, matrix[i][j]);
+            }
+            row.add(min);
+        }
+        for (int i = 0; i < matrix[0].length; i++) {
+            int max=Integer.MIN_VALUE;
+            for (int j = 0; j < matrix.length; j++) {
+                max=Math.max(max, matrix[j][i]);
+            }
+            col.add(max);
+        }
+        for (int i = 0; i < row.size(); i++) {
+            if(col.contains(row.get(i))){
+                sol.add(row.get(i));
+            }
+        }
+        return sol;
+    }
 }  
