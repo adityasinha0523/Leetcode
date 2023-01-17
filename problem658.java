@@ -94,4 +94,21 @@ class problem658{
         Collections.sort(sol);
         return sol;
     }
+
+    public List<Integer> findClosestElements3(int[] arr, int k, int x) {
+        List<Integer> sol=new ArrayList<>();
+        int low=0;
+        int high=arr.length-1;
+        while(high-low>=k){
+            if(Math.abs(arr[low]-x)>Math.abs(arr[high]-x)){
+                low++;
+            }else{
+                high--;
+            }
+        }
+        for (int i = low; i <=high; i++) {
+            sol.add(arr[i]);
+        }
+        return sol;
+    }
 }  
