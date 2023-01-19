@@ -7,26 +7,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1180{
+class problem2423{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -51,17 +44,35 @@ class problem1180{
         scan.close();
     }  
 
-    public static int countLetters(String s) {
-        int ans=0;
-        int repeat=1;
-        for (int i = 1; i < s.length(); i++) {
-            if(s.charAt(i)!=s.charAt(i-1)){
-                repeat=1;
-                ans+=repeat*(repeat+1)/2;
-            }else{
-                repeat++;
+    public static boolean equalFrequency(String word) {
+        int[] count=new int[26];
+        for (int i = 0; i < word.length(); i++) {
+            count[word.charAt(i)-'a']++;
+        }
+        
+        for (int i = 0; i < count.length; i++) {
+            if(count[i]!=0){
+                count[i]--;
+                if(checkEqual(count)){
+                    return true;
+                }
+                count[i]++;
             }
         }
-        return ans+(repeat*(repeat+1)/2);
+        return false;
+    }
+
+    public static boolean checkEqual(int[] count){
+        int c=0;
+        for (int i = 0; i < count.length; i++) {
+            if(count[i]==0){
+                continue;
+            }else if(c==0){
+                c=count[i];
+            }else if(count[i]!=c){
+                return false;
+            }
+        }
+        return true;
     }
 }  
