@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem974{
+class problem560{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,35 +29,22 @@ class problem974{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[6];
+        /*int[] nums=new int[4];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        int sol=subarraysDivByK(nums, 5);
+        }*/
+        
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static int subarraysDivByK2(int[] A, int K) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0, 1);
-        int count = 0, sum = 0;
-        for(int a : A) {
-            sum = (sum + a) % K;
-            if(sum < 0) sum += K;  // Because -1 % 5 = -1, but we need the positive mod 4
-            count += map.getOrDefault(sum, 0);
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
-        }
-        return count;
-    }
-
-    public static int subarraysDivByK(int[] A, int K) {
+    public static int subarraySum(int[] A, int K) {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         int count = 0, sum = 0;
