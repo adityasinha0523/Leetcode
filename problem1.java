@@ -65,6 +65,7 @@ class problem1{
             if(hMap.containsKey(target-nums[i])){
                 solution[0]=i;
                 solution[1]=hMap.get(target-nums[i]);
+                break;
             }else{
                 hMap.put(nums[i], i);
             }

@@ -30,13 +30,12 @@ public class problemPriorityQueue {
      * 3.Adding hashmap in PriorityQueue in highest to lowest frequency.
      * 
      */
+    
     PriorityQueue<Map.Entry<Character, Integer>> pq1 = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
         pq1.addAll(map.entrySet());
-				
-        StringBuilder sb = new StringBuilder();
         while (!pq1.isEmpty()) {
             Map.Entry e = pq1.poll();
-            for (int i = 0; i < (int)e.getValue(); i++) 
-                sb.append(e.getKey());
+            int value=(int) e.getValue();
+            int key=(int) e.getKey();
         }
 }

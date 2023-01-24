@@ -7,26 +7,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem997{
+class DakshQ2{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -36,43 +29,42 @@ class problem997{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[] nums=new int[7];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
-        int[][] trust=new int[3][3];
-        int n=3;
-        for(int i = 0; i < 3; i++){
-            for(int y = 0; y < 2; y++){
-                trust[i][y] = scan.nextInt();
-            }
         }
-        int solution=findJudge(n,trust);
+        String sol=findWinner(nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(solution);
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static int findJudge(int n, int[][] trust) {
-        if(trust.length<n-1){
-            return -1;
-        }
-        int[] indegree=new int[n+1];
-        int[] outdegree=new int[n+1];
-
-        for(int[] relation:trust){
-            indegree[relation[1]]++;
-            outdegree[relation[0]]++;
-        }
-
-        for (int i = 1; i <=n; i++) {
-            if(indegree[i]==n-1 && outdegree[i]==0){
-                return i;
+    public static String findWinner(int[] nums){
+        Stack<Integer> stack =new Stack<>();
+        int counter=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(stack.isEmpty()){
+                stack.add(nums[i]);
+                //counter++;
+            }else{
+                int key=stack.peek();
+                if(key==nums[i]){
+                    stack.pop();
+                    counter++;
+                }else{
+                    stack.add(nums[i]);
+                }
             }
         }
-        return -1;
+        if(counter%2!=0){
+            return "Alice";
+        }else{
+            return "Bob";
+        }
     }
-    
 }  

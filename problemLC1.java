@@ -7,26 +7,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
+import java.nio.file.NotLinkException;
 
-class problem997{
+class problemLC1{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -40,39 +34,40 @@ class problem997{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        int[][] trust=new int[3][3];
-        int n=3;
-        for(int i = 0; i < 3; i++){
-            for(int y = 0; y < 2; y++){
-                trust[i][y] = scan.nextInt();
-            }
-        }
-        int solution=findJudge(n,trust);
+        int sol=alternateDigitSum(886996);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(solution);
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static int findJudge(int n, int[][] trust) {
-        if(trust.length<n-1){
-            return -1;
+    public static int alternateDigitSum(int n) {
+        int n1=0;
+        int temp=n;
+        while(temp!=0){
+            temp=temp/10;
+            n1++;
         }
-        int[] indegree=new int[n+1];
-        int[] outdegree=new int[n+1];
-
-        for(int[] relation:trust){
-            indegree[relation[1]]++;
-            outdegree[relation[0]]++;
+        int sum=0;
+        int sign=1;
+        if(n1%2==0){
+            sign=-1;
         }
-
-        for (int i = 1; i <=n; i++) {
-            if(indegree[i]==n-1 && outdegree[i]==0){
-                return i;
+        int counter=0;
+        while(n!=0){
+            int temp1=n%10;
+            sum=sum+sign*temp1;
+            if(counter%2==0){
+                sign=sign*-1;
+            }else{
+                sign=sign*1;
             }
+            n=n/10;
         }
-        return -1;
+        return sum;
     }
-    
 }  
