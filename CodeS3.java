@@ -33,14 +33,27 @@ class CodeS3{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+        List<String> words=new ArrayList<>();
+        words.add("Co");
+        words.add("Code");
+        words.add("codesi");
+        words.add("cosign");
+        words.add("codesignal");
+
+        String[] word=new String[5];
+        word[0]="co";
+        word[1]="code";
+        word[2]="codesi";
+        word[3]="codesign";
+        word[4]="codesignal";
+        int sol=checkAnswer(word);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
     
@@ -65,6 +78,10 @@ class CodeS3{
                         foundMismatch=true;
                         break;
                     }
+                    firstIndex++;
+                    secondIndex++;
+                    firstLastIndex--;
+                    secondLastIndex--;
                 }
                 if(foundMismatch==false){
                     solution++;
@@ -73,5 +90,23 @@ class CodeS3{
             }
         }
         return solution;
+    }
+
+    public static int countPrefixes(List<String> words) {
+        HashMap<String, Integer> prefixes = new HashMap<String, Integer>();
+        int count = 0;
+
+        for (String word : words) {
+            for (int i = 1; i <= word.length(); i++) {
+                String prefix = word.substring(0, i);
+                if (prefixes.containsKey(prefix)) {
+                    count++;
+                } else {
+                    prefixes.put(prefix, 1);
+                }
+            }
+        }
+
+        return count;
     }
 }  
