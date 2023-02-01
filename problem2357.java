@@ -36,7 +36,7 @@ class problem2357{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[5];
+        int[] nums=new int[1];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }
@@ -49,12 +49,25 @@ class problem2357{
     }  
 
     public static int minimumOperations(int[] nums) {
-        Set<Integer> set=new HashSet<>();
-        for (Integer integer : nums) {
-            if(integer>0){
-                set.add(integer);
+        int solution=0;
+        while(true){
+            int min=101;
+            for (int i = 0; i < nums.length; i++) {
+                if(nums[i]!=0 && nums[i]<min){
+                    min=nums[i];
+                }
+            }
+            if(min!=101){
+                for (int i = 0; i < nums.length; i++) {
+                    if(nums[i]!=0){
+                        nums[i]=nums[i]-min;
+                    }
+                    
+                }
+                solution++;
+            }else{
+                return solution;
             }
         }
-        return set.size();
     }
 }  
