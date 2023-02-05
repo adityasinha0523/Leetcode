@@ -49,26 +49,22 @@ class problem922{
     }  
 
     public static int[] sortArrayByParityII(int[] nums) {
-        List<Integer> oddList=new ArrayList<>();
-        List<Integer> evenList=new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]%2==0){
-                evenList.add(nums[i]);
+        int evenPointer=0;
+        int oddPointer=1;
+        while(true){
+            while(evenPointer<nums.length && nums[evenPointer]%2==0){
+                evenPointer+=2;
+            }while(oddPointer<nums.length && nums[oddPointer]%2!=0){
+                oddPointer+=2;
+            }
+            if(evenPointer<nums.length){
+                int temp=nums[oddPointer];
+                nums[oddPointer]=nums[evenPointer];
+                nums[evenPointer]=temp;
             }else{
-                oddList.add(nums[i]);
+                break;
             }
         }
-        int[] solution=new int[nums.length];
-        int oddIndex=0;
-        int evenIndex=0;
-        for (int i = 0; i < nums.length; i++) {
-            if(i%2!=0){
-                solution[i]=oddList.get(oddIndex++);
-            }else{
-                solution[i]=evenList.get(evenIndex++);
-            }
-            
-        }
-        return solution;
+        return nums;
     }
 }  

@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem1081{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -44,26 +44,37 @@ class template{
         scan.close();
     }  
 
-    public static int findAnswer(int[] nums,int[] pattern){
-        int solution=0;
-        for (int i = 1; i <nums.length-pattern.length+1; i++) {
-            int start=i;
-            int counter=0;
-            int k=0;
-            for (int j = start; j < start+pattern.length; j++) {
-                if(nums[j]==nums[j-1] && pattern[k]==0){
-                    counter++;
-                }else if(nums[j]<nums[j-1] && pattern[k]==-1){
-                    counter++;
-                }else if(nums[j]>nums[j-1] && pattern[k]==1){
-                    counter++;
+    public static String smallestSubsequence(String s) {
+        List<String> list=new ArrayList<>();
+        int max=Integer.MIN_VALUE;
+        for (int i = 0; i < s.length()-1; i++) {
+            StringBuilder sb=new StringBuilder();
+            Set<Character> set=new HashSet<>();
+            sb.append(s.charAt(i));
+            set.add(s.charAt(i));
+            for (int j = i+1; j < s.length(); j++) {
+                if(set.contains(s.charAt(j))){
+                    break;
+                }else{
+                    set.add(s.charAt(j));
+                    sb.append(s.charAt(j));
                 }
-                k++;
             }
-            if(counter==pattern.length){
-                solution++;
+            if(sb.length()>max){
+                list.clear();
+                list.add(sb.toString());
+            }else if(sb.length()==max){
+                list.add(sb.toString());
             }
         }
-        return solution;
+        Collections.sort(list);
+        String sol=list.get(0);
+        char charArray[] = sol.toCharArray();
+        Arrays.sort(charArray);
+        StringBuilder sc=new StringBuilder();
+        for (int i = 0; i < charArray.length; i++) {
+            sc.append(charArray[i]);
+        }
+        return sc.toString();
     }
 }  

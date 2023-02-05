@@ -7,26 +7,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2000{
+class problem2554{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -44,31 +37,32 @@ class problem2000{
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static String reversePrefix(String word, char ch) {
-        int last=-1;
-        for (int i = 0; i < word.length(); i++) {
-            if(word.charAt(i)==ch){
-                last=i;
-                break;
+    public static int maxCount(int[] banned, int n, int maxSum) {
+        Set<Integer> set=new HashSet<>();
+        for (int i = 0; i < banned.length; i++) {
+            set.add(banned[i]);
+        }
+        List<Integer> list=new ArrayList<>();
+        for (int i = 1; i <=n; i++) {
+            if(!set.contains(i)){
+                list.add(i);
             }
         }
-        if(last==-1){
-            return word;
+        int sum=0;
+        int counter=0;
+        for (int i = 0; i < list.size(); i++) {
+            if(sum+list.get(i)<=maxSum){
+                counter++;
+                sum+=list.get(i);
+            }
         }
-        int first=0;
-        char[] ch1=word.toCharArray();
-        while(first<last){
-            char temp=ch1[first];
-            ch1[first]=ch1[last];
-            ch1[last]=temp;
-            first++;
-            last--;
-        }
-        String sol=String.valueOf(ch1);
-        return sol;
+        return counter;
     }
 }  

@@ -7,26 +7,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2000{
+class problem6348{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
- 
             // as ONLINE_JUDGE constant is not defined which
             // means
- 
             // the code is not running on an online judge
- 
-            PrintStream ps
-                = new PrintStream(new File("output.txt"));
-            InputStream is
-                = new FileInputStream("input.txt");
- 
+            PrintStream ps= new PrintStream(new File("output.txt"));
+            InputStream is= new FileInputStream("input.txt");
             System.setIn(is);
             System.setOut(ps);
         }
@@ -44,31 +37,28 @@ class problem2000{
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static String reversePrefix(String word, char ch) {
-        int last=-1;
-        for (int i = 0; i < word.length(); i++) {
-            if(word.charAt(i)==ch){
-                last=i;
-                break;
-            }
+    public static long pickGifts(int[] gifts, int k) {
+        PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < gifts.length; i++) {
+            pq.add(gifts[i]);
         }
-        if(last==-1){
-            return word;
+        for (int i = 0; i < k; i++) {
+            int key=pq.poll();
+            key=(int)Math.sqrt(key);
+            pq.add(key);
         }
-        int first=0;
-        char[] ch1=word.toCharArray();
-        while(first<last){
-            char temp=ch1[first];
-            ch1[first]=ch1[last];
-            ch1[last]=temp;
-            first++;
-            last--;
+        int n=pq.size();
+        long sum=0;
+        for (int i = 0; i < n; i++) {
+            sum+=pq.poll();
         }
-        String sol=String.valueOf(ch1);
-        return sol;
+        return sum;
     }
 }  
