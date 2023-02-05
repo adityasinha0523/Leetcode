@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem6348{
+class problem2558{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
