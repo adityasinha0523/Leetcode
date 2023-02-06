@@ -7,12 +7,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1089{
+class problem1470{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,11 +29,11 @@ class problem1089{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[4];
+        /*int[] nums=new int[4];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        duplicateZeros(nums);
+        }*/
+        
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -45,26 +44,15 @@ class problem1089{
         scan.close();
     }  
 
-    public static void duplicateZeros(int[] A) {
-        int countZero=0;
-        for (int i : A) {
-            if(i==0){
-                countZero++;
-            }
+    public static int[] shuffle(int[] nums, int n) {
+        int second=n;
+        int first=0;
+        int[] sol=new int[nums.length];
+        int k=0;
+        while(first<n){
+            sol[k++]=nums[first++];
+            sol[k++]=nums[second++];
         }
-        int len=A.length+countZero;
-        for (int i = 0 ,j=len-1; i <j ; i--,j--) {
-            if(A[i]!=0){
-                if(j<A.length){
-                    A[j]=A[i];
-                }
-            }else{
-                if(j<A.length){
-                    A[j]=A[i];
-                }if(j<A.length){
-                    A[j]=A[i];
-                }
-            }
-        }
+        return sol;
     }
 }  
