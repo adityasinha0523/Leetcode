@@ -1,0 +1,4 @@
+1.To convert list into array of string use below command.
+String[] sol=solution.toArray(new String[0]);
+
+2.
