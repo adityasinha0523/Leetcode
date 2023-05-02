@@ -11,7 +11,7 @@
 </ul>
 
 The screenshot below shows an example of what your finished interface will look like.
-<img href a="images/"></a>
+![first.png](first.png)
 
 ## Overview
 
@@ -116,7 +116,7 @@ When the user clicks on the `Submit` button, you should display a heatmap chart 
 - Choose a categorical d3 color scale for this chart by picking a color scale from [https://github.com/d3/d3-scale-chromatic](https://github.com/d3/d3-scale-chromatic). For my screenshots, I'm using the `d3.schemeSet3` scale, but you can choose any categorical scale you like.
 - When the user mouses over in the heatmap chart, perform one actions: (1) First, centered in the inside of the heatmap, show the count of the selected number count, as shown in the below image.  When the user mouses off of the arc, clear the inside text (i.e., make it blank inside the heatmap chart).
 
-![imgs/hover.gif](imgs/hover.gif)
+![imgs/hover.gif](imgs/)
 
 ## Step 3: Add a hover tooltip to the heatmap chart
 
