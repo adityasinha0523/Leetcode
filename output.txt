@@ -1,12 +1,3 @@
-Input value is
-a
-b
-End
- arranged string value a
-
-
-s-a value for char ais 
-0
-s-a value for char bis 
-1
+Value20
+Value56
 0
