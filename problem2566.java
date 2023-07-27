@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2562{
+class problem2566{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,36 +29,57 @@ class problem2562{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+        int n=scan.nextInt();
+        int sol=minMaxDifference(n);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static long findTheArrayConcVal(int[] nums) {
-        long solution=0;
-        int first=0;
-        int last=nums.length-1;
-        while(first<last){
-            String firstString=String.valueOf(nums[first]);
-            String secondString=String.valueOf(nums[last]);
-            String s=firstString+secondString;
-            solution+=Integer.parseInt(s);
-            first++;
-            last--;
+    public static int minMaxDifference(int num) {
+        char[] x=String.valueOf(num).toCharArray();
+        char[] y=String.valueOf(num).toCharArray();
+        char p=x[0];
+        char q=x[0];
+        int k=0;
+        for (int i = 0; i < x.length; i++) {
+            if(x[i]!='9'){
+                p=x[i];
+                break;
+            }
         }
-        if(nums.length%2!=0){
-            solution+=nums[first];
+        for (int i = 0; i < y.length; i++) {
+            if(x[i]==p){
+                x[i]='9';
+            }
         }
-        return solution;
+        for (int i = 0; i < y.length; i++) {
+            if(y[i]==q){
+                y[i]='0';
+            }
+        }
+        return Integer.parseInt(String.valueOf(x)) -Integer.parseInt(String.valueOf(y));
     }
 }  
