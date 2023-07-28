@@ -33,7 +33,7 @@ class problem2541{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        long sol=minOperations(num1, nums2, 3);
+        //long sol=minOperations(num1, nums2, 3);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/

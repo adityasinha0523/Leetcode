@@ -45,7 +45,7 @@ class problem2181{
     }  
 
     public static ListNode mergeNodes(ListNode head) {
-        ListNode curr, root = new ListNode();
+        ListNode curr, root = new ListNode(0);
         curr = root;
         int sum = 0;
         while(head!=null){

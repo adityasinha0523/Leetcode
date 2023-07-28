@@ -58,6 +58,5 @@ class problem2525{
         }else{
             return "Neither";
         }
-        }
     }
-}  
+}

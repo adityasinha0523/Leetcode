@@ -10,9 +10,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 
-import apple.laf.JRSUIConstants.Widget;
-
-import java.lang.*;
 
 class problem2515{
     public static void main(String args[]) throws IOException{  
