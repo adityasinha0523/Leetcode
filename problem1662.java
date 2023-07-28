@@ -69,7 +69,6 @@ class problem1662{
                 sb.append(c[j]);
             }
         }
-        //System.out.println(sb);
         StringBuilder sb1=new StringBuilder();
         for (int i = 0; i < word2.length; i++) {
             char[] c=word2[i].toCharArray();
@@ -77,7 +76,6 @@ class problem1662{
                 sb1.append(c[j]);
             }
         }
-        //System.out.println(sb1);
         if(sb.toString().equals(sb1.toString())){
             return true;
         }
