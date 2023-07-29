@@ -36,24 +36,17 @@ class problem1940{
         }*/
 
         //Taking 2D Array as input
-        int[][] nums=new int[3][3];
-        for (int i = 0; i < nums.length; i++) {
-            
-                nums[i][j]=scan.nextInt();
-            }
-        }
+        
 
         //Taking String as input.
         //String s=scan.nextLine();
 
-        List<Integer> sol=longestCommonSubsequence(arr);
+        //List<Integer> sol=longestCommonSubsequence(arr);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        for (Integer integer : sol) {
-            System.out.println(integer);
-        }
+        
         //System.out.println(sol);
         scan.close();
     }  
