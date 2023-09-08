@@ -49,18 +49,17 @@ class problem1991{
     }  
 
     public static int findMiddleIndex(int[] nums) {
-        int prefix=0;
-        int suffix=0;
         int sum=0;
+        int temp=0;
         for (int i = 0; i < nums.length; i++) {
             sum+=nums[i];
         }
-        for (int i = 0; i < nums.length; i++) {
-            suffix=sum-prefix;
-            prefix+=nums[i];
-            if(suffix==prefix){
-                return i;
+        for (int j = 0; j < nums.length; j++) {
+            sum=sum-nums[j];
+            if(sum==temp){
+                return j;
             }
+            temp+=nums[j];
         }
         return -1;
     }
