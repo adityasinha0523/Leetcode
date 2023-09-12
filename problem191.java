@@ -51,14 +51,14 @@ class problem191{
     }  
 
     public static int hammingWeight(int n) {
-        int solution=0;
-        while(n>0){
-            int temp=n%10;
-            if((temp|1)==1){
-                solution++;
+        int bits=0;
+        int mask=1;
+        for(int i=0;i<32;i++){
+            if((n&mask)!=0){
+                bits++;
             }
-            n=n/10;
+            mask<<=1;
         }
-        return solution;
+        return bits;
     }
 }  
