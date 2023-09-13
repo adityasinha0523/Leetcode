@@ -13,11 +13,13 @@ import java.util.*;
 import java.lang.*;
 public class templatePriorityQueue {
     public static void main(String[] args) {
-       // https://www.geeksforgeeks.org/max-heap-in-java/
-       /*
-        * 1.To add integer in decreasing order.
+       // https://www.geeksforgeeks.org/max-heap-in-java//*
+        /* 
+        1.To add integer in decreasing order.
         */
         PriorityQueue<Integer> pQueue= new PriorityQueue<Integer>(Collections.reverseOrder());
+        //or
+        PriorityQueue<Integer> pQueue2= new PriorityQueue<Integer>(Comparator.reverseOrder());
         /*
          * 2.To add integer in ascending order.
          */

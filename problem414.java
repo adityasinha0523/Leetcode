@@ -60,25 +60,24 @@ class problem414{
     }  
 
     public static int thirdMax(int[] nums) {
-        int thirdMaxVal=Integer.MIN_VALUE;
-        int firstMaxVal=Integer.MIN_VALUE;
-        int secondeMaxVal=Integer.MIN_VALUE;
+        TreeSet<Integer> sortNum=new TreeSet<>();
         for (int i = 0; i < nums.length; i++) {
-            if(nums[i]>firstMaxVal){
-                thirdMaxVal=secondeMaxVal;
-                secondeMaxVal=firstMaxVal;
-                firstMaxVal=nums[i];
+            if(sortNum.contains(nums[i])){
+                continue;
             }
-            else if(nums[i]>secondeMaxVal && nums[i]!=firstMaxVal){
-                thirdMaxVal=secondeMaxVal;
-                secondeMaxVal=nums[i];
-            }else if(nums[i]>thirdMaxVal && nums[i]!=secondeMaxVal &&nums[i]!=firstMaxVal){
-                thirdMaxVal=nums[i];
+            if(sortNum.size()==3){
+                if(sortNum.first()<nums[i]){
+                    sortNum.pollFirst();
+                    sortNum.add(nums[i]);
+                }
+            }
+            else{
+                sortNum.add(nums[i]);
             }
         }
-        if(thirdMaxVal==Integer.MIN_VALUE){
-            return firstMaxVal;
+        if(sortNum.size()==3){
+            return sortNum.first();
         }
-        return thirdMaxVal;
+        return sortNum.last();
     }
 }  
