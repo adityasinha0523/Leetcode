@@ -1,3 +1,4 @@
+package Notes;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,11 +8,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class DVHw{
+class hashmapExample{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -24,20 +26,26 @@ class DVHw{
             System.setOut(ps);
         }
         Scanner scan = new Scanner(System.in);
-        String[] list=new String[247];
-        for (int i = 0; i < list.length; i++) {
-            list[i]=scan.nextLine();
-        }
-
-        for (int i = 0; i < list.length; i++) {
-            StringBuilder sb=new StringBuilder();
-            String s=list[i];
-            for (int j = 0; j < s.length(); j++) {
-                if(s.charAt(j)!=','){
-                    sb.append(s.charAt(j));
-                }
-            }
-            System.out.println(sb.toString());
+        HashMap<String,List<String>> map=new HashMap<>();
+        List<String> a=new ArrayList<>();
+        a.add("xyz");
+        
+        List<String> e=new ArrayList<>();
+        a.add("qwe");
+        List<String> b=new ArrayList<>();
+        a.add("adsadasd");
+        List<String> c=new ArrayList<>();
+        a.add("xcvxcv");
+        List<String> d=new ArrayList<>();
+        a.add("dasdqwe");
+        map.put("abc",a);
+        for (Map.Entry<String,List<String>> hEntry : map.entrySet()) {
+            String key=hEntry.getKey();
+                List<String> value=hEntry.getValue();
+                for (int i = 0; i < value.size(); i++) {
+					System.out.println("Key is "+key);
+					System.out.println("Valus is "+value.get(i));
+			}
         }
         scan.close();
     }  
