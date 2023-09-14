@@ -40,24 +40,14 @@ class problem455{
     }  
 
     public static int findContentChildren(int[] g, int[] s) {
-        int solution=0;
-        int k=0;
-        for (int i = 0; i < g.length; i++) {
-            if(g[i]>s[k]){
-                while(k<s.length-1){
-                    if(g[i]<s[k]){
-                        solution++;
-                        i=k;
-                        break;
-                    }else{
-                        k++;
-                    }
-                }
-            }else{
-                k++;
-                solution++;
+        int i=0;
+        Arrays.sort(g);
+        Arrays.sort(s);
+        for (int j = 0; i<g.length && j < s.length; j++) {
+            if(g[i]<=s[i]){
+                i++;
             }
         }
-        return solution;
+        return i;
     }
 }  
