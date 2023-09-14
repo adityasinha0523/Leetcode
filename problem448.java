@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem448{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -58,4 +58,17 @@ class template{
         scan.close();
     }  
 
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
+        int[] sol=new int[nums.length+1];
+        List<Integer> list=new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            sol[nums[i]]=1;
+        }
+        for (int i = 0; i < sol.length; i++) {
+            if(sol[i]==0){
+                list.add(i);
+            }
+        }
+        return list;
+    }
 }  
