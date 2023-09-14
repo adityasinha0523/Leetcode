@@ -42,7 +42,16 @@ class problem346{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
+        Queue<Integer> q=new LinkedList<>();
+        q.add(10);
+        q.add(20);
+        q.add(30);
+        q.add(40);
+        q.add(50);
+        int size=q.size();
+        for (int i = 0; i < size; i++) {
+            System.out.println(q.poll());
+        }
         //Taking String as input.
         //String s=scan.nextLine();
 
@@ -57,10 +66,10 @@ class problem346{
         scan.close();
     }  
 
-    private static int size;
+    /*private static int size;
     Queue<Integer> dataQ = new LinkedList<>();
     long sum;
-    /** Initialize your data structure here. */
+    
     public static MovingAverage(int size) {
         this.size = size;
         sum =0;
@@ -76,5 +85,5 @@ class problem346{
         sum = sum+ val;
         dataQ.add(val);
         return (double)sum/dataQ.size();
-    }
+    }*/
 }  
