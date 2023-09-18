@@ -49,9 +49,6 @@ class problem628{
         Arrays.sort(nums);
         int first=nums[0];
         int second=nums[1];
-        if(first*second>nums[nums.length-2]*nums[nums.length-3]){
-            return first *second*nums[nums.length-1];
-        }
-        return nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3];
+        return Math.max(nums[nums.length-1]*nums[nums.length-2]*nums[nums.length-3],first*second*nums[nums.length-1]);
     }
 }  
