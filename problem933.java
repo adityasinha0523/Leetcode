@@ -58,5 +58,20 @@ class problem933{
         scan.close();
     }  
 
+    class RecentCounter {
+        LinkedList<Integer> list;
+        public RecentCounter() {
+            list=new LinkedList<>();
+        }
+        
+        public int ping(int t) {
+            
+            list.addLast(t);
+            while(list.getFirst()<t-3000){
+                list.removeFirst();
+            }
+            return list.size();
+        }
+    }
     
 }  
