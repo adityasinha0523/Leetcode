@@ -23,5 +23,31 @@ public class ArrayListProperty {
         for (Integer integer : list) {
             System.out.println(integer);
         }
+
+
+        /*
+         * 2.LinkedList ArrayList give option to add value from front or back.
+         * We can get value from first using getFirst() function.
+         * We can also remove value from first using removeFirst() function.
+         */
+        LinkedList<Integer> linkList=new LinkedList<>();
+        linkList.addFirst(10);
+        linkList.addFirst(20);
+
+        linkList.addFirst(30);
+        linkList.addFirst(40);
+        linkList.addLast(60);
+        linkList.addLast(70);
+        linkList.addLast(80);
+        linkList.addLast(90);
+        System.out.println("Linked List Start");
+        for (Integer integer : linkList) {
+            System.out.println(integer);
+        }
+        System.out.println("Linked List End");
+        System.out.println(linkList.getFirst());
+        System.out.println(linkList.getLast());
+        System.out.println(linkList.removeFirst());
+        System.out.println(linkList.removeLast());
     }
 }

@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem938{
+class problem1436{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,11 +29,25 @@ class problem938{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -44,15 +58,24 @@ class problem938{
         scan.close();
     }  
 
-    int sum=0;
-    public int rangeSumBST(TreeNode root, int low, int high) {
-        if(root!=null){
-            rangeSumBST(root.left,low,high);
-            if(root.val>=low && root.val<=high){
-                sum+=root.val;
-            }
-            rangeSumBST(root.right,low,high);
+    public static String destCity(List<List<String>> paths) {
+        Map<String,String> map=new HashMap<>();
+        List<String> list1=new ArrayList<>();
+        String solution="";
+        for (int i = 0; i < paths.size(); i++) {
+            List<String> list=paths.get(i);
+            String first=list.get(0);
+            String second=list.get(1);
+            map.put(first,second);
+            list1.add(first);
+            list.add(second);
         }
-        return sum;
+        for (int i = 0; i < list1.size(); i++) {
+            String s=list1.get(i);
+            if(!map.containsKey(s)){
+                return s;
+            }
+        }
+        return solution;
     }
 }  
