@@ -7,12 +7,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1018{
+class problem1013{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,34 +29,53 @@ class problem1018{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[6];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        List<Boolean> sol=prefixesDivBy5(nums);
+        }*/
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        for (Boolean integer : sol) {
+        /*for (Integer integer : sol) {
             System.out.println(integer);
-        }
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
-    public static List<Boolean> prefixesDivBy5(int[] nums) {
-        //Boolean[] sol=new Boolean[nums.length];
-        List<Boolean> sol=new ArrayList<>();
-        int sum=0;
-        for (int i = 0; i < nums.length; i++) {
-            sum=sum*2+nums[i];
-            if(sum%5==0){
-                sol.add(true);
-            }else{
-                sol.add(false);
-            }
-            sum=sum%5;
+    public static boolean canThreePartsEqualSum(int[] arr) {
+        int totalSum=0;
+        for (int i = 0; i < arr.length; i++) {
+            totalSum+=arr[i];
         }
-        return sol;
+        if(totalSum%3!=0){
+            return false;
+        }
+        totalSum=totalSum/3;
+        int currentSum=0;
+        int counter=0;
+        for (int i = 0; i < arr.length; i++) {
+            currentSum+=arr[i];
+            if(currentSum==totalSum){
+                counter++;
+                currentSum=0;
+            }
+        }
+        return counter>=3?true:false;
     }
 }  
