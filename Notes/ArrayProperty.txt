@@ -6,3 +6,7 @@ list.toArray(array); // fill the array
 
 2.To convert Integer to binary values with specifying base : 
 Integer.toString(number,base) func is used
+
+
+3.Copying one array to another array using clone function.//heights is array.
+int[] newArr=heights.clone();
