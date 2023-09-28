@@ -60,17 +60,17 @@ class problem1085{
     }  
 
     public static int sumOfDigits(int[] nums) {
-        Arrays.sort(nums);
-        int n=nums[0];
+        int min=Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]<min){
+                min=nums[i];
+            }
+        }
         int sum=0;
-        while(n!=0){
-            int temp=n%10;
-            n=n/10;
-            sum+=temp;
+        while(min!=0){
+            sum+=min%10;
+            min=min/10;
         }
-        if(sum%2==0){
-            return 1;
-        }
-        return 0;
+        return sum%2==0?1:0;
     }
 }  
