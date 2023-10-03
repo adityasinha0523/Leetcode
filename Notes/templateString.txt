@@ -1,4 +1,8 @@
 1.To convert list into array of string use below command.
 String[] sol=solution.toArray(new String[0]);
 
-2.
+//2.To trim whitespace from start and end
+String s2=s.trim();
+
+//3.To split string based on whitespace
+String[] s1=s2.split("\\s+");
