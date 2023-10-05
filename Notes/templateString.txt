@@ -6,3 +6,6 @@ String s2=s.trim();
 
 //3.To split string based on whitespace
 String[] s1=s2.split("\\s+");
+
+//4.To Check if substring exist in another string use contains function.
+string1.contains(string2); //Will return true if exist else false.
