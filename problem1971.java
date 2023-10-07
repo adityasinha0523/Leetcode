@@ -13,7 +13,7 @@ import java.util.*;
 import java.lang.*;
 
 class problem1971{
-    public static boolean found=false;
+    
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -62,36 +62,34 @@ class problem1971{
         System.out.println(sol);
         scan.close();
     }  
-
+    public static boolean found=false;
     public static boolean validPath(int n, int[][] edges, int source, int destination) {
-        if(source==destination){
-            return true;
-        }
         Map<Integer,List<Integer>> graph=new HashMap<>();
         boolean[] visited=new boolean[n];
         for (int i = 0; i < n; i++) {
             graph.put(i, new ArrayList<>());
         }
-        for (int[] edge : edges) {
-            graph.get(edge[0]).add(edge[1]);
-            graph.get(edge[1]).add(edge[0]);
+        for (int i = 0; i < edges.length; i++) {
+            int u=edges[i][0];
+            int v=edges[i][1];
+            graph.get(u).add(v);
+            graph.get(v).add(u);
         }
-        dfs(graph,visited,source,destination);
+        dfs(visited,graph,source,destination);
         return found;
-    }
-
-    private static void dfs(Map<Integer, List<Integer>> graph, boolean[] visited, int source, int destination) {
-        if(visited[source]||found){
+    }    
+    public static void dfs(boolean[] visited,Map<Integer,List<Integer>> graph,int source,int destination){
+        if(visited[source]==true||found==true){
             return;
         }
         visited[source]=true;
-        for (int nei : graph.get(source)) {
-            if(nei==destination){
+        for (int i : graph.get(source)) {
+            if(i==destination){
                 found=true;
                 break;
             }
-            if(!visited[nei]){
-                dfs(graph,visited,nei,destination);
+            if(visited[source]==false){
+                dfs(visited,graph,i,destination);
             }
         }
     }

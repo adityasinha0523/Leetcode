@@ -56,23 +56,30 @@ class problem997{
     }  
 
     public static int findJudge(int n, int[][] trust) {
-        if(trust.length<n-1){
-            return -1;
-        }
-        int[] indegree=new int[n+1];
-        int[] outdegree=new int[n+1];
-
-        for(int[] relation:trust){
-            indegree[relation[1]]++;
-            outdegree[relation[0]]++;
-        }
-
+        Map<Integer,List<Integer>> graph=new HashMap<>();
         for (int i = 1; i <=n; i++) {
-            if(indegree[i]==n-1 && outdegree[i]==0){
-                return i;
+            graph.put(i,new ArrayList<>());
+        }
+        for (int i = 0; i < trust.length; i++) {
+            int u=trust[i][0];
+            int v=trust[i][1];
+            graph.get(u).add(v);
+        }
+        int value=-1;
+        for (Map.Entry<Integer,List<Integer>> mEntry : graph.entrySet()) {
+            if(mEntry.getValue().size()==0){
+                value= mEntry.getKey();
             }
         }
-        return -1;
+        for (Map.Entry<Integer,List<Integer>> mEntry : graph.entrySet()) {
+            if(mEntry.getValue().size()>0){
+                List<Integer> ll=mEntry.getValue();
+                if(!ll.contains(value)){
+                    return -1;
+                }
+            }
+        }
+        return value;
     }
     
 }  
