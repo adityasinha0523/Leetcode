@@ -10,3 +10,7 @@ Integer.toString(number,base) func is used
 
 3.Copying one array to another array using clone function.//heights is array.
 int[] newArr=heights.clone();
+
+4. To convert array into arrayList.
+
+Arrays.asList(lower, nums[0] - 1)
