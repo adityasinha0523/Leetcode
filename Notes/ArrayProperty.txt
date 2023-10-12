@@ -20,3 +20,5 @@ int[] sortedPeople = Arrays.copyOf(people, people.length);
         Arrays.sort(sortedPeople);
 //to sort 2d array        
         Arrays.sort(flowers, (a, b) -> Arrays.compare(a, b));
+//to sort 2d array
+         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
