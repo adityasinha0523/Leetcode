@@ -14,3 +14,9 @@ int[] newArr=heights.clone();
 4. To convert array into arrayList.
 
 Arrays.asList(lower, nums[0] - 1)
+
+//to copy from one array to another
+int[] sortedPeople = Arrays.copyOf(people, people.length);
+        Arrays.sort(sortedPeople);
+//to sort 2d array        
+        Arrays.sort(flowers, (a, b) -> Arrays.compare(a, b));
