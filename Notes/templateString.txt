@@ -9,3 +9,11 @@ String[] s1=s2.split("\\s+");
 
 //4.To Check if substring exist in another string use contains function.
 string1.contains(string2); //Will return true if exist else false.
+
+//Compare Two String lexicographically.
+tempString.compareTo(solution)<0
+
+
+//Converting no into binary String equivalent
+String xValue=Integer.toBinaryString(x);//4 will turn into "100"
+String yValue=Integer.toBinaryString(y);
