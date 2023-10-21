@@ -45,6 +45,36 @@ class problem541{
     }  
 
     public static String reverseStr(String s, int k) {
-        
+        int counter=0;
+        boolean reverse=true;
+        StringBuilder sb=new StringBuilder();
+        StringBuilder sol=new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+             counter++;
+            if(reverse==true && counter<=k){
+                sb.append(s.charAt(i));
+            }else if(counter>k){
+                if(reverse==true){
+                    sol.append(sb.reverse().toString());
+                    sb.delete(0, sb.length());
+                    sol.append(s.charAt(i));
+                }else{
+                    sb.append(s.charAt(i));
+                }
+                if(reverse==false){
+                    reverse=true;
+                }else{
+                    reverse =false;
+                }
+                counter=1;    
+            }else{
+                sol.append(s.charAt(i));
+            }
+           
+        }
+        if(sb.length()!=0){
+            sol=sol.append(sb.reverse().toString());
+        }
+        return sol.toString();
     }
 }  
