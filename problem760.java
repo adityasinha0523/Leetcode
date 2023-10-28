@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.HashMap;
 import java.util.Scanner;
 
 class problem760{
@@ -73,6 +74,7 @@ class problem760{
                 }
             }
         }
+       // Map<Integer,Integer> map=new HashMap<>();
         return solution;
     }
 }  
