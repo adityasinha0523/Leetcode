@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
+
 import java.lang.*;
 
 class problem3{
@@ -46,21 +47,26 @@ class problem3{
     }  
 
     public static int lengthOfLongestSubstring(String s) {
-        int res=0;
-        int left=0;
-        int right=0;
-        Map<Character,Integer> chars=new HashMap<>(); 
-        while(right<s.length()){
-            char r=s.charAt(right);
-            chars.put(r,chars.getOrDefault(r,0)+1);
-            while(chars.get(r)>1){
-                char l=s.charAt(left);
-                chars.put(l,chars.get(l)-1);
-                left++;
+        Map<Character,Integer> map=new HashMap<>();
+        int sol=0;
+        int i=0;
+        int j=0;
+        while(j<s.length()){
+            map.put(s.charAt(j), map.getOrDefault(s.charAt(j), 0)+1);
+            if(map.size()==j-i+1){
+                sol=Math.max(sol, j-i+1);
+                j++;
+            }else if(map.size()<j-i+1){
+                while(map.size()<j-i+1){
+                    map.put(s.charAt(i),map.get(s.charAt(i))-1);
+                    if(map.get(s.charAt(i))==0){
+                        map.remove(s.charAt(i));
+                    }
+                    i++;
+                }
+                j++;
             }
-            res=Math.max(res,right-left+1);
-            right++;
         }
-        return res;
+        return sol;
     }
 }  
