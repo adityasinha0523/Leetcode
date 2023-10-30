@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem15{
+class problem54{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,45 +29,65 @@ class problem15{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[6];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        List<List<Integer>> sol=threeSum(nums);
+        }*/
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static List<List<Integer>> threeSum(int[] nums) {
-        Set<List<Integer>> solution=new HashSet<>();
-        Arrays.sort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            int j=i+1;
-            int k=nums.length-1;
-            while(j<k){
-                int x=nums[j];
-                int y=nums[k];
-                int z=nums[i];
-                if(x+y+z==0){
-                    List<Integer> list=new ArrayList<>();
-                    list.add(z);
-                    list.add(x);
-                    list.add(y);
-                    solution.add(list);
-                }
-                else if(x+y+z<0){
-                    j++;
-                }else{
-                    k--;
+    public static List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> sol=new ArrayList<>();
+        int rows=matrix.length;
+        int column=matrix[0].length;
+        int left=0;
+        int up=0;
+        int down=rows-1;
+        int right=column-1;
+        while(sol.size()<rows*column){
+            for (int col = left; col <=right; col++) {
+                sol.add(matrix[up][col]);
+            }
+            for (int row = up+1; row <=down; row++) {
+                sol.add(matrix[row][right]);
+            }
+            if(up!=down){
+                for (int col = right-1; col >=left; col--) {
+                    sol.add(matrix[down][col]);
                 }
             }
+            if(left!=right){
+                for (int row = down-1; row >up; row--) {
+                    sol.add(matrix[row][left]);
+                }
+            }
+            left++;
+            right--;
+            up++;
+            down--;
         }
-        return new ArrayList<>(solution);
+        return sol;
     }
 }  
