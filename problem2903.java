@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2904{
+class problem2903{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,9 +46,7 @@ class problem2904{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        String s="1";
-        int k=1;
-        String sol=shortestBeautifulSubstring(s, k);
+
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -56,40 +54,24 @@ class problem2904{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static String shortestBeautifulSubstring(String s, int k) {
-        String solution="";
-        boolean found=false;
-        for (int i = 0; i < s.length(); i++) {
-            int counter=0;
-            int initialIndex=0;
-            for (int j = i; j < s.length(); j++) {
-                if(s.charAt(j)=='1'){
-                    if(counter==0){
-                        initialIndex=j;
-                    }
-                    counter++;
-                }
-                if(counter==k){
-                    String tempString=s.substring(initialIndex, j+1);
-                    if(tempString.length()<solution.length() &&found==true){
-                        solution=tempString;
-                    }
-                    else if(tempString.length()==solution.length() &&found==true){
-                        if(tempString.compareTo(solution)<0){
-                            solution=tempString;
-                        }
-                    }
-                    else if(found==false){
-                        solution=tempString;
-                        found=true;
-                    }
+    public static int[] findIndices(int[] nums, int indexDifference, int valueDifference) {
+        int[] sol=new int[2];
+        sol[0]=-1;
+        sol[1]=-1;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if(Math.abs(i-j)>=indexDifference &&Math.abs(nums[i]-nums[j])>=valueDifference){
+                    sol[0]=i;
+                    sol[1]=j;
+                    //break;
+                    return sol;
                 }
             }
         }
-        return solution;
+        return sol;
     }
 }  
