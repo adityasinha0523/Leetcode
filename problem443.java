@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class LCContest1{
+class problem443{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -58,4 +58,27 @@ class LCContest1{
         scan.close();
     }  
 
+    public static int returnVal(char[] input){
+        int index=0;
+        int i=0;
+        while(i<input.length){
+            char current=input[i];
+            int count=0;
+            while(i<input.length && current==input[i]){
+                i++;
+                count++;
+            }
+            input[index]=current;
+            if(count>1){
+                String s=String.valueOf(count);
+                for (int j = 0; j < s.length(); j++) {
+                    input[index]=s.charAt(j);
+                }
+            }
+            
+            //input.replace(current, current)
+            i++;
+        }
+        return index;
+    }
 }  

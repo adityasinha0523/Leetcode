@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class LCContest1{
+class problem2104Contest{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class LCContest1{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[5];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -46,7 +46,7 @@ class LCContest1{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        long sol=subArrayRanges(nums);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,8 +54,22 @@ class LCContest1{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static long subArrayRanges(int[] nums) {
+        long solution=0;
+        for (int i = 0; i < nums.length; i++) {
+            int largest=nums[i];
+            int smallest=nums[i];
+            for (int j = i+1; j < nums.length; j++) {
+                largest=Math.max(largest, nums[j]);
+                smallest=Math.min(smallest,nums[j]);
+                solution+=(largest-smallest);
+            }
+            
+        }
+        return solution;
+    }
 }  

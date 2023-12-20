@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class LCContest1{
+class problem38{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class LCContest1{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        String sol=countAndSay(4);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,8 +54,28 @@ class LCContest1{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static String countAndSay(int n) {
+        if(n==1){
+            return "1";
+        }
+        String say=countAndSay(n-1);
+        StringBuilder sol=new StringBuilder();
+        int i=0;
+        while(i<say.length()){
+            int count=0;
+            int val=Character.getNumericValue(say.charAt(i));
+            while(i<say.length() && val==Character.getNumericValue(say.charAt(i))){
+                i++;
+                count++;
+            }
+            sol.append(count);
+            sol.append(val);
+            //i++;
+        }
+        return sol.toString();
+    }
 }  

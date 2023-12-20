@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class LCContest1{
+class problem2105{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class LCContest1{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[5];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -45,7 +45,7 @@ class LCContest1{
 
         //Taking String as input.
         //String s=scan.nextLine();
-
+        int sol=minimumRefill(nums,6,5);
 
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -54,8 +54,47 @@ class LCContest1{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int minimumRefill(int[] plants, int capacityA, int capacityB) {
+        int start=0;
+        int end=plants.length-1;
+        int solution=0;
+        int initialA=capacityA;
+        int initialB=capacityB;
+        boolean conditionA=false;
+        boolean conditionB=false;
+        while(start<end){
+            if(plants[start]<=capacityA){
+                capacityA=capacityA-plants[start];
+                conditionA=true;
+            }if(plants[start]>capacityA &&conditionA==false){
+                capacityA=initialA;
+                capacityA=capacityA-plants[start];
+                solution++;
+            }
+            if(plants[end]<=capacityB){
+                capacityB=capacityB-plants[end];
+                conditionB=true;
+            }
+            if(plants[end]>capacityB && conditionB==false){
+                capacityB=initialB;
+                capacityB=capacityB-plants[end];
+                solution++;
+            }
+            conditionA=false;
+            conditionB=false;
+            start++;
+            end--;
+        }
+        if(plants.length%2!=0){
+            int max=Math.max(capacityA,capacityB);
+            if(max<plants[start]){
+                solution++;
+            }
+        }
+        return solution;
+    }
 }  
