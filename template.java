@@ -54,6 +54,11 @@ class template{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
