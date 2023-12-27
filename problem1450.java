@@ -30,18 +30,22 @@ class problem1450{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        int[] nums=new int[1];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
-        
+        }
+        int[] nums1=new int[1];
+        for (int i = 0; i < nums1.length; i++) {
+            nums1[i]=scan.nextInt();
+        }
+        int sol=busyStudent(nums, nums1, 4);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
@@ -61,6 +65,6 @@ class problem1450{
                 arr[j]+=1;
             }
         }
-        return arr[queryTime+1];
+        return arr[queryTime];
     }
 }  
