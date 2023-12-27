@@ -58,23 +58,18 @@ class problem2148{
         scan.close();
     }  
 
-    public static String[] sortPeople(String[] names, int[] heights) {
-        HashMap<Integer,Integer> hMap=new HashMap<>();
+    public static int countElements(int[] heights) {
+        Arrays.sort(heights);
+        int solution=0;
+        Set<Integer> set=new HashSet<>();
+        int smallest=heights[0];
+        int largest=heights[heights.length-1];
         for (int i = 0; i < heights.length; i++) {
-            hMap.put(heights[i],i);
-        }
-        List<Integer> list=new ArrayList<>();
-        for (int i = 0; i < heights.length; i++) {
-            list.add(heights[i]);
-        }
-        Collections.sort(list);
-        Collections.reverse(list);
-        int k=0;
-        String[] solution=new String[names.length];
-        for (int i = 0; i < list.size(); i++) {
-            int t=list.get(i);
-            int value=hMap.get(t);
-            solution[k++]=names[value];
+            if(heights[i]==smallest||heights[i]==largest){
+                continue;
+            }else{
+                solution++;
+            }
         }
         return solution;
     }
