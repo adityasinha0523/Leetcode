@@ -50,6 +50,10 @@ class problem1455{
         for (int i = 0; i < str.length; i++) {
             boolean flag=false;
             for (int j = 0; j < searchWord.length(); j++) {
+                if(j>=str[i].length()){
+                    flag=true;
+                    break;
+                }
                 if(str[i].charAt(j)!=searchWord.charAt(j)){
                     flag=true;
                     break;
