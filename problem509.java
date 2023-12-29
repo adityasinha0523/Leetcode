@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem509{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -59,14 +59,14 @@ class template{
     }  
 
     public static int fib(int N) {
-    if(N==1){
-        return 1;
-    }
-    int[] dp=new int[N+1];
-    dp[1]=1;
-    for (int i = 2; i <=N; i++) {
-        dp[i]=dp[i-1]+dp[i-2];
-    }
-    return dp[N];
-    }
+        if(N<=1){
+            return N;
+        }
+        int[] dp=new int[N+1];
+        dp[1]=1;
+        for (int i = 2; i <=N; i++) {
+            dp[i]=dp[i-1]+dp[i-2];
+        }
+        return dp[N];
+    }    
 }  
