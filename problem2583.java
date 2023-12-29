@@ -9,9 +9,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.tree.TreeNode;
+
+import apple.laf.JRSUIConstants.State;
+
 import java.lang.*;
 
-class problem2582{
+class problem2583{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -54,28 +59,43 @@ class problem2582{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
-
-    public static int passThePillow(int n, int time) {
-        int counter=1;
-        boolean reverse=false;
-        int index=0;
-        while(index!=time){
-            if(counter==n){
-                //return counter;
-                reverse=true;
-            }else if(counter==1){
-                reverse=false;
+    
+    public static long kthLargestLevelSum(TreeNode root, int k) {
+        List<Long> list=new ArrayList<>();
+        Queue<TreeNode> stack=new LinkedList<TreeNode>();
+        stack.add(root);
+        stack.add(null);
+        while(!stack.isEmpty()){
+            long sum=0l;
+            while(stack.peek()!=null){
+                TreeNode val1=stack.remove();
+                if(val1.left!=null){
+                    stack.add(val1.left);
+                }
+                if(val1.right!=null){
+                    stack.add(val1.right);
+                }
+                sum+=val1.val;
             }
-            if(reverse==true){
-                counter--;
-            }else{
-                counter++;
+            stack.remove();
+            if(!stack.isEmpty()){
+                stack.add(null);
             }
-            index++;
+            list.add(sum);  
         }
-        return counter;
+        Collections.sort(list);
+        Collections.reverse(list);
+        if(k>list.size()){
+            return -1;
+        }
+        return list.get(k-1);
     }
 }  
