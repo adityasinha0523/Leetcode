@@ -62,9 +62,13 @@ class problem2185{
         for (int i = 0; i < words.length; i++) {
             String str=words[i];
             boolean notEqual=false;
+            if(pref.length()>str.length()){
+                continue;
+            }
             for (int j = 0; j < pref.length(); j++) {
                 if(pref.charAt(j)!=str.charAt(j)){
                     notEqual=true;
+                    break;
                 }
             }
             if(notEqual==false){
