@@ -81,6 +81,5 @@ class problem2195{
             }
             counter++;
         }
-        
     }
 }  
