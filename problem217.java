@@ -60,14 +60,14 @@ class problem217{
     }  
 
     public static boolean containsDuplicate(int[] nums) {
-        boolean solution=true;
+        boolean solution=false;
         Set<Integer> set=new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             if(set.contains(nums[i])){
-                return false;
+                return true;
             }
             set.add(nums[i]);
         }
-        return solution;
+        return solution;v
     }
 }  
