@@ -40,9 +40,9 @@ class problem2248{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        int[][] nums=new int[2][3];
+        int[][] nums=new int[3][4];
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums[0].length; j++) {
+            for (int j = 0; j < nums[i].length; j++) {
                 nums[i][j]=scan.nextInt();
             }
         }
@@ -60,7 +60,7 @@ class problem2248{
     public static List<Integer> intersection(int[][] nums) {
         Map<Integer,Integer> hMap=new TreeMap<>();
         for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums[0].length; j++) {
+            for (int j = 0; j < nums[i].length; j++) {
                 hMap.put(nums[i][j], hMap.getOrDefault(nums[i][j], 0)+1);
             }
         }
