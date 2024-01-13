@@ -44,7 +44,7 @@ class problem455{
         Arrays.sort(g);
         Arrays.sort(s);
         for (int j = 0; i<g.length && j < s.length; j++) {
-            if(g[i]<=s[i]){
+            if(g[i]<=s[j]){
                 i++;
             }
         }
