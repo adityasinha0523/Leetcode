@@ -49,18 +49,7 @@ class problem1710{
         scan.close();
     }  
 
-    public static int[] shuffle(int[] nums, int n) {
-        int[] sol=new int[nums.length];
-        int k=0;
-        for (int i = 0; i < nums.length/2; i++) {
-           sol[k]=nums[i];
-            k=k+2;
-        }
-        int p=1;
-        for (int i = nums.length/2; i <nums.length ; i++) {
-            sol[p]=nums[i];
-            p=p+2;
-        }
-        return sol;
-    }   
+    public int maximumUnits(int[][] nums, int truckSize) {
+        
+    }
 }  

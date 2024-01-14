@@ -23,3 +23,5 @@ int[] sortedPeople = Arrays.copyOf(people, people.length);
 //to sort 2d array
          Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
 
+5.To sort 2D array in descending form on 2nd element.
+Arrays.sort(boxTypes, (a, b) -> Integer.compare(b[1], a[1]));
