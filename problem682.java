@@ -30,14 +30,12 @@ class problem682{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        String[] nums=new String[5];
         for (int i = 0; i < nums.length; i++) {
-            nums[i]=scan.nextInt();
-        }*/
-        String[] str=new String[2];
-        str[0]="5";
-        str[1]="2";
-        int sol=calPoints(str);
+            nums[i]=scan.nextLine();
+        }
+        
+        int sol=calPoints(nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -61,14 +59,15 @@ class problem682{
                 int second=stack.pop();
                 int sum=first+second;
                 stack.add(second);
+                stack.add(first);
                 stack.add(sum);
             }else if(c=='C'){
                 stack.pop();
             }else{
                 int first=stack.pop();
-                int second=stack.pop();
-                int product=first*second;
-                stack.add(second);
+                //int second=stack.pop();
+                int product=first*2;
+                stack.add(first);
                 stack.add(product);
             }
         }

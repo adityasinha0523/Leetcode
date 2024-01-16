@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Scanner;
 
 class problem1710{
@@ -41,15 +42,24 @@ class problem1710{
             input[i]=scan.nextInt();
         }
         int n=scan.nextInt();
-        int[] sol=shuffle(input,n);
-        for(int i=0;i<sol.length;i++){
-            System.out.println(sol[i]);
-        }
+        //int[] sol=shuffle(input,n);
+        
         //System.out.println(sol);
         scan.close();
     }  
 
-    public int maximumUnits(int[][] nums, int truckSize) {
-        
+    public int maximumUnits(int[][] boxTypes, int truckSize) {
+        Arrays.sort(boxTypes,(a,b)->Integer.compare(b[1], a[1]));
+        int boxes = 0;
+        for (int[] box : boxTypes) {
+            if (truckSize >= box[0]) {
+                boxes += box[0] * box[1];
+                truckSize -= box[0];
+            }else {
+                boxes += truckSize * box[1];
+                return boxes;
+            }
+        }
+        return boxes;
     }
 }  

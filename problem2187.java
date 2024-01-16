@@ -64,26 +64,30 @@ class problem2187{
     }  
 
     public static long minimumTime(int[] time, int totalTrips) {
-        long solution=0l;
-        long counter=1;
-        Arrays.sort(time);
-        while(true){
-            for (int i = 0; i < time.length; i++) {
-                if(counter%time[i]==0){
-                    solution+=1;
-                }else{
-                    break;
-                }
-
-                if(solution>=totalTrips){
-                    return counter;
-                }
-            }
-            if(solution==totalTrips){
-                break;
-            }
-            counter++;
+        int start=1;
+        List<Integer> numberList = new ArrayList<>();
+        for (int number : time) {
+            numberList.add(number);
         }
-        return counter;
+        int min = Collections.min(numberList);
+        System.out.println("****"+min);
+        int end=min*totalTrips;
+        while(start<end){
+            int mid=start+(end-start)/2;
+            if(checkValue(mid,time,totalTrips)){
+                end=mid;
+            }else{
+                start=mid+1;
+            }
+        }
+        return start;
+    }
+
+    public static boolean checkValue(int target,int[] time,int totalTrips){
+        int sum=0;
+        for (int i = 0; i < time.length; i++) {
+            sum+=time[i]/target;
+        }
+        return sum>=totalTrips;
     }
 }  

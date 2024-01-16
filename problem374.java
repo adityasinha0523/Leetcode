@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem33{
+class problem374{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,45 +63,17 @@ class problem33{
         scan.close();
     }  
 
-    public static int search(int[] nums, int target) {
-        int minValue=findMinIndex(nums);
-        int getIndex=binarySearch(nums, 0, minValue-1, target);
-        if(getIndex!=-1){
-            return getIndex;
-        }else{
-            return binarySearch(nums, minValue, nums.length-1, target);
-        }
-    }
-
-    public static int findMinIndex(int[]nums){
+    public static int guessNumber(int n) {
         int left=0;
-        int right=nums.length-1;
-        while(left<right){
-            int mid=left+(right-left)/2;
-            if(nums[mid]<nums[right]){
-                right=mid;
-            }else{
-                left=mid+1;
-            }
-        }
-        return left;
-    }
-
-    public static int binarySearch(int[] nums,int left,int right, int target){
+        int right=n;
         while(left<=right){
-            while(left<right && nums[left]==nums[left+1]){
-                left++;
-            }
-            while(left<right && nums[right]==nums[right-1]){
-                right--;
-            }
             int mid=left+(right-left)/2;
-            if(nums[mid]==target){
+            if(guess(mid)==0){
                 return mid;
-            }else if(nums[mid]<target){
-                left=mid+1;
-            }else{
+            }else if(guess(mid)==-1){
                 right=mid-1;
+            }else{
+                left=mid+1;
             }
         }
         return -1;

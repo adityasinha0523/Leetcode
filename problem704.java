@@ -57,8 +57,7 @@ class problem704{
         while(low<=high){
             int mid=low+(high-low/2);
             if(nums[mid]==target){
-                ans= mid;
-                break;
+                return mid;
             }else if(nums[mid]>target){
                 high=mid-1;
             }else{
