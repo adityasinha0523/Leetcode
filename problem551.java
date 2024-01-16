@@ -63,6 +63,7 @@ class problem551{
         int lcounter=0;
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i)=='A'){
+                lcounter=0;
                 aCounter++;
                 if(aCounter==2){
                     return false;
