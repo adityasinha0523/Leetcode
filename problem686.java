@@ -64,34 +64,16 @@ class problem686{
         scan.close();
     }  
 
-    public static int repeatedStringMatch(String a, String b) {
+    public static int repeatedStringMatch(String A, String B) {
         //StringBuilder sb=new StringBuilder(a);
-        int first=a.length();
-        int second=b.length()+first;
-        int[] count1=new int[26];
-        int[] count2=new int[26];
-        String k=a;
-        for (int i = 0; i < a.length(); i++) {
-            count1[a.charAt(i)-'a']++;
-        }
-        for (int i = 0; i < b.length(); i++) {
-            count2[b.charAt(i)-'a']++;
-        }
-        for (int i = 0; i < count1.length; i++) {
-            if(count2[i]>0 &&count1[i]==0){
-                return -1;
-            }
-        }
-        int counter=1;
-        while(first<second){
-            if(a.contains(b)){
-                return counter;
-            }else{
-                a=a+k;
-                counter++;
-            }
-            first=first+first;
-        }
-        //return -1;
+        int count = 0;
+    StringBuilder sb = new StringBuilder();
+    while (sb.length() < B.length()) {
+        sb.append(A);
+        count++;
+    }
+    if(sb.toString().contains(B)) return count;
+    if(sb.append(A).toString().contains(B)) return ++count;
+    return -1;
     }
 }  
