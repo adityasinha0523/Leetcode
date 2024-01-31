@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem39{
+class problem83{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,26 +63,16 @@ class problem39{
         scan.close();
     }  
 
-    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> ans=new ArrayList<>();
-        List<Integer> list=new ArrayList<>();
-        findCombination(0,candidates,target,ans,list);
-        return ans;
-    }
-
-    public static void findCombination(int ind,int[] arr,int target,List<List<Integer>> ans,List<Integer> ds){
-        if(ind==arr.length){
-            if(target==0){
-                List<Integer> answer=new ArrayList<>(ds);
-                ans.add(answer);
-            }
-            return;
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode temp=head;
+        while(head!=null && head.next!=null){
+            
+                if(head.val==head.next.val){
+                    head.next=head.next.next;
+                }else{
+                    head=head.next;
+                }
         }
-        if(arr[ind]<=target){
-            ds.add(arr[ind]);
-            findCombination(ind+1, arr, target-arr[ind], ans, ds);
-            ds.remove(ds.size()-1);
-        }
-        findCombination(ind+1, arr, target, ans, ds);
+        return temp;
     }
 }  
