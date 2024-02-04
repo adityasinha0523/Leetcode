@@ -78,5 +78,24 @@ class problem797{
         }
     }
     */
-    
+    List<List<Integer>> result;
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        result=new ArrayList<>();
+        LinkedList<Integer> path=new LinkedList<>();
+        path.add(0);
+        dfs(graph, 0, graph.length-1, path);
+        return result;
+    }
+
+    public void dfs(int [][] graph,int source,int destination,LinkedList<Integer> path){
+        if(source==destination){
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int integer : graph[source]) {
+            path.add(integer);
+            dfs(graph, integer, destination, path);
+            path.removeLast();
+        }
+    }
 }  
