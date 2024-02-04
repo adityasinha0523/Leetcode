@@ -59,7 +59,7 @@ class problem797{
         scan.close();
     }  
 
-    public  List<List<Integer>> sol;
+    /*public  List<List<Integer>> sol;
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         int n=graph.length;
         LinkedList<Integer> path=new LinkedList<>();
@@ -77,4 +77,6 @@ class problem797{
             path.removeLast();
         }
     }
+    */
+    
 }  

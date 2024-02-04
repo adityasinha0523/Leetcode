@@ -55,7 +55,7 @@ class problem997{
         scan.close();
     }  
 
-    public static int findJudge(int n, int[][] trust) {
+    /*public static int findJudge(int n, int[][] trust) {
         Map<Integer,List<Integer>> graph=new HashMap<>();
         for (int i = 1; i <=n; i++) {
             graph.put(i,new ArrayList<>());
@@ -80,6 +80,39 @@ class problem997{
             }
         }
         return value;
-    }
+    }*/
     
+
+    public static int findJudge(int n, int[][] trust) {
+        Map<Integer,List<Integer>> map=new HashMap<>();
+        if(trust.length==0){
+            if(n==1){
+                return 1;
+            }
+            return -1;
+        }
+        for (int i = 1; i <=n; i++) {
+            map.put(i,new ArrayList<>());
+        }
+        for (int i = 0; i < trust.length; i++) {
+            int u=trust[i][0];
+            int v=trust[i][1];
+            map.get(u).add(v);
+        }
+        int value=-1;
+        for (Map.Entry<Integer,List<Integer>> hEntry : map.entrySet()) {
+            if(hEntry.getValue().size()==0){
+                value=hEntry.getKey();
+            }
+        }
+        for (Map.Entry<Integer,List<Integer>> hEntry : map.entrySet()) {
+            if(hEntry.getValue().size()!=0){
+                List<Integer> list=hEntry.getValue();
+                if(!list.contains(value)){
+                    return -1;
+                }
+            }
+        }
+        return value;
+    }    
 }  
