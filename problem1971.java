@@ -53,18 +53,19 @@ class problem1971{
                 edges[i][j]=scan.nextInt();
             }
         }
-        boolean sol=validPath(n,edges,source,destination);
+        //boolean sol=validPath(n,edges,source,destination);
         
         
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
-    public static boolean found=false;
+    /*public static boolean found=false;
     public static boolean validPath(int n, int[][] edges, int source, int destination) {
         Map<Integer,List<Integer>> graph=new HashMap<>();
+        if(source == destination) return  true;
         boolean[] visited=new boolean[n];
         for (int i = 0; i < n; i++) {
             graph.put(i, new ArrayList<>());
@@ -90,6 +91,59 @@ class problem1971{
             }
             if(visited[source]==false){
                 dfs(visited,graph,i,destination);
+            }
+        }
+    }
+
+
+    public static boolean validPath2(int n, int[][] edges, int source, int destination) {
+        List<List<Integer>> adjList=new ArrayList<>();
+        for (int i = 0; i <=n; i++) {
+            adjList.add(new ArrayList<>());
+        }
+        for (int i = 0; i < edges.length; i++) {
+            int u=edges[i][0];
+            int v=edges[i][1];
+            adjList.get(u).add(v);
+            adjList.get(v).add(u);
+        }
+        dfs(visited,graph,source,destination);
+        return found;
+        return false;
+    }*/
+    public static boolean found=false;
+    public static boolean validPath(int n, int[][] edges, int source, int destination) {
+        boolean[] visited=new boolean[n];
+        if(source==destination){
+            return true;
+        }
+        Map<Integer,List<Integer>> graph=new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            graph.put(i, new ArrayList<>());
+        }
+        for (int i = 0; i < edges.length; i++) {
+            int u=edges[i][0];
+            int v=edges[i][1];
+            graph.get(u).add(v);
+            graph.get(v).add(u);
+        }
+        dfs(graph,visited,source,destination);
+        return found;
+    }
+
+    public static void dfs(Map<Integer,List<Integer>> graph,boolean[] visited,int source,int destination){
+        if(visited[source]==true||found==true){
+            return ;
+        }
+        visited[source]=true;
+        List<Integer> list=graph.get(source);
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i)==destination){
+                found=true;
+                break;
+            }
+            if(visited[list.get(i)]==false){
+                dfs(graph,visited,list.get(i),destination);
             }
         }
     }
