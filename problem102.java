@@ -9,9 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.tree.TreeNode;
+
 import java.lang.*;
 
-class template{
+class problem102{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,4 +66,33 @@ class template{
         scan.close();
     }  
 
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> sol=new ArrayList<>();
+        if(root==null){
+            return sol;
+        }
+       
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        while(!queue.isEmpty()){
+            List<Integer> list=new ArrayList<>();
+            while(queue.peek()!=null){
+                TreeNode t1=queue.poll();
+                list.add(t1.val);
+                if(t1.left!=null){
+                    queue.add(t1.left);
+                }
+                if(t1.right!=null){
+                    queue.add(t1.right);
+                }
+            }
+            queue.poll();
+            sol.add(list);
+            if(!queue.isEmpty()){
+                queue.add(null);
+            }
+        }
+        return sol;
+    }
 }  
