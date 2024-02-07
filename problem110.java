@@ -57,24 +57,22 @@ class problem110{
         //System.out.println(sol);
         scan.close();
     }  
-
-    boolean ans;
+    boolean result=true;
     public boolean isBalanced(TreeNode root) {
-        ans=true;
+        
         helper(root);
-        return ans;
+        return result;
     }
-    
+
     public int helper(TreeNode root){
         if(root==null){
             return 0;
-        }else{
-            int left=helper(root.left);
-            int right=helper(root.right);
-            if(Math.abs(left-right)>1){
-                ans=false;
-            }
-            return (Math.max(left,right)+1);
         }
+        int left=helper(root.left);
+        int right=helper(root.right);
+        if(Math.abs(left- right)>1){
+            result=false;
+        }
+        return 1+Math.max(left, right);
     }
 }  
