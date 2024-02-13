@@ -9,12 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
-
-//import com.apple.laf.AquaButtonCheckBoxUI.CheckBoxButtonBorder;
-
 import java.lang.*;
 
-class problem3029{
+class QuickSort{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -49,7 +46,12 @@ class problem3029{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        int sol=minimumTimeToInitialState("abacaba", 3);
+        int[] arr = { 10, 7, 8, 9, 1, 5 };
+        int N = arr.length;
+        // Function call
+        quickSort(arr, 0, N - 1);
+        System.out.println("Sorted array:");
+        printArr(arr);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -62,61 +64,42 @@ class problem3029{
                 System.out.println( sol[i][j]);
             }
         }*/
-        System.out.println(sol);
+        //System.out.println(sol);
         scan.close();
     }  
 
-    /*public static boolean check(String word,int i){
-        int j=0;
-        while(i<word.length()){
-            if(word.charAt(i)==word.charAt(j)){
-                i++;
-                j++;
-            }else{
-                break;
-            }
+    public static void printArr(int[] arr)
+    {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
-        return i==word.length();
     }
-    public static int minimumTimeToInitialState(String word, int k) {
-        int n=word.length();
 
-        int count=1;
-        int i=k;
-        while(i<n){
-            if(check(word,i)){
-                break;
-            }
-            count++;
-            i=i+k;
+    public static void quickSort(int[] arr,int low,int high){
+        
+        if(low<high){
+            int pi=partition(arr,low,high);
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
         }
-        return count;
-    }*/
-
-    public static int minimumTimeToInitialState(String word, int k) {
-        int count=1;
-        int n=word.length();
-        int i=k;
-        while(i<n){
-            if(search(word,i)){
-                break;
-            }
-            count++;
-            i=i+k;
-        }
-        return count;
     }
-    public static boolean search(String word,int i){
-        int j=0;
-        while(i<word.length()){
-            if(word.charAt(i)==word.charAt(j)){
+
+    public static int partition(int[] arr,int low,int high){
+        int pivot=arr[high];
+        int i=(low-1);
+        for (int j = low; j <high; j++) {
+            if(arr[j]<pivot){
                 i++;
-                j++;
-            }
-            else{
-                break;
+                swap(arr,i,j);
             }
         }
-        return i==word.length();
+        swap(arr,i+1,high);
+        return (i+1);
+    }
+
+    public static void swap(int[] arr,int i,int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
     }
 }  
