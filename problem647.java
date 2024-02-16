@@ -4,15 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class Problem300{
+class problem647{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,22 +29,41 @@ class Problem300{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[7];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        int sol=lengthOfLIS(nums);
+        }*/
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        String s=scan.next();
+
+        int sol=countSubstrings(s);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         System.out.println(sol);
         scan.close();
     }  
-
-    public static int lengthOfLIS(int[] nums) {
+    
+    public static int countSubstrings(String s) {
         
     }
 }  

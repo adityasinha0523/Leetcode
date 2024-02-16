@@ -58,7 +58,7 @@ class problem78{
         scan.close();
     }  
 
-    public static List<List<Integer>> subsets(int[] nums) {
+    /*public static List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> sol=new ArrayList<>();
         Arrays.sort(nums);
         helper(sol,new ArrayList<>(),nums,0);
@@ -71,6 +71,23 @@ class problem78{
             temp.add(nums[i]);
             helper(sol, temp, nums, start+1);
             temp.remove(nums[i]);
+        }
+    }*/
+
+    public static List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> sol=new ArrayList<>();
+        Arrays.sort(nums);
+        List<Integer> temp=new ArrayList<>();
+        helper(sol,temp,nums,0);
+        return sol;
+    }
+
+    public static void helper(List<List<Integer>> sol,List<Integer> temp,int[] nums,int start){
+        sol.add(new ArrayList<>(temp));
+        for (int i = start; i < nums.length; i++) {
+            temp.add(nums[i]);
+            helper(sol, temp, nums, i+1);
+            temp.remove(temp.remove(temp.size()-1));
         }
     }
 }  
