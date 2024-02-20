@@ -4,14 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.StreamCorruptedException;
 import java.util.*;
 import java.lang.*;
 
-class BWC123P1{
+class WC385P2{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,11 +31,15 @@ class BWC123P1{
         //To take int array as input
         
         //1D Array
-        int[] nums=new int[6];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i]=scan.nextInt();
+        int[] num1=new int[2];
+        for (int i = 0; i < num1.length; i++) {
+            num1[i]=scan.nextInt();
         }
 
+        int[] num2=new int[2];
+        for (int i = 0; i < num2.length; i++) {
+            num2[i]=scan.nextInt();
+        }
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
         for (int i = 0; i < nums.length; i++) {
@@ -46,7 +51,7 @@ class BWC123P1{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        int sol=maxOperations(nums);
+        int sol=longestCommonPrefix(num1,num2);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -63,48 +68,28 @@ class BWC123P1{
         scan.close();
     }  
 
-    public static int maxOperations(int[] nums) {
-        if (nums.length < 2) {
-            return 0;
+    public static int longestCommonPrefix(int[] arr1, int[] arr2) {
+        Map<String, Integer> prefixes = new HashMap<>();
+        for (int num : arr1) {
+            String str = Integer.toString(num);
+            for (int i = 1; i <= str.length(); ++i) {
+                String prefix = str.substring(0, i);
+                prefixes.put(prefix, prefixes.getOrDefault(prefix, 0) + 1);
+            }
         }
-        int defaultScore = nums[0] + nums[1];
-        int operations = 0;
-        int i = 0, j = nums.length - 1;
-        while (i < j) {
-            int startScore = nums[i] + nums[i + 1];
-            i=i+2;
-            if (startScore == defaultScore) {
-                operations++;
-            }else{
-                break;
-            }
-            
-            if(i<j){    
-                int endScore = nums[j] + nums[j - 1];
-                j=j-2;
-                if (endScore == defaultScore) {
-                    operations++;
-                }else{
-                    break;
-                } 
-            }
-            else{
-                break;
-            }
-            if(i<j){
-                int mixScore = nums[i] + nums[j];
-                i=i+1;
-                j=j-1;
-                if (mixScore == defaultScore) {
-                    operations++;
-                }else{
+        int maxLen = 0;
+        for (int num : arr2) {
+            String str = Integer.toString(num);
+            for (int i = 1; i <= str.length(); ++i) {
+                String prefix = str.substring(0, i);
+                if (prefixes.containsKey(prefix)) {
+                    maxLen = Math.max(maxLen, i);
+                } else {
                     break;
                 }
             }
-            else{
-                break;
-            }
         }
-        return operations;
+
+        return maxLen;
     }
 }  

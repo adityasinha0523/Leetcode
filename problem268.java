@@ -50,7 +50,7 @@ class problem268{
         scan.close();
     }  
 
-    public static int missingNumber(int[] nums) {
+    /*public static int missingNumber(int[] nums) {
         int actualXor=0;
         int n=nums.length;
         for (int i = 0; i < nums.length; i++) {
@@ -58,6 +58,18 @@ class problem268{
         }
         int expectedXor=0;
         for (int i = 0; i <=n; i++) {
+            expectedXor=expectedXor^i;
+        }
+        return expectedXor^actualXor;
+    }*/
+
+    public static int missingNumber(int[] nums) {
+        int actualXor=0;
+        int expectedXor=0;
+        for (int i = 0; i < nums.length; i++) {
+            actualXor=actualXor^nums[i];
+        }
+        for (int i = 0; i <=nums.length; i++) {
             expectedXor=expectedXor^i;
         }
         return expectedXor^actualXor;
