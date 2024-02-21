@@ -74,4 +74,35 @@ class problem268{
         }
         return expectedXor^actualXor;
     }
+
+    public static int missingNumber2(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if(i!=nums[i]){
+                return i;
+            }
+        }
+        return nums.length;
+    } 
+    
+    public static int missingNumber3(int[] nums) {
+        Arrays.sort(nums);
+        int left=0;
+        int right=nums.length-1;
+        int result=nums.length;
+        while(left<right){
+            int mid=left+(right-left)/2;
+            if(nums[mid]>mid){
+                result=mid;
+                right=mid-1;
+            }else if(nums[mid]<mid){
+                //result=mid;
+                left=mid+1;
+            }else{
+                //result++;
+                left=mid+1;
+            }
+        }
+        return result;
+    }
 }  
