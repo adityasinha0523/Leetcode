@@ -68,19 +68,16 @@ class problem201{
     }  
 
     public static  int rangeBitwiseAnd(int left, int right) {
-        long ans=left;
-        if(left==1073741824){
-            return 1073741824;
+        if(left==0){
+            return 0;
         }
-        if(left==right){
-            return left;
+        int move=0;
+
+        while(left!=right){
+            left=left>>1;
+            right=right>>1;
+            move++;
         }
-        for (long i = left+1; i <=right; i++) {
-            ans=ans&i;
-            if(ans==0){
-                return 0;
-            }
-        }
-        return (int)ans;
+        return left<<move;
     }
 }  

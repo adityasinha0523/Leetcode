@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2225{
+class problem1481{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class problem2225{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[7];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -46,7 +46,7 @@ class problem2225{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        int sol=findLeastNumOfUniqueInts(nums,3);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -59,56 +59,31 @@ class problem2225{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static List<List<Integer>> findWinners(int[][] matches) {
-        List<Integer> allNoList=new ArrayList<>();
-        Set<Integer> allNoSet=new HashSet<>();
-        for (int i = 0; i < matches.length; i++) {
-            int val1=matches[i][0];
-            int val2=matches[i][1];
-            if(!allNoSet.contains(val1)){
-                allNoList.add(val1);
-                allNoSet.add(val1);
-            }
-            if(!allNoSet.contains(val2)){
-                allNoList.add(val2);
-                allNoSet.add(val2);
-            }
+    public static int findLeastNumOfUniqueInts(int[] arr, int k) {
+        Map<Integer,Integer> map=new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
         }
-        List<List<Integer>> solution=new ArrayList<>();
-        Map<Integer,Integer> match=new HashMap<>();
-        for (int i = 0; i < matches.length; i++) {
-            //int val1=matches[i][0];
-            int val2=matches[i][1];
-            //match.put(val1, match.getOrDefault(val1, 0)+1);
-            match.put(val2, match.getOrDefault(val2, 0)+1);
-        }
-        List<Integer> zeroLost=new ArrayList<>();
-        List<Integer> oneLost=new ArrayList<>();
-        
-        for (int i = 0; i < allNoList.size(); i++) {
-            int val=allNoList.get(i);
-            if(match.containsKey(val)){
-                int value=match.get(val);
-                if(value==1){
-                    oneLost.add(val);
-                }
-            }else{
-                zeroLost.add(val);
+        PriorityQueue<Map.Entry<Integer, Integer>> pq1 = new PriorityQueue<>((a, b) -> a.getValue() - b.getValue());
+        pq1.addAll(map.entrySet());
+        while (k!=0) {
+            Map.Entry e = pq1.poll();
+            int value= (int)e.getValue();
+            while(value!=0 &&k!=0){
+                value--;
+                k--;
+            }
+            //int key=(int) e.getKey();
+            //k--;
+            if(k==0 && value!=0){
+                return pq1.size()+1;
             }
         }
-        System.out.println("*****");
-        for (int i = 0; i < oneLost.size(); i++) {
-            System.out.println(oneLost.get(i));
-        }
-        System.out.println("&&&&&");
-        solution.add(zeroLost);
-        solution.add(oneLost);
-        Collections.sort(zeroLost);
-        Collections.sort(oneLost);
-        return solution;
+        return pq1.size();
+
     }
 }  

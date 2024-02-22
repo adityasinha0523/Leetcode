@@ -63,7 +63,7 @@ class problem1347{
         scan.close();
     }  
 
-    public int minSteps(String s, String t) {
+    /*public int minSteps(String s, String t) {
         int[] s1=new int[26];
         int[] s2=new int[26];
         for (int i = 0; i < s.length(); i++) {
@@ -76,6 +76,23 @@ class problem1347{
         for (int i = 0; i < s.length(); i++) {
             if(s1[i]>s2[i]){
                 sum+=s1[i]-s2[i];
+            }
+        }
+        return sum;
+    }*/
+    public int minSteps(String s, String t) {
+        int[] s1=new int[26];
+        int[] t1=new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            s1[s.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            t1[t.charAt(i)-'a']++;
+        }
+        int sum=0;
+        for (int i = 0; i < 26; i++) {
+            if(s1[i]>t1[i]){
+                sum+=(s1[i]-t1[i]);
             }
         }
         return sum;
