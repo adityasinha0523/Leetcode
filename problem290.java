@@ -85,4 +85,38 @@ class problem290{
         }
         return true;
     }
+
+    public static boolean wordPattern2(String pattern, String s) {
+        Map<String,Character> map=new HashMap<>();
+        String[] s1=s.split(" ");
+        Set<String> set=new HashSet<>();
+        if(s1.length!=pattern.length()){
+            return false;
+        }
+        Set<Character> setChar=new HashSet<>();
+        Map<Character,String> map2=new HashMap<>();
+        for (int i = 0; i < s1.length; i++) {
+            if(set.contains(s1[i])){
+                char c=map.get(s1[i]);
+                if(c!=pattern.charAt(i)){
+                    return false;
+                }
+            }else{
+                set.add(s1[i]);
+                map.put(s1[i], pattern.charAt(i));
+            }
+
+            if(setChar.contains(pattern.charAt(i))){
+                String s2=map2.get(pattern.charAt(i));
+                if(!s2.equals(s1[i])){
+                    return false;
+                }
+            }
+            else{
+                map2.put(pattern.charAt(i), s1[i]);
+                setChar.add(pattern.charAt(i));
+            }
+        }
+        return true;
+    }
 }  
