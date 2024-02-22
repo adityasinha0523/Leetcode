@@ -62,31 +62,23 @@ class problem2336{
         //System.out.println(sol);
         scan.close();
     }  
-    public static PriorityQueue<Integer> pq;
-    public static Set<Integer> set;
+    
+    //public static SortedSet<Integer> s;
+    public static SortedSet<Integer> s;
     public static SmallestInfiniteSet() {
-        pq=new PriorityQueue<>();
+        s=new TreeSet<>();
         for (int i = 1; i < 1001; i++) {
-            pq.add(i);
-        }
-        set=new HashSet<>();
-        for (int i = 1; i < 1001; i++) {
-            set.add(i);
+            s.add(i);
         }
     }
     
     public static int popSmallest() {
-        
-        int val=pq.poll();
-        set.remove(val);
-        return val;
+        int k=s.first();
+        s.remove(k);
+        return k;
     }
     
     public static void addBack(int num) {
-        if(!set.contains(num)){
-            set.add(num);
-            pq.add(num);
-        }
-        
+        s.add(num);
     }
 }  
