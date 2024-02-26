@@ -66,4 +66,25 @@ class problem100{
         }
     }
     }
+    boolean answer=true;
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        helper(p,q);
+        return answer;
+    }
+
+    public void helper(TreeNode p,TreeNode q){
+        if(p!=null && q!=null){
+            if(p.val!=q.val){
+                ans=false;
+            }else{
+                helper(p.left,q.left);
+                helper(p.right,q.right);
+            }
+        }
+        else if(p==null &&q!=null){
+            answer=false;
+        }else if(p!=null && q==null){
+            answer=false;
+        }
+    }
 }  
