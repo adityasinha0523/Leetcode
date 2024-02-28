@@ -58,15 +58,26 @@ class problem476{
         }
         return num;
     }
-
-    public static int findComplement2(int num) {
-        int temp=num;
-        int bit=1;
-        while(temp!=0){
-            num=num^bit;
-            bit=bit<<1;
-            temp=temp>>1;
+    
+    public static int findComplement3(int num) {
+        String s=Integer.toBinaryString(num);
+        StringBuilder sb=new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='1'){
+                sb.append('0');
+            }else{
+                sb.append('1');
+            }
         }
-        return num;
+        String ans=sb.toString();
+        int answer=0;
+        int counter=0;
+        for (int i = ans.length()-1; i >= 0; i--) {
+            if(ans.charAt(i)=='1'){
+                answer+=Math.pow(2,counter);
+            }
+            counter++;
+        }
+        return answer;
     }
 }  

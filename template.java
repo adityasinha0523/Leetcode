@@ -46,7 +46,7 @@ class template{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -59,7 +59,7 @@ class template{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        //System.out.println(xValue);
         scan.close();
     }  
 
