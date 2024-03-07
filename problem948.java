@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem948{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,4 +63,24 @@ class template{
         scan.close();
     }  
 
+    public static int bagOfTokensScore(int[] tokens, int power) {
+        int n = tokens.length;
+        int count = 0;
+        Arrays.sort(tokens);
+        int left = 0, right = n - 1;
+        int maxScore = 0;
+        while (left <= right) {
+            if (tokens[left] <= power) {
+                power -= tokens[left++];
+                count++;
+                maxScore = Math.max(maxScore, count);
+            } else if (count > 0) {
+                power += tokens[right--];
+                count--;
+            } else {
+                break;
+            }
+        }
+        return maxScore;
+    }
 }  

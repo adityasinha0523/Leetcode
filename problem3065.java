@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem3065{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -59,8 +59,18 @@ class template{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        //System.out.println(xValue);
         scan.close();
     }  
 
+    public static int minOperations(int[] nums, int k) {
+        int solution=0;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]<k){
+                solution++;
+            }
+        }
+        return solution;
+    }
 }  

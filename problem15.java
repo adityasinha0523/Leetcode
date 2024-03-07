@@ -70,4 +70,31 @@ class problem15{
         }
         return new ArrayList<>(solution);
     }
+
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        Set<List<Integer>> solution=new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length-2; i++) {
+            int j=i+1;
+            int k=nums.length-1;
+            while(j<k){
+                int first=nums[i];
+                int second=nums[j];
+                int third=nums[k];
+                if(first+second+third==0){
+                    List<Integer> list=new ArrayList<>();
+                    list.add(first);
+                    list.add(second);
+                    list.add(third);
+                    solution.add(list);
+                }
+                if(first+second+third<0){
+                    j=j+1;
+                }else{
+                    k=k-1;
+                }
+            }
+        }
+        return new ArrayList<>(solution);
+    }
 }  

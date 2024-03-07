@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem6{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,4 +63,25 @@ class template{
         scan.close();
     }  
 
+    public String convert(String s, int nRows) {
+        char[] c=s.toCharArray();
+        StringBuilder[] sb=new StringBuilder[nRows];
+        for (int i = 0; i < nRows; i++) {
+            sb[i]=new StringBuilder();
+        }
+        int i=0;
+        int len=s.length();
+        while(i<len){
+            for (int index = 0; index < nRows; index++) {
+                sb[index].append(c[i++]);
+            }
+            for (int index=nRows-2; index>=1; index--) {
+                sb[index].append(c[i++]);
+            }
+        }
+        for (int j = 1; j < sb.length; j++) {
+            sb[0].append(sb[i]);
+        }
+        return sb[0].toString();
+    }    
 }  

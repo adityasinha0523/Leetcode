@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem7{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,4 +63,28 @@ class template{
         scan.close();
     }  
 
+    public int reverse(int x) {
+        /*long finalNum = 0;
+        while(x!=0){
+            int lastDig = x%10;
+            finalNum += lastDig;
+            finalNum = finalNum*10;
+            x= x/10;
+        }*/
+        long finalNum=0;
+        while(x!=0){
+            int lastDigit=x%10;
+            finalNum+=lastDigit;
+            finalNum=finalNum*10;
+            x=x/10;
+        }
+        finalNum = finalNum/10;
+        if(finalNum > Integer.MAX_VALUE || finalNum<Integer.MIN_VALUE){
+            return 0;
+        }
+        if(x<0){
+            return (int)(-1*finalNum);
+        }
+        return (int)finalNum;
+    }
 }  

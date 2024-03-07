@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class template{
+class problem3066{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class template{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[5];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -45,7 +45,7 @@ class template{
 
         //Taking String as input.
         //String s=scan.nextLine();
-
+        int sol=minOperations(nums, 10);
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -59,8 +59,26 @@ class template{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
+    public static int minOperations(int[] nums, int k) {
+        int solution=0;
+        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        for (int i = 0; i < nums.length; i++) {
+            pq.add(nums[i]);
+        }
+        while(pq.size()>1){
+            int first=pq.poll();
+            int second=pq.poll();
+            if(first>=k){
+                return solution;
+            }
+            solution++;
+            int newValue=Math.min(first,second)*2+Math.max(first, second);
+            pq.add(newValue);
+        }
+        return solution;
+    }
 }  

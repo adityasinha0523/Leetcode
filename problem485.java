@@ -73,4 +73,18 @@ class problem485{
         solution=Math.max(solution, currentZeroCount);
         return solution;
     }
+
+    public int findMaxConsecutiveOnes2(int[] nums) {
+        int counter=0;
+        int answer=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]==1){
+                counter++;
+            }else{
+                counter=0;
+                answer=Math.max(counter, answer);
+            }
+        }
+        return Math.max(counter, answer);
+    }
 }  

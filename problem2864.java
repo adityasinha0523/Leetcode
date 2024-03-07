@@ -78,4 +78,31 @@ class problem2864{
         sb.append("1");
         return sb.toString();
     }
+
+    public String maximumOddBinaryNumber2(String s) {
+        int countOne=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='1'){
+                countOne++;
+            }
+        }
+        int countZero=s.length()-countOne;
+        StringBuilder sb=new StringBuilder();
+        sb.append("1");
+        countOne--;
+        boolean allZero=false;
+        for (int i = 1; i < s.length(); i++) {
+            if(countZero!=0){
+                sb.append("0");
+                countZero--;
+            }else{
+                allZero=true;
+            }
+            if(allZero==true){
+                sb.append("1");
+            }
+        }
+        String sol=sb.reverse().toString();
+        return sol;
+    }
 }  
