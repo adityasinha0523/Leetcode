@@ -83,4 +83,22 @@ class problem349{
         }
         return solution;
     }
+
+    public static int[] intersection2(int[] nums1, int[] nums2) {
+        Set<Integer> set=new HashSet<>();
+        for (int i = 0; i < nums1.length; i++) {
+            set.add(nums1[i]);
+        }
+        List<Integer> ans=new ArrayList<>();
+        for (int i = 0; i < nums2.length; i++) {
+            if(!set.contains(nums2[i]) && !ans.contains(nums2[i])){
+                ans.add(nums2[i]);
+            }
+        }
+        int[] result=new int[ans.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i]=ans.get(i);
+        }
+        return result;
+    }
 }  
