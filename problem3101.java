@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem930{
+class problem3101{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,30 +63,19 @@ class problem930{
         scan.close();
     }  
 
-    public static int numSubarraysWithSum(int[] A, int K) {
-        int i=0;
-        int j=0;
-        int count=0;
-        int sum=0;
-        int temp=0;
-        while(j<A.length){
-            sum+=A[j];
-            if (sum > K) {
-                sum -= A[i];
-                i++;
-            }
+    public long countAlternatingSubarrays(int[] nums) {
+        long sum=0l;
+        long count=0l;
 
-            if(A[j]==1){
-                temp=0;
+        for (int i = 1; i < nums.length; i++) {
+            if(nums[i]!=nums[i-1]){
+                count++;
+            }else{
+                sum+=(count*(count+1))/2;
+                count=1;
             }
-                while(i<=j && sum==K){
-                    temp++;
-                    sum-=A[i];
-                    i++;
-                }
-            count+=temp;
-            j++;
         }
-        return count;
+        sum+=(count*(count+1))/2;
+        return sum;
     }
 }  

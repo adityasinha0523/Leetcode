@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem930{
+class problem1669{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,30 +63,18 @@ class problem930{
         scan.close();
     }  
 
-    public static int numSubarraysWithSum(int[] A, int K) {
-        int i=0;
-        int j=0;
-        int count=0;
-        int sum=0;
-        int temp=0;
-        while(j<A.length){
-            sum+=A[j];
-            if (sum > K) {
-                sum -= A[i];
-                i++;
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
+        ListNode end=list1,start=null;
+        for (int i = 0; i <b; ++i,end=end.next) {
+            if(i==a-1){
+                start=end;
             }
-
-            if(A[j]==1){
-                temp=0;
-            }
-                while(i<=j && sum==K){
-                    temp++;
-                    sum-=A[i];
-                    i++;
-                }
-            count+=temp;
-            j++;
         }
-        return count;
-    }
+        start.next=list2;
+        while(list2.next!=null){
+            list2=list2.next;
+        }
+        list2.next=end.next;
+        return list1;
+    }    
 }  

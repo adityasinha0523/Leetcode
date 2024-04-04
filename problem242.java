@@ -48,6 +48,23 @@ class problem242{
         System.out.println(sol);
         scan.close();
     }  
+    public static boolean isAnagram2(String s, String t) {
+        int[] firstArr=new int[26];
+        int[] secondArr=new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            firstArr[s.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            secondArr[t.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < secondArr.length; i++) {
+            if(firstArr[i]!=secondArr[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public static boolean isAnagram(String s, String t) {
         boolean solution=true;

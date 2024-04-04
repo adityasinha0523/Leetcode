@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem930{
+class LCContestt1{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class problem930{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[4];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -45,7 +45,7 @@ class problem930{
 
         //Taking String as input.
         //String s=scan.nextLine();
-
+        long sol=countAlternatingSubarrays(nums);
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -59,34 +59,25 @@ class problem930{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
-    public static int numSubarraysWithSum(int[] A, int K) {
-        int i=0;
-        int j=0;
-        int count=0;
-        int sum=0;
-        int temp=0;
-        while(j<A.length){
-            sum+=A[j];
-            if (sum > K) {
-                sum -= A[i];
-                i++;
+    public static long countAlternatingSubarrays(int[] nums) {
+        long totalAlternatingSubarrays = 0l;
+        int count = 1;
+        
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                count++; 
+            } else {
+                totalAlternatingSubarrays += (count * (count + 1)) / 2; 
+                count = 1; 
             }
-
-            if(A[j]==1){
-                temp=0;
-            }
-                while(i<=j && sum==K){
-                    temp++;
-                    sum-=A[i];
-                    i++;
-                }
-            count+=temp;
-            j++;
         }
-        return count;
+        
+        totalAlternatingSubarrays += (count * (count + 1)) / 2;
+        
+        return totalAlternatingSubarrays;
     }
 }  
