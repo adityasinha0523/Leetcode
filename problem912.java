@@ -45,6 +45,45 @@ class problem912{
         scan.close();
     }  
 
+    public static int[] sortArray(int[] nums) {
+        mergesort(nums,0,nums.length-1);
+        return nums;
+    }
+
+    public static void mergesort(int[] nums,int left,int right){
+        if(left<right){
+            int mid=left+(right-left)/2;
+            mergesort(nums, left, mid);
+            mergesort(nums, mid, right);
+            mergerJoin(nums,left,mid,right);
+        }
+    }
+
+    public static void mergerJoin(int[] nums,int left,int mid,int right){
+        int leftArrayLen=mid-left+1;
+        int rightArrayLen=right-mid;
+        int[] leftPartArr=new int[leftArrayLen];
+        for (int i = 0; i < leftPartArr.length; i++) {
+            leftPartArr[i]=nums[left+i];
+        }
+        int[] rightPartArr=new int[rightArrayLen];
+        for (int i = 0; i < rightPartArr.length; i++) {
+            rightPartArr[i]=nums[mid+1+i];
+        }
+        int leftPointer=0;
+        int rightPointer=0;
+        int numsIndex=left;
+        while(leftPointer<leftArrayLen||rightPointer<rightArrayLen){
+            if(rightPointer==rightArrayLen||leftPointer<leftArrayLen
+            && leftPartArr[leftPointer]<rightPartArr[rightPointer]){
+                nums[numsIndex++]=leftPartArr[leftPointer++];
+            }else{
+                nums[numsIndex++]=rightPartArr[rightPointer++];
+            }
+        }
+    }
+
+
     public static int[] sortArray1(int[] nums) {
         HashMap<Integer,Integer> hMap=new HashMap<>();
         for (int i = 0; i < nums.length; i++) {

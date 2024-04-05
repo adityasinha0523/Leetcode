@@ -33,7 +33,7 @@ class problem238{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }
-        int[] sol=productExceptSelf(nums);
+        int[] sol=productExceptSelf2(nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -43,6 +43,30 @@ class problem238{
         //System.out.println(sol);
         scan.close();
     }  
+
+    public static int[] productExceptSelf2(int[] nums) {
+        int[] leftProduct=new int[nums.length];
+        int[] rightProduct=new int[nums.length];
+        leftProduct[0]=1;
+        rightProduct[rightProduct.length-1]=1;
+        int k=1;
+        for (int i = 0; i < nums.length-1; i++) {
+            leftProduct[k]=nums[i]*leftProduct[k-1];
+            k++;
+        }
+        k=nums.length-2;
+        for (int i = nums.length-1; i >0; i--) {
+            rightProduct[k]=nums[i]*rightProduct[k+1];
+            k--;
+        }
+        int[] sol=new int[nums.length];
+        for (int i = 0; i < sol.length; i++) {
+            sol[i]=leftProduct[i]*rightProduct[i];
+        }
+        return sol;
+    }
+
+
 
     public static int[] productExceptSelf(int[] nums) {
         int[] forwardProduct=new int[nums.length];

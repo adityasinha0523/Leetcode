@@ -45,19 +45,25 @@ class problem128{
     }  
 
     public static int longestConsecutive(int[] nums) {
-        Arrays.sort(nums);
-        int first=nums[0];
-        int currentCounter=1;
-        int solution=0;
-        for (int i = 1; i < nums.length; i++) {
-            if(nums[i]!=first){
-                solution=Math.max(solution, currentCounter);
-                currentCounter=1;
-                first=nums[i];
-            }else{
-                currentCounter++;
-            }
+        Set<Integer> set=new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
         }
-        return Math.max(currentCounter, solution);
+        int solution=0;
+        for (int i = 0; i < nums.length; i++) {
+            int count=1;
+            int val=nums[i];
+            while(set.contains(--val)){
+                count++;
+                set.remove(val);
+            }
+            val=nums[i];
+            while(set.contains(++val)){
+                count++;
+                set.remove(val);
+            }
+            solution=Math.max(solution, count);
+        }
+        return solution;
     }
 }  
