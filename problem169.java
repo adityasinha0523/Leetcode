@@ -60,6 +60,29 @@ class problem169{
         scan.close();
     }  
 
+    public static int majorityElement2(int[] nums) {
+        int majorityElement=nums[0];
+        int count=1;
+        for (int i = 1; i < nums.length; i++) {
+            if(nums[i]!=majorityElement){
+                count--;
+                if(count==0){
+                    majorityElement=nums[i];
+                    count=1;
+                }
+            }else{
+                count++;
+            }
+        }
+        int val=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]==majorityElement){
+                val++;
+            }
+        }
+        return (val>=(nums.length/2))?val:-1;
+    }
+
     public static int majorityElement(int[] nums) {
         int solution=0;
         Map<Integer,Integer> hMap=new HashMap<>();
