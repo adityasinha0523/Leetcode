@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1299{
+class problem118{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem1299{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -63,33 +63,22 @@ class problem1299{
         scan.close();
     }
     
-    public static int[] replaceElements2(int[] arr) {
-        List<Integer> list=new ArrayList<>();
-        list.add(-1);
-        list.add(arr.length-1);
-        for (int i = arr.length-2; i >=0; i--) {
-            int val=list.get(list.size());
-            if(val<arr[i]){
-                list.add(arr[i]);
-            }else{
-                list.add(val);
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result=new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> list=new ArrayList<>();
+            for (int j = 0; j < i+1; j++) {
+                if(j==0||j==i){
+                    list.add(1);
+                }
+                else{
+                    int a=result.get(i-1).get(j-1);
+                    int b=result.get(i-1).get(j);
+                    list.add(a+b);
+                }
             }
+            result.add(list);
         }
-        int[] answer=new int[arr.length];
-        int k=0;
-        for (int i = answer.length-1; i >=0; i--) {
-            answer[i]=list.get(k++);
-        }
-        return answer;
-    }
-
-    public static int[] replaceElements(int[] arr) {
-        int[] sol=new int[arr.length];
-            sol[arr.length-1]=-1;
-            for (int i = arr.length-2; i >=0; i--) {
-                int val=arr[i];
-                sol[i]=Math.max(sol[i+1],arr[i+1]);
-            }
-            return sol;
+        return result;
     }
 }  

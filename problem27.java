@@ -57,4 +57,16 @@ class problem27{
         }
         return writer;
     }
+
+
+    public static int removeElement2(int[] nums, int val) {
+        int writer=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]!=val){
+                nums[writer]=nums[i];
+                writer++;
+            }
+        }
+        return writer;
+    }
 }  

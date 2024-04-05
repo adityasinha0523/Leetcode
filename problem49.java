@@ -49,13 +49,33 @@ class problem49{
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        
+        String[] str=new String[3];
+        str[0]="afdw";
+        str[1]="aweer";
+        str[2]="car";
+        List<List<String>> sol=groupAnagrams2(str);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    } 
+    
+    
+    public static List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String,List<String>> map=new HashMap<>();
+        for (String string : strs) {
+            char[] c=string.toCharArray();
+            Arrays.sort(c);
+            String word=new String(c);
+            if(!map.containsKey(word)){
+                map.put(word, new ArrayList<>());
+            }
+            map.get(word).add(string);
+        }
+        return new ArrayList<>(map.values());
+    }
+
 
     public static List<List<String>> groupAnagrams(String[] strs) {
         Map<String,List<String>> groups=new HashMap<>();

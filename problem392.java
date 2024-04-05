@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.print.FlavorException;
+
 import java.lang.*;
 
 class problem392{
@@ -56,7 +59,25 @@ class problem392{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static boolean isSubsequence2(String s, String t) {
+        int firstStart=0;
+        int secondStart=0;
+        while(firstStart<s.length() && secondStart<t.length()){
+            if(s.charAt(firstStart)==t.charAt(secondStart)){
+                firstStart++;
+                secondStart++;
+            }else{
+                secondStart++;
+            }
+        }
+        if(firstStart==s.length()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public static boolean isSubsequence(String s, String t) {
         int[] freq1=new int[26];

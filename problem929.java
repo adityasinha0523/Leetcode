@@ -58,6 +58,31 @@ class problem929{
     }  
 
     public static int numUniqueEmails(String[] emails) {
+        Set<String> set=new HashSet<>();
+        for (int i = 0; i < emails.length; i++) {
+            String s=emails[i];
+            String[] strArr=s.split("@");
+            String firstPart=strArr[0];
+            StringBuilder sb=new StringBuilder();
+            for (int j = 0; j < firstPart.length(); j++) {
+                if(firstPart.charAt(i)=='.'){
+                    continue;
+                }else if(firstPart.charAt(i)=='+'){
+                    break;
+                }else{
+                    sb.append(firstPart.charAt(i));
+                }
+            }
+            sb.append("@");
+            sb.append(strArr[1]);
+            set.add(sb.toString());
+            System.out.println(sb.toString());
+        }
+        return set.size();
+    }
+
+
+    public static int numUniqueEmails(String[] emails) {
         Set<String> normalized=new HashSet<>();
         for (String email : emails) {
             String[] parts=email.split("@");

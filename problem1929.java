@@ -19,7 +19,22 @@ class problem1929{
         for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }
-    }  
+    }
+    
+    public static int[] getConcatenation2(int[] nums) {
+        int[] answer=new int[nums.length*2];
+        int k=0;
+        for (int i = 0; i < answer.length; i++) {
+            if(k<nums.length){
+                answer[i]=nums[k++];
+            }else{
+                k=0;
+                answer[i]=nums[k++];
+            }
+            
+        }
+        return answer;
+    }
 
     public static int[] getConcatenation(int[] nums) {
         int[] sol=new int[nums.length*2];

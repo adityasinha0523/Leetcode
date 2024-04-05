@@ -62,5 +62,4 @@ class template{
         //System.out.println(sol);
         scan.close();
     }  
-
 }  

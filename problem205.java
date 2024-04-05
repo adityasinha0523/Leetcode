@@ -47,6 +47,36 @@ class problem205{
         scan.close();
     }  
 
+    public static boolean isIsomorphic2(String s, String t) {
+        Map<Character,Character> map1=new HashMap<>();
+        Map<Character,Character> map2=new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char first=s.charAt(i);
+            char second=t.charAt(i);
+            if(map1.containsKey(first)){
+                char valueFirst=map1.get(first);
+                if(valueFirst!=second){
+                    return false;
+                }
+            }else{
+                map1.put(first, second);
+            }
+            if(map2.containsKey(second)){
+                char valueSecond=map2.get(second);
+                if(valueSecond!=first){
+                    return false;
+                }
+            }else{
+                map2.put(second, first);
+            }
+        }
+        return true;
+    }
+
+
+
+
+
     public static boolean isIsomorphic(String s, String t) {
         Map<Character,Character> map=new HashMap<>();
         Map<Character,Character> map2=new HashMap<>();

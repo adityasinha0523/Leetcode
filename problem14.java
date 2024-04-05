@@ -50,7 +50,29 @@ class problem14{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static String longestCommonPrefix2(String[] strs) {
+        String first=strs[0];
+        String prefix=first;
+        for (int i = 1; i < strs.length; i++) {
+            String val=strs[i];
+            int firstStart=0;
+            int secondStart=0;
+            StringBuilder sb=new StringBuilder();
+            while(firstStart<val.length() && secondStart<prefix.length()){
+                if(prefix.charAt(secondStart)!=val.charAt(firstStart)){
+                    break;
+                }else{
+                    sb.append(prefix.charAt(secondStart));
+                    secondStart++;
+                    firstStart++;
+                }
+            }
+            prefix=sb.toString();
+        }
+        return prefix;
+    }
 
     public static String longestCommonPrefix(String[] strs) {
         Arrays.sort(strs);

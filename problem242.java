@@ -41,7 +41,6 @@ class problem242{
         for (int i = 0; i < input.length; i++) {
             input[i]=scan.nextInt();
         }*/
-
         String s=scan.nextLine();
         String t=scan.nextLine();
         boolean sol=isAnagram(s, t);
