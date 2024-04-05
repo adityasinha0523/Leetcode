@@ -46,7 +46,7 @@ class problem290{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        boolean sol=wordPattern3("abba", "dog cat cat dog");
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,9 +54,38 @@ class problem290{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
-    }  
+    } 
+    
+    public static boolean wordPattern3(String pattern, String s) {
+        Map<Character,String> map1=new HashMap<>();
+        Map<String,Character> map2=new HashMap<>();
+        String[] strArr=s.split(" ");
+        if(strArr.length!=pattern.length()){
+            return false;
+        }
+        for (int i = 0; i < pattern.length(); i++) {
+            if(map1.containsKey(pattern.charAt(i))){
+                String value=map1.get(pattern.charAt(i));
+                if(!value.equals(strArr[i])){
+                    return false;
+                }
+            }else{
+                map1.put(pattern.charAt(i), strArr[i]);
+            }
+
+            if(map2.containsKey(strArr[i])){
+                char value=map2.get(strArr[i]);
+                if(value!=pattern.charAt(i)){
+                    return false;
+                }
+            }else{
+                map2.put(strArr[i], pattern.charAt(i));
+            }
+        }
+        return true;
+        }
 
     public static boolean wordPattern(String pattern, String s) {
         Map<String,Character> map=new HashMap<>();

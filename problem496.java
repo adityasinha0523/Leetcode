@@ -56,6 +56,28 @@ class problem496{
         scan.close();
     }  
 
+    public static int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        int[] sol=new int[nums1.length];
+        for (int i = 0; i < nums1.length; i++) {
+            int val=nums1[i];
+            boolean found=false;
+            boolean updated=false;
+            for (int j = 0; j < nums2.length; j++) {
+                if(nums2[j]==val){
+                    found=true;
+                }
+                if(found==true && nums2[j]>val){
+                    sol[i]=nums2[j];
+                    updated=true;
+                }
+            }
+            if(updated==false){
+                sol[i]=-1;
+            }
+        }
+        return sol;
+    }
+
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
         int[] solution=new int[nums1.length];
         int k=0;

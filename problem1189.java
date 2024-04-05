@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.util.Scanner;
-import java.util.List;
 import java.util.*;
 import java.lang.*;
 
@@ -48,7 +46,47 @@ class problem1189{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static int maxNumberOfBalloons2(String text) {
+        int solution=Integer.MAX_VALUE;
+        Map<Character,Integer> map=new HashMap<>();
+        for (int i = 0; i < text.length(); i++) {
+            map.put(text.charAt(i), map.getOrDefault(text.charAt(i), 0)+1);
+        }
+        if(map.containsKey('b')){
+            solution=Math.min(solution, map.get('b'));
+        }
+        else{
+            return 0;
+        }
+        if(map.containsKey('a')){
+            solution=Math.min(solution, map.get('a'));
+        }
+        else{
+            return 0;
+        }
+        if(map.containsKey('l')){
+            solution=Math.min(solution, map.get('l')/2);
+        }
+        else{
+            return 0;
+        }
+        if(map.containsKey('o')){
+            solution=Math.min(solution, map.get('o')/2);
+        }
+        else{
+            return 0;
+        }
+        if(map.containsKey('n')){
+            solution=Math.min(solution, map.get('n'));
+        }
+        else{
+            return 0;
+        }
+        return solution;
+    }
+
 
     public static int maxNumberOfBalloons(String text) {
         int[] arr=new int[26];

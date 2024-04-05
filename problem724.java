@@ -51,12 +51,28 @@ class problem724{
         for (int i = 0; i < num.length; i++) {
             num[i]=scan.nextInt();
         }
-        int sol=pivotIndex(num);
+        int sol=pivotIndex2(num);
         
         System.out.println(sol);
         scan.close();
     }  
 
+    public static int pivotIndex2(int[] nums) {
+        int leftSum=0;
+        int totalSum=0;
+        for (int i = 0; i < nums.length; i++) {
+            totalSum+=nums[i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            int val=totalSum-nums[i];
+            if(val==leftSum){
+                return i;
+            }
+            leftSum+=nums[i];
+        }
+        return -1;
+        
+    }
     public static int pivotIndex(int[] nums) {
         int sum=0;
         int leftSum=0;
