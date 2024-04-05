@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem128{
+class problem75{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,41 +29,60 @@ class problem128{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int longestConsecutive(int[] nums) {
-        Set<Integer> set=new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            set.add(nums[i]);
-        }
-        int solution=0;
-        for (int i = 0; i < nums.length; i++) {
-            int count=1;
-            int val=nums[i];
-            while(set.contains(--val)){
-                count++;
-                //set.remove(val);
-            }
-            val=nums[i];
-            while(set.contains(++val)){
-                count++;
-                //set.remove(val);
-            }
-            solution=Math.max(solution, count);
-        }
-        return solution;
     }
+
+    public static void sortColors(int[] nums) {
+        int i=0;
+        int j=0;
+        int k=nums.length-1;
+        while(j<=k){
+            if(nums[j]==2){
+                int temp=nums[k];
+                nums[k]=nums[j];
+                nums[j]=temp;
+                k--;
+            }
+            if(nums[j]==0){
+                int temp=nums[i];
+                nums[i]=nums[j];
+                nums[j]=temp;
+                i++;
+                j++;
+            }else{
+                j++;
+            }
+        }
+    }  
 }  
