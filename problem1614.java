@@ -46,7 +46,21 @@ class problem1614{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static int maxDepth(String s) {
+        int open=0;
+        int solution=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='('){
+                open++;
+            }else if(s.charAt(i)==')'){
+                open--;
+            }
+            solution=Math.max(solution, open);
+        }
+        return solution;
+    }
 
     public static int maxDepth(String s) {
         int solution=0;

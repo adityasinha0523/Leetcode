@@ -56,7 +56,44 @@ class problem1544{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    } 
+    
+    
+
+    public static String makeGood(String s) {
+        Stack<Character> stack=new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c=s.charAt(i);
+            if(!stack.isEmpty()){
+                if(Character.isUpperCase(c)){
+                    char stackChar=stack.peek();
+                    if(Character.isLowerCase(stackChar)&& Character.toLowerCase(c)==stackChar){
+                        stack.pop();
+                    }else{
+                        stack.add(c);
+                    }
+                }else{
+                    char stackChar=stack.peek();
+                    if(Character.isUpperCase(stackChar)&& Character.toUpperCase(c)==stackChar){
+                        stack.pop();
+                    }else{
+                        stack.add(c);
+                    }
+                }
+            }else{
+                stack.add(c);
+            }
+        }
+        if(stack.isEmpty()){
+            return "";
+        }
+        StringBuilder sb=new StringBuilder();
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        sb.reverse();
+        return sb.toString();
+    }
 
     public static String makeGood(String s) {
         StringBuilder sb=new StringBuilder();
