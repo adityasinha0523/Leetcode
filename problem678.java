@@ -4,14 +4,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import apple.laf.JRSUIConstants.State;
+
 import java.lang.*;
 
-class problem20{
+class problem678{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +49,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,75 +64,28 @@ class problem20{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
+    }
+    public static boolean checkValidString(String s) {
+        Stack<Integer> left=new Stack<>();
+        Stack<Integer> star=new Stack<>();
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
-    }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
+                left.add(i);
+            }else if(s.charAt(i)=='*'){
+                star.add(i);
+            }else if(!left.isEmpty()){
+                left.pop();
+            }else if(!star.isEmpty()){
+                star.pop();
             }else{
-                stack.add(s.charAt(k));
+                return false;
             }
-            k++;
         }
-        return true;
+        while(!left.isEmpty() && !star.isEmpty() && star.peek()<left.peek()){
+            star.pop();
+            left.pop();
+        }
+        return left.empty();
     }
+    
 }  

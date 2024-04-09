@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem167{
+class problem1968{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,58 +29,50 @@ class problem167{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int[] twoSum(int[] numbers, int target) {
-        int[] sol=new int[2];
-        int start=0;
-        int end=numbers.length-1;
-        while(start<end){
-            if(numbers[start]+numbers[end]==target){
-                sol[0]=start;
-                sol[1]=end;
-                return sol;
-            }else if(numbers[start]+numbers[end]<target){
-                start++;
-            }else{
-                end--;
-            }
-        }
-        sol[0]=-1;
-        sol[1]=-1;    
-        return sol;
     }
-
-
-    public static int[] twoSum(int[] numbers, int target) {
-        int first=0;
-        int last=numbers.length-1;
-        int[] re=new int[2];
-        while(first<last){
-            if(numbers[first]+numbers[last]==target){
-                int[] sol=new int[2];
-                sol[0]=first+1;
-                sol[1]=last+1;
-                return sol;
-            }else if(numbers[first]+numbers[last]>target){
-                last--;
-            }else{
-                first++;
-            }
+    
+    public static int[] rearrangeArray(int[] nums) {
+        int[] sol=new int[nums.length];
+        Arrays.sort(nums);
+        int k=0;
+        for (int i = 0; i < nums.length; i=i+2) {
+            sol[k++]=nums[i];
         }
-        return re;
+        for (int i = 1; i < sol.length; i=i+2) {
+            sol[k++]=nums[i];
+        }
+        return sol;
     }
 }  

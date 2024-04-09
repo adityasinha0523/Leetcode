@@ -44,6 +44,27 @@ class problem560{
         scan.close();
     }  
 
+    public static int subarraySum2(int[] nums, int k) {
+        Map<Integer,Integer> map=new HashMap<>();
+        int sum=0;
+        for (int i = 0; i < nums.length; i++) {
+            sum+=nums[i];
+        }
+        map.put(sum, 1);
+        int currentSum=0;
+        int solution=0;
+        for (int i = 0; i < nums.length; i++) {
+            currentSum+=nums[i];
+            int val=currentSum-k;
+            if(map.containsKey(val)){
+                solution+=map.get(val);
+            }
+                map.put(currentSum,map.getOrDefault(currentSum, 0)+1);
+            
+        }
+        return solution;
+    }
+
     public static int subarraySum(int[] A, int K) {
         Map<Integer,Integer> map=new HashMap<>();
         map.put(0,1);

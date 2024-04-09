@@ -58,7 +58,32 @@ class problem28{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static int strStr(String haystack, String needle) {
+        for (int i = 0; i < haystack.length(); i++) {
+            if(needle.charAt(0)==haystack.charAt(i)){
+                int start=0;
+                //int j=0;
+                int hayStart=i;
+                if((haystack.length()-hayStart)<needle.length()){
+                    continue;
+                }
+                int temp=start;
+                while(start<needle.length()){
+                    if(needle.charAt(start)!=haystack.charAt(hayStart)){
+                        break;
+                    }
+                    start++;
+                    hayStart++;
+                }
+                if(start==needle.length()){
+                    return temp;
+                }
+            }
+        }
+        return -1;
+    }
 
     public static int strStr(String haystack, String needle) {
         int start=0;

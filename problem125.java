@@ -43,14 +43,38 @@ class problem125{
         }*/
         System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    
+    public static boolean isPalindrome(String s) {
+        StringBuilder sb=new StringBuilder(); 
+        for (int i = 0; i < s.length(); i++) {
+            if(Character.isLetterOrDigit(s.charAt(i))){
+                sb.append(s.charAt(i));
+            }
+        }
+        if(sb.length()==1){
+            return false;
+        }
+        String str=sb.toString();
+        int start=0;
+        int end=str.length()-1;
+        while(start<end){
+            if(str.charAt(start)!=str.charAt(end)){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
 
     public static boolean isPalindrome(String s) {
         StringBuilder sb=new StringBuilder();
         String s1=s.toLowerCase();
         for (int i = 0; i < s1.length(); i++) {
-            if(Character.isLetterOrDigit(s1.charAt(i))){
-                sb.append(s1.charAt(i));
+            if(Character.isLetterOrDigit(s.charAt(i))){
+                sb.append(s.charAt(i));
             }
         }
         if(sb.length()==1){

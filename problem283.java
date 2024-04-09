@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem20{
+class problem283{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,75 +61,30 @@ class problem20{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
     }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else{
-                stack.add(s.charAt(k));
+    
+    
+    public static void moveZeroes(int[] nums) {
+        int i=0;
+        int j=-1;
+        for (int j2 = 0; j2 < nums.length; j2++) {
+            if(nums[j2]==0){
+                j=j2;
+                break;
             }
-            k++;
         }
-        return true;
+        if(j!=-1){
+            i=j+1;
+            while(i<nums.length){
+                if(nums[i]!=0){
+                    nums[j]=nums[i];
+                    nums[i]=nums[j];
+                    i++;
+                    j++;
+                }else{
+                    i++;
+                }
+            }
+        }
     }
 }  

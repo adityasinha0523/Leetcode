@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem20{
+class problem438{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -60,76 +60,68 @@ class problem20{
             }
         }*/
         //System.out.println(sol);
+        List<Integer> sol=findAnagrams("cbaebacd", "abc");
+        for (Integer integer : sol) {
+            System.out.println(integer);
+        }
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
     }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else{
-                stack.add(s.charAt(k));
-            }
-            k++;
+    
+    public static List<Integer> findAnagrams(String s, String p) {
+        Map<Character,Integer> map=new HashMap<>();
+        for (int i = 0; i < p.length(); i++) {
+            map.put(p.charAt(i), map.getOrDefault(p.charAt(i), 0)+1);
         }
-        return true;
+        List<Integer> solution=new ArrayList<>();
+        int end=0;
+        int start=0;
+        while(end<p.length()){
+            char c=s.charAt(end);
+            if(map.containsKey(c)){
+                int val=map.get(c);
+                val=val-1;
+                map.put(c, val);
+            }
+            end++;
+        }
+        boolean found=true;
+        for (Map.Entry<Character,Integer> hEntry : map.entrySet()) {
+            int val=hEntry.getValue();
+            if(val!=0){
+                found=false;
+                break;
+            }
+        }
+        if(found==true){
+            solution.add(start);
+        }
+        while(end<s.length()){
+            char c=s.charAt(start);
+            if(map.containsKey(c)){
+                int val=map.get(c);
+                val=val+1;
+                map.put(c, val);
+            }
+            start++;
+            char c1=s.charAt(end);
+            if(map.containsKey(c1)){
+                int val=map.get(c1);
+                val=val-1;
+                map.put(c1, val);
+            }
+            end++;
+            boolean found1=true;
+            for (Map.Entry<Character,Integer> hEntry : map.entrySet()) {
+                int val=hEntry.getValue();
+                if(val!=0){
+                    found1=false;
+                    break;
+            }
+            }
+            if(found1==true){
+                solution.add(start);
+            }
+        }
+        return solution;
     }
 }  

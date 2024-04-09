@@ -45,13 +45,13 @@ class problem344{
 
     public static void reverseString(char[] s) {
         int first=0;
-        int last=s.length-1;
-        while(first<last){
+        int end=s.length-1;
+        while(first<end){
             char temp=s[first];
-            s[first]=s[last];
-            s[last]=temp;
+            s[first]=s[end];
+            s[end]=temp;
             first++;
-            last--;
+            end--;
         }
     }
 }  

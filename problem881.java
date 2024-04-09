@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+import java.util.concurrent.locks.ReadWriteLock;
 import java.lang.*;
 
 class problem881{
@@ -42,7 +43,29 @@ class problem881{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    } 
+    
+    
+    public static int numRescueBoats(int[] people, int limit) {
+        int solution=0;
+        Arrays.sort(people);
+        int start=0;
+        int sum=0;
+        int end=people.length-1;
+        while(start<end){
+            if(people[start]+people[end]<=limit){
+                solution++;
+                start++;
+                end--;
+            }else{
+                
+                solution++;
+                end--;
+            }
+        }
+        //solution++;
+        return solution;
+    }
 
     public static int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people);

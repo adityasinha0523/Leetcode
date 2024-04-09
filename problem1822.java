@@ -43,7 +43,21 @@ class problem1822{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    
+    public static int arraySign(int[] nums) {
+        int count=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]==0){
+                return 0;
+            }
+            else if(nums[i]<0){
+                count++;
+            }
+        }
+        return count%2==0?1:-1;
+    }
 
     public static int arraySign(int[] nums) {
         int countNegative=0;

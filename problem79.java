@@ -98,4 +98,37 @@ class problem79{
         visited[i][j]=false;
         return false;
     }
+
+
+
+    static int[][] visited1;
+    public static boolean exist1(char[][] board, String word) {
+        visited1=new int[board.length][board[0].length];
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if(word.charAt(0)==board[i][j]&&search1(board,i,j,0,word)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean search1(char[][] board,int i,int j,int index,String word){
+        if(index==word.length()){
+            return true;
+        }
+        if(i<0||i>board.length||j<0||j>board[0].length||board[i][j]!=word.charAt(index)||visited[i][j]==true){
+            return false;
+        }
+        visited[i][j]=true;
+        if(search1(board, i+1, j, index+1,word)||
+        search1(board,  i-1, j, index+1,word)||
+        search1(board,  i, j+1, index+1,word)||
+        search1(board,  i, j-1, index+1,word)){
+            return true;
+        }
+        visited[i][j]=false;
+        return false;
+    }
 }  

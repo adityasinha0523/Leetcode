@@ -4,14 +4,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
+import java.net.Inet4Address;
 
-class problem20{
+class problem225{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +47,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,75 +62,36 @@ class problem20{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
     }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else{
-                stack.add(s.charAt(k));
+    Queue<Integer> q1;
+    Queue<Integer> q2;
+    public MyStack() {
+        q1=new LinkedList<>();
+        q2=new LinkedList<>();
+    }
+    
+    public void push(int x) {
+        q2.add(x);
+        if(!q1.isEmpty()){
+            while(!q1.isEmpty()){
+                q2.add(q1.remove());
             }
-            k++;
         }
-        return true;
+        while(!q2.isEmpty()){
+            q1.add(q2.poll());
+        }
+
+    }
+    
+    public int pop() {
+        q1.remove();
+    }
+    
+    public int top() {
+        q1.peek();
+    }
+    
+    public boolean empty() {
+        return q1.isEmpty();
     }
 }  

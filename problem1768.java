@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem20{
+class problem1768{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,75 +61,32 @@ class problem20{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
     }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
+    
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder sb=new StringBuilder();
+        int len1=word1.length();
+        int len2=word2.length();
+        int count=0;
+        while(len1<word1.length() && len2<word2.length()){
+            if(count%2==0){
+                sb.append(word1.charAt(len1));
+                len1++;
             }else{
-                stack.add(s.charAt(k));
+                sb.append(word2.charAt(len2));
+                len2++;
             }
-            k++;
         }
-        return true;
+        if(len1<word1.length() &&len2==word2.length()){
+            while(len1<word1.length()){
+                sb.append(word1.charAt(len1++));
+            }
+        }
+        if(len2<word2.length() && len1==word1.length()){
+            while(len2<word2.length()){
+                sb.append(word2.charAt(len2++));
+            }
+        }
+        return sb.toString();
     }
 }  

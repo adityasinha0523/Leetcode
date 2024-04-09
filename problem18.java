@@ -45,7 +45,7 @@ class problem18{
     }  
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
-        Set<List<Integer>> solution=new HashSet<>();
+        /*Set<List<Integer>> solution=new HashSet<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length-1; i++) {
             int value1=nums[i];
@@ -71,6 +71,32 @@ class problem18{
                 }
             }
         }
-        return new ArrayList<>(solution);
+        return new ArrayList<>(solution);*/
+
+
+        Set<List<Integer>> set=new HashSet<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int first=i;
+            int second=i+1;
+            int third=i+2;
+            int fourth=nums.length-1;
+            while(third<fourth){
+                if(nums[first]+nums[second]+nums[third]+nums[fourth]==0){
+                    List<Integer> list=new ArrayList<>();
+                    list.add(nums[first]);
+                    list.add(nums[second]);
+                    list.add(nums[third]);
+                    list.add(nums[fourth]);
+                    set.add(list);
+                    third++;
+                }else if(nums[first]+nums[second]+nums[third]+nums[fourth]<0){
+                    third++;
+                }else{
+                    fourth--;
+                }
+            }   
+        }
+        return new ArrayList<>(set);
     }
 }  

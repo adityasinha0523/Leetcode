@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem20{
+class WC392P2{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem20{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -60,76 +60,33 @@ class problem20{
             }
         }*/
         //System.out.println(sol);
+        //System.out.println(getSmallestString("zbbz", 3)); 
+        System.out.println(getSmallestString("xaxcd", 4)); 
+        System.out.println(getSmallestString("lol", 0));
         scan.close();
-    }  
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i)=='('){
-                stack.add('(');
-            }else if(s.charAt(i)==')'){
-                char c=stack.peek();
-                if(c!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='{'){
-                stack.add('{');
-            }else if(s.charAt(i)=='}'){
-                char c=stack.peek();
-                if(c!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(i)=='['){
-                stack.add('[');
-            }else if(s.charAt(i)==']'){
-                char c=stack.peek();
-                if(c!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }
-        }
-        if(stack.size()==0?true:false);
     }
-
-
-
-
-
-    public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else{
-                stack.add(s.charAt(k));
+    public static String getSmallestString(String s, int k) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            int distToA = cyclicDistance(chars[i], 'a');
+            if (distToA <= k) {
+                chars[i] = 'a';
+                k -= distToA; 
+            } else {
+                int dist = k % 26;
+                //char newChar = (char) ((chars[i] - dist);
+                char newChar = (char) (chars[i] - dist);
+                chars[i] = newChar;
+                break;
+                //k -= cyclicDistance(chars[i], newChar);
+                
             }
-            k++;
         }
-        return true;
+        return new String(chars);
+    } 
+    
+    private static int cyclicDistance(char a, char b) {
+        int dist = Math.abs(a - b);
+        return Math.min(dist, 26 - dist);
     }
 }  

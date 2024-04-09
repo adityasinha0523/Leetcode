@@ -45,7 +45,7 @@ class problem80{
     }  
 
     public static int removeDuplicates(int[] nums) {
-        int counter=1;
+        /*int counter=1;
         int solution=1;
         for (int i = 1; i < nums.length; i++) {
             if(nums[i]==nums[i-1]&&counter<3){
@@ -56,6 +56,21 @@ class problem80{
                 solution++;
             }
         }
-        return solution;
+        return solution;*/
+
+        int counter=0;
+        int index=1;
+        for (int i = 1; i < nums.length; i++) {
+            if(nums[i]==nums[i-1]){
+                counter++;
+
+            }else{
+                counter=0;
+            }
+            if(counter<=1){
+                nums[index++]=nums[i];
+            }
+        }
+        return index;
     }
 }  

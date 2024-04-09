@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1984{
+class WC392P3{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class problem1984{
         //To take int array as input
         
         //1D Array
-        /*int[] nums=new int[3];
+        int[] nums=new int[5];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }*/
+        }
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -46,7 +46,7 @@ class problem1984{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,30 +54,42 @@ class problem1984{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
+        System.out.println(minOperationsToMakeMedianK(nums,4));
         scan.close();
-    }  
-
-    public static int minimumDifference(int[] nums, int k) {
-        /*Arrays.sort(nums);
-        int sol=Integer.MAX_VALUE;
-        if(nums.length==1){
-            return 0;
-        }else{
-            for (int i = 0; i+k-1 < nums.length; i++) {
-                sol=Math.min(sol,nums[i+k-1]-nums[i]);
+    }
+    
+    
+        public static long minOperationsToMakeMedianK(int[] nums, int k) {
+            Arrays.sort(nums);
+            
+            int length = nums.length;
+            int middleValue = length / 2;
+            
+            if (nums[middleValue] == k) 
+                return 0;
+            
+            else if (nums[middleValue] > k) {
+                long answer = 0;
+                for (int element = middleValue; element >= 0; element--) {
+                    if (nums[element] >= k)
+                        answer += nums[element] - k;
+                }
+                return answer;
+            }
+            
+            else {
+                long answer = 0;
+                for (int element = middleValue; element < nums.length; element++) {
+                    if (nums[element] <= k)
+                        answer += k - nums[element];
+                }
+                return answer;
             }
         }
-        return sol;*/
-
-        Arrays.sort(nums);
-        int sol=Integer.MAX_VALUE;
-        if(nums.length==1){
-            return 0;
-        }
-        for (int i = 0; i+k-1<nums.length; i++) {
-            sol=Math.min(sol,nums[i+k-1]-nums[i]);
-        }
-        return sol;
-    }
+    
 }  

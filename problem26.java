@@ -58,7 +58,7 @@ class problem26{
     }  
 
     public static int removeDuplicates(int[] nums) {
-        List<Integer> list=new ArrayList<>();
+        /*List<Integer> list=new ArrayList<>();
         int k=0;
         for (int i = 0; i < nums.length; i++) {
             if(!list.contains(nums[i])){
@@ -67,6 +67,15 @@ class problem26{
             }
         }
         
+        return list.size();*/
+        List<Integer> list=new ArrayList<>();
+        int k=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(!list.contains(nums[i])){
+                list.add(nums[i]);
+                nums[k++]=nums[i];
+            }
+        }
         return list.size();
     }
 }  
