@@ -59,14 +59,31 @@ class problem338{
     }  
 
     public static int[] countBits(int n) {
-        int[] ans=new int[n+1];
+        /*int[] ans=new int[n+1];
         for (int i = 0; i < n+1; i++) {
             ans[i]=find(i+1);
+        }
+        return ans;*/
+
+        int[] ans=new int[n+1];
+        for (int i = 0; i < n+1; i++) {
+            ans[i]=find(i);
         }
         return ans;
     }
 
-    public static int find(int val){
+    public static int find(int  n){
+        int count=0;
+        while(n!=0){
+            if((n&1)==1){
+                count++;
+            }
+            n=n>>1;
+        }
+        return count;
+    }
+
+    /*public static int find(int val){
         int count=0;
         while(val!=0){
             if((val&1)==1){
@@ -75,5 +92,5 @@ class problem338{
             val=val>>1;
         }
         return count;
-    }
+    }*/
 }  

@@ -64,7 +64,7 @@ class problem540{
     }  
 
     public static int singleNonDuplicate(int[] nums) {
-        
+        /* 
         int start=0;
         int end=nums.length-1;
         while(start<end){
@@ -85,6 +85,26 @@ class problem540{
             }
             
         }
-        return nums[start];
+        return nums[start];*/
+        int low=0;
+        int high=nums.length-1;
+        while(low<high){
+            int mid=low+(high-low)/2;
+            int diff=nums.length-1-mid;
+            if(nums[mid]==nums[mid+1]){
+                if(diff%2==0){
+                    low=mid+2;
+                }else{
+                    high=mid-1;
+                }
+            }else{
+                if(diff%2==0){
+                    high=mid;
+                }else{
+                    low=mid+1;
+                }
+            }
+        }
+        return nums[low];
     }
 }  

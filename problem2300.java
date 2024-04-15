@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem74{
+class problem2300{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem74{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,38 +61,29 @@ class problem74{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static boolean searchMatrix(int[][] matrix, int target) {
-        /*int row=matrix.length;
-        int col=matrix[0].length;
-        int start=0;
-        int end=row*col-1;
-        while(start<=end){
-            int mid=start+(end-start)/2;
-            if(matrix[mid/col][mid%col]==target){
-                return true;
-            }else if(matrix[mid/col][mid%col]<target){
-                start=mid+1;
-            }else{
-                end=mid-1;
+    }
+    
+    
+    public int[] successfulPairs(int[] spells, int[] potions, long success) {
+        int[] sol=new int[spells.length];
+        int n=spells.length;
+        int m=potions.length;
+        Arrays.sort(potions);
+        for (int i = 0; i < n; i++) {
+            int spell=spells[i];
+            int low=0;
+            int high=m-1;
+            while(low<=high){
+                int mid=low+(high-low)/2;
+                long product=(long)spell*potions[mid];
+                if(product>=success){
+                    high=mid-1;
+                }else{
+                    low=mid+1;
+                }
             }
+            sol[i]=m-low;
         }
-        return false;*/
-        int row=matrix.length;
-        int col=matrix[0].length;
-        int start=0;
-        int end=row*col-1;
-        while(start<=end){
-            int mid=start+(end-start)/2;
-            if(matrix[mid/col][mid%col]==target){
-                return true;
-            }else if(matrix[mid/col][mid%col]<target){
-                start=mid+1;
-            }else{
-                end=mid-1;
-            }
-        }
-        return false;
+        return sol;
     }
 }  

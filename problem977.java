@@ -50,13 +50,21 @@ class problem977{
 
     public static int[] sortedSquares(int[] nums) {
         int[] sol=new int[nums.length];
-        int first=0;
-        int last=nums.length-1;
-        for (int i = 0; i < nums.length; i++) {
-            int val=nums[i];
-            sol[i]=val*val;
+        int low=0;
+        int high=nums.length-1;
+        int k=nums.length-1;
+        while(low<=high){
+            int val1=nums[low]*nums[low];
+            int val2=nums[high]*nums[high];
+            if(val1>=val2){
+                sol[k--]=val1;
+                low++;
+            }else{
+                sol[k--]=val2;
+                high--;
+            }
+
         }
-        Arrays.sort(sol);
         return sol;
     }
 }  

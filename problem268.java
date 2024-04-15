@@ -64,6 +64,15 @@ class problem268{
     }*/
 
     public static int missingNumber(int[] nums) {
+        /*int actualXor=0;
+        int expectedXor=0;
+        for (int i = 0; i < nums.length; i++) {
+            actualXor=actualXor^nums[i];
+        }
+        for (int i = 0; i <=nums.length; i++) {
+            expectedXor=expectedXor^i;
+        }
+        return expectedXor^actualXor;*/
         int actualXor=0;
         int expectedXor=0;
         for (int i = 0; i < nums.length; i++) {

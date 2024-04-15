@@ -46,7 +46,7 @@ class problem190{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        int sol=reverseBits(11111111111111111111111111111101);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,17 +54,26 @@ class problem190{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        //System.out.println(sol);
+        System.out.println(sol);
         scan.close();
     }  
 
     public static int reverseBits(int n) {
-        int binaryNum = 0;
+        /*int binaryNum = 0;
         for(int i=0;i<32;i++) {
             binaryNum = binaryNum<<1;                   //multiply by 2
             binaryNum = binaryNum + (n&1);              //add last digit to binaryNum 
             n=n>>1;                                     //update n by removing last digit
         }
-        return binaryNum ;
+        return binaryNum ;*/
+
+        int binaryNum=0;
+        for (int i = 0; i < 32; i++) {
+            binaryNum=binaryNum<<1;
+            binaryNum=binaryNum+(n&1);
+            n=n>>1;
+        }
+        return binaryNum;
+
     }
 }  

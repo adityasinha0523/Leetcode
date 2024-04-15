@@ -49,6 +49,12 @@ class problem136{
     }  
 
     public static int singleNumber(int[] nums) {
+        /*int solution=0;
+        for (int i = 0; i < nums.length; i++) {
+            solution^=nums[i];
+        }
+        return solution;*/
+
         int solution=0;
         for (int i = 0; i < nums.length; i++) {
             solution^=nums[i];

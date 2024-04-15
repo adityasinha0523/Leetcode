@@ -69,6 +69,24 @@ class problem22{
         return list;
     }
 
+    public static List<String> generateParenthesis(int n) {
+        List<String> list=new ArrayList<>();
+        backtrack1(list,"",0,0,n);
+        return list;
+    }
+    public void backtrack1(List<String> list,String str,int open,int close,int max){
+        if(str.length()==max*2){
+            list.add(str);
+            return;
+        }
+        if(open<max){
+            backtrack1(list, str+"(", open+1, close, max);
+        }
+        if(close<open){
+            backtrack1(list, str+")", open, close+1, max);
+        }
+    }    
+
     public void backtrack(List<String> list,String str,int open,int close,int max){
 
         if(str.length()==max*2){

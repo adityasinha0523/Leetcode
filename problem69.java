@@ -64,7 +64,7 @@ class problem69{
     }  
 
     public int mySqrt(int x) {
-        if(x==0||x==1){
+        /*if(x==0||x==1){
             return x;
         }
 
@@ -82,6 +82,23 @@ class problem69{
                 end=middle-1;
             }
         }
-        return Math.round(end);
+        return Math.round(end);*/
+
+        if(x==0||x==1){
+            return x;
+        }
+        int low=0;
+        int high=x;
+        while(low<=high){
+            int middle=low+(high-low)/2;
+            if(middle*middle==x){
+                return middle;
+            }else if(middle*middle<x){
+                low=middle+1;
+            }else{
+                high=middle-1;
+            }
+        }
+        return Math.round(high);
     }
 }  

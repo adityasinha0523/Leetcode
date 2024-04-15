@@ -64,11 +64,19 @@ class problem441{
     }  
 
     public int arrangeCoins(int n) {
-        int i = 1; // which row we are on
-		while(n > 0){ // checking to see if we have used all our coins
-			i++; // increasing our row
-			n = n-i; // adding coins to our row
-		}
-		return i-1;
+        int low=0;
+        int high=n;
+        while(low<=high){
+            int mid=low+(high-low)/2;
+            int k=(mid*(mid+1))/2;
+            if(k==n){
+                return mid;
+            }else if(k<n){
+                low=mid+1;
+            }else{
+                high=mid-1;
+            }
+        }
+        return high;
     }
 }  

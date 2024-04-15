@@ -45,6 +45,15 @@ class problem1470{
     }  
 
     public static int[] shuffle(int[] nums, int n) {
+        /*int second=n;
+        int first=0;
+        int[] sol=new int[nums.length];
+        int k=0;
+        while(first<n){
+            sol[k++]=nums[first++];
+            sol[k++]=nums[second++];
+        }
+        return sol;*/
         int second=n;
         int first=0;
         int[] sol=new int[nums.length];
