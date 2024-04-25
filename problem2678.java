@@ -33,7 +33,7 @@ class problem2678{
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextLine();
         }
-        int sol=countSeniors(nums);
+        int sol=countSeniors2(nums);
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
@@ -43,6 +43,20 @@ class problem2678{
         System.out.println(sol);
         scan.close();
     }  
+
+    public static int countSeniors2(String[] details) {
+        int solution=0;
+        for (int i = 0; i < details.length; i++) {
+            String s=details[i];
+            String age=s.substring(11,13);
+            int value=Integer.valueOf(age);
+            if(value>60){
+                solution++;
+            }
+        }
+        return solution;
+    }    
+
 
     public static int countSeniors(String[] details) {
         int solution=0;

@@ -47,7 +47,7 @@ class problem1018{
 
     public static List<Boolean> prefixesDivBy5(int[] nums) {
         //Boolean[] sol=new Boolean[nums.length];
-        List<Boolean> sol=new ArrayList<>();
+        /*List<Boolean> sol=new ArrayList<>();
         int sum=0;
         for (int i = 0; i < nums.length; i++) {
             sum=sum*2+nums[i];
@@ -57,6 +57,17 @@ class problem1018{
                 sol.add(false);
             }
             sum=sum%5;
+        }
+        return sol;*/
+        List<Boolean> sol=new ArrayList<>();
+        int sum=0;
+        for (int i = 0; i < nums.length; i++) {
+            sum=(2*sum+nums[i])%5;
+            if(sum%5==0){
+                sol.add(true);
+            }else{
+                sol.add(false);
+            }
         }
         return sol;
     }

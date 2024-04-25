@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2274{
+class problem310{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem2274{
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,34 +61,55 @@ class problem2274{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public static List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        List<List<Integer>> myGraph=new ArrayList<>();
+        List<Integer> res=new ArrayList<>();
+        if(n==1){
+            res.add(0);
+            return res;
+        }
 
-    public static int maxConsecutive(int bottom, int top, int[] special) {
-        int solution=Integer.MIN_VALUE;
-        Arrays.sort(special);
-        solution=Math.max(solution, special[0]- bottom);
-        for (int i = 1; i < special.length; i++) {
-            solution=Math.max(solution, special[i]-special[i-1]-1);
+        int[] degree=new int[n];
+        for (int i = 0; i < n; i++) {
+            myGraph.add(new ArrayList<Integer>());
         }
-        solution=Math.max(solution, top-special[special.length-1]);
-        return solution;
-        /*int solution=0;
-        //int k=0;
-        Set<Integer> set=new HashSet<>();
-        for (int i = 0; i < special.length; i++) {
-            set.add(special[i]);
+        for (int i = 0; i < edges.length; i++) {
+            myGraph.get(edges[i][0]).add(edges[i][1]);
+            myGraph.get(edges[i][1]).add(edges[i][0]);
+            degree[edges[i][0]]++;
+            degree[edges[i][1]]++;
         }
-        int counter=0;
-        while(bottom!=top){
-            if(set.contains(bottom)){
-                solution=Math.max(solution, counter);
-                counter=0;
-            }else{
-                counter++;
+
+        Queue<Integer> myQueue=new ArrayDeque<Integer>();
+        for (int i = 0; i < n; i++) {
+            if(degree[i]==0){
+                return res;
             }
-            bottom++;
+            else if(degree[i]==1){
+                myQueue.add(i);
+            }
         }
-        solution=Math.max(counter, solution);
-        return solution;*/
+        while(!myQueue.isEmpty()){
+            res=new ArrayList<>();
+            int count=myQueue.size();
+            for (int i = 0; i < count; i++) {
+                int curr=myQueue.poll();
+                res.add(curr);
+                degree[curr]--;
+                for (int j = 0; j < myGraph.get(curr).size(); j++) {
+                    int next=myGraph.get(curr).get(j);
+                    if(degree[next]==0){
+                        continue;
+                    }
+                    if(degree[next]==2){
+                        myQueue.offer(next);
+                    }
+                    degree[next]--;
+                }
+            }
+        }
+        return res;
     }
 }  

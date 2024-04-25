@@ -47,7 +47,7 @@ class problem2679{
     }  
 
     public static int matrixSum(int[][] nums) {
-        int solution=0;
+        /*int solution=0;
         List<ArrayList<Integer>> listArr=new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             ArrayList<Integer> list=new ArrayList<>();
@@ -68,6 +68,27 @@ class problem2679{
             Collections.sort(l);
             Collections.reverseOrder();
             solution+=l.get(l.size()-1);
+        }
+        return solution;*/
+        int solution=0;
+        List<List<Integer>> arrList=new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            List<Integer> list=new ArrayList<>();
+            for (int j = 0; j < nums[0].length; j++) {
+                int val=nums[i][j];
+                list.add(val);
+            }
+            Collections.sort(list);
+            arrList.add(list);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            List<Integer> list=new ArrayList<>();
+            for (int j = 0; j < nums.length; j++) {
+                int val=arrList.get(i).get(j);
+                list.add(val);
+            }
+            Collections.sort(list);
+            solution+=list.get(list.size()-1);
         }
         return solution;
     }
