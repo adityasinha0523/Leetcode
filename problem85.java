@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1992{
+class problem85{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -61,30 +61,64 @@ class problem1992{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    }
+    
+    public int maximalRectangle(char[][] matrix) {
+        if(matrix.length==0){
+            return 0;
+        }
+        int maxArea=0;
+        int row=matrix.length;
+        int col=matrix[0].length;
+        int[] dp=new int[col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                dp[j]=matrix[i][j]=='1'?dp[j]+1:0;
+            }
+            maxArea=Math.max(maxArea, findArea(dp));
+        }
+        return maxArea;
+    }
 
-
-    /**
-     * @param land
-     * @return int[][]
-     */
-    public static int[][] findFarmland(int[][] land) {
-        List<int[]> resultList=new ArrayList<>();
-        for (int i = 0; i < land.length; i++) {
-            for (int j = 0; j < land[0].length; j++) {
-                if(land[i][j]==1 &&(i==0||land[i-1][j]==0) &&
-                (j==0||land[i][j-1]==0)){
-                    int i2=i;
-                    int j2=j;
-                    while(i2<land.length &&land[i2][j]==1){
-                        i2++;
-                    }while(j2<land[0].length && land[i][j2]==1){
-                        j2++;
-                    }
-                    resultList.add(new int[]{i,j,i2-1,j2-1});
+    public int findArea(int[] dp){
+        int len=dp.length;
+        int maxArea=0;
+        int[] left=new int[len];
+        int[] right=new int[len];
+        Stack<Integer> stack=new Stack<>();
+        for (int i = 0; i < len; i++) {
+            if(stack.isEmpty()){
+                stack.push(i);
+                left[i]=0;
+            }else{
+                while(!stack.isEmpty()&& dp[stack.peek()]>=dp[i]){
+                    stack.pop();
                 }
+                left[i]=stack.isEmpty()?0:stack.peek()+1;
+                stack.add(i);
             }
         }
-        return resultList.toArray(new int[0][]);
+        while(!stack.isEmpty()){
+            stack.pop();
+        }
+        for (int i = len-1; i >=0; i--) {
+            if(stack.isEmpty()){
+                stack.push(len-1);
+                right[i]=len-1;
+            }else{
+                while(!stack.isEmpty()&& dp[stack.peek()]>=dp[i]){
+                    stack.pop();
+                }
+                right[i]=stack.isEmpty()?len-1:stack.peek()-1;
+                stack.add(i);
+            }
+        }
+        int[] area=new int[len];
+        for (int i = 0; i < len; i++) {
+            area[i]=(right[i]-left[i])*dp[i];
+            maxArea=Math.max(maxArea, area[i]);
+        }
+        return maxArea;
     }
+
 }  

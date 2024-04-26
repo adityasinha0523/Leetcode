@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1992{
+class problem200{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -61,30 +61,35 @@ class problem1992{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-
-    /**
-     * @param land
-     * @return int[][]
-     */
-    public static int[][] findFarmland(int[][] land) {
-        List<int[]> resultList=new ArrayList<>();
-        for (int i = 0; i < land.length; i++) {
-            for (int j = 0; j < land[0].length; j++) {
-                if(land[i][j]==1 &&(i==0||land[i-1][j]==0) &&
-                (j==0||land[i][j-1]==0)){
-                    int i2=i;
-                    int j2=j;
-                    while(i2<land.length &&land[i2][j]==1){
-                        i2++;
-                    }while(j2<land[0].length && land[i][j2]==1){
-                        j2++;
-                    }
-                    resultList.add(new int[]{i,j,i2-1,j2-1});
+    }
+    
+    
+    public static int numIslands(char[][] grid) {
+        int count=0;
+        int n=grid.length;
+        int m=grid[0].length;
+        if(n==0){
+            return 0;
+        }
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j]=='1'){
+                    dfs(grid,i,j,n,m);
+                    count++;
                 }
             }
         }
-        return resultList.toArray(new int[0][]);
+        return count;
+    }
+
+    public static void dfs(char[][] grid,int i,int j,int n, int m){
+        if(i<0||j<0 ||i>=n||j>=m||grid[i][j]!='1'){
+            return;
+        }
+        grid[i][j]='0';
+        dfs(grid, i+1, j, n, m);
+        dfs(grid, i-1, j, n, m);
+        dfs(grid, i, j+1, n, m);
+        dfs(grid, i, j-1, n, m);
     }
 }  

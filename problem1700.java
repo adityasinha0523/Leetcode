@@ -9,9 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.text.DefaultStyledDocument.ElementSpec;
+
 import java.lang.*;
 
-class problem1992{
+class problem1700{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -63,28 +66,31 @@ class problem1992{
         scan.close();
     }  
 
-
-    /**
-     * @param land
-     * @return int[][]
-     */
-    public static int[][] findFarmland(int[][] land) {
-        List<int[]> resultList=new ArrayList<>();
-        for (int i = 0; i < land.length; i++) {
-            for (int j = 0; j < land[0].length; j++) {
-                if(land[i][j]==1 &&(i==0||land[i-1][j]==0) &&
-                (j==0||land[i][j-1]==0)){
-                    int i2=i;
-                    int j2=j;
-                    while(i2<land.length &&land[i2][j]==1){
-                        i2++;
-                    }while(j2<land[0].length && land[i][j2]==1){
-                        j2++;
-                    }
-                    resultList.add(new int[]{i,j,i2-1,j2-1});
+    public static int countStudents(int[] students, int[] sandwiches) {
+        int one=0;
+        int zero=0;
+        for (int i = 0; i < students.length; i++) {
+            if(students[i]==0){
+                zero++;
+            }else{
+                one++;
+            }
+        }
+        for (int i = 0; i < sandwiches.length; i++) {
+            if(sandwiches[i]==0){
+                if(zero==0){
+                    return one;
+                }else{
+                    zero--;
+                }
+            }else{
+                if(one==0){
+                    return zero;
+                }else{
+                    one--;
                 }
             }
         }
-        return resultList.toArray(new int[0][]);
+        return 0;
     }
 }  
