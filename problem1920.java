@@ -57,9 +57,14 @@ class problem1920{
     }  
 
     public static int[] buildArray(int[] nums) {
-        int[] solution=new int[nums.length];
+        /*int[] solution=new int[nums.length];
 
         for (int i = 0; i < nums.length; i++) {
+            solution[i]=nums[nums[i]];
+        }
+        return solution;*/
+        int[] solution=new int[nums.length];
+        for (int i = 0; i < solution.length; i++) {
             solution[i]=nums[nums[i]];
         }
         return solution;

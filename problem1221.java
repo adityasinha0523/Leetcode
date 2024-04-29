@@ -55,7 +55,7 @@ class problem1221{
 
        
     public static int balancedStringSplit(String s) {
-        int leftVal=0;
+        /*int leftVal=0;
         int rightVal=0;
         int totalCount=0;
         for (int i = 0; i < s.length(); i++) {
@@ -63,6 +63,22 @@ class problem1221{
                 leftVal++;
             }
             else{
+                rightVal++;
+            }
+            if(leftVal==rightVal){
+                totalCount++;
+                leftVal=0;
+                rightVal=0;
+            }
+        }
+        return totalCount;*/
+        int leftVal=0;
+        int rightVal=0;
+        int totalCount=0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='L'){
+                leftVal++;
+            }else{
                 rightVal++;
             }
             if(leftVal==rightVal){
