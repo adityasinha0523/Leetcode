@@ -49,7 +49,23 @@ class problem2000{
     }  
 
     public static String reversePrefix(String word, char ch) {
-        int last=-1;
+
+        StringBuilder sb=new StringBuilder();
+        boolean found=false;
+        for (int i = 0; i < word.length(); i++) {
+            if(word.charAt(i)!=ch){
+                sb.append(word.charAt(i));
+            }else{
+                if(found){
+                    sb.append(word.charAt(i));
+                }else{
+                    sb.append(word.charAt(i));
+                    sb.reverse();
+                }
+            }
+        }
+        return sb.toString();
+        /*int last=-1;
         for (int i = 0; i < word.length(); i++) {
             if(word.charAt(i)==ch){
                 last=i;
@@ -69,6 +85,6 @@ class problem2000{
             last--;
         }
         String sol=String.valueOf(ch1);
-        return sol;
+        return sol;*/
     }
 }  

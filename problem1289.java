@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1266{
+class problem1289{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem1266{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,14 +61,31 @@ class problem1266{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    } 
+    
+    public static int minFallingPathSum(int[][] grid) {
+        int n=grid.length;
+        int m=grid[0].length;
+        int[][] dp=new int[n][m];
+        for (int i = 0; i < m; i++) {
+            dp[0][i]=grid[0][i];
+        }
 
-    public static int minTimeToVisitAllPoints(int[][] points) {
-        int ans=0;
-        for (int i = 1; i < points.length; i++) {
-            int dx=Math.abs(points[i][0]-points[i+1][0]);
-            int dy=Math.abs(points[i][1]-points[i+1][1]);
-            ans+=Math.min(dx, dy)+Math.abs(dx-dy);
+        for (int i = 1; i < dp.length; i++) {
+            for (int  j = 0; j < dp[0].length; j++) {
+                dp[i][j]=grid[i][j];
+                int minPrev=Integer.MAX_VALUE;
+                for (int k = 0; k < dp[0].length; k++) {
+                    if(k!=j){
+                        minPrev=Math.min(minPrev,dp[i-1][k]);
+                    }
+                }
+                dp[i][j]+=minPrev;
+            }
+        }
+        int ans=Integer.MAX_VALUE;
+        for (int i = 0; i < dp[0].length; i++) {
+            ans=Math.min(ans, dp[n-1][i]);
         }
         return ans;
     }

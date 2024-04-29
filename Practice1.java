@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1266{
+class Practise1{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem1266{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -59,17 +59,48 @@ class problem1266{
                 System.out.println( sol[i][j]);
             }
         }*/
-        //System.out.println(sol);
+        List<Integer> nums=new ArrayList<>();
+        nums.add(2);
+        nums.add(4);
+        nums.add(3);
+        nums.add(1);
+        nums.add(6);
+        int solution=findRequestsInQueue(nums);
+        System.out.println(solution);
         scan.close();
-    }  
-
-    public static int minTimeToVisitAllPoints(int[][] points) {
-        int ans=0;
-        for (int i = 1; i < points.length; i++) {
-            int dx=Math.abs(points[i][0]-points[i+1][0]);
-            int dy=Math.abs(points[i][1]-points[i+1][1]);
-            ans+=Math.min(dx, dy)+Math.abs(dx-dy);
+    } 
+    
+    public static List<Integer> findRequestsInQueue(List<Integer> wait) { 
+        int requests = wait.size(); 
+        Map<Integer, Integer> counts = new HashMap<>();
+        for (int time : wait) {
+            counts.compute(time, (k, v) -> v == null ? 1 : v + 1);
         }
-        return ans;
+
+        int n = wait.size();
+        int[] result = new int[n];
+        int time = 0; // real / running time
+        for (int waitingTime : wait) {
+            if (waitingTime > time) {
+                result[time++] = requests--;
+                counts.compute(waitingTime, (k, v) -> v == 1 ? null : v - 1);
+            }
+            Integer noOfReqExpired = counts.remove(time);
+            if (noOfReqExpired != null) {
+                requests -= noOfReqExpired;
+            }
+        }
+        List<Integer> solution=new ArrayList<>();
+        boolean found=false;
+        for (int i = 0; i < result.length; i++) {
+            if(result[i]==0 &&found==false){
+                solution.add(result[i]);
+                found=true;
+            }else{
+                
+            }
+            solution.add(result[i]);
+        }
+        return solution;
     }
 }  

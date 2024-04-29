@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem1266{
+class problem3127{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -46,7 +46,7 @@ class problem1266{
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,15 +61,39 @@ class problem1266{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int minTimeToVisitAllPoints(int[][] points) {
-        int ans=0;
-        for (int i = 1; i < points.length; i++) {
-            int dx=Math.abs(points[i][0]-points[i+1][0]);
-            int dy=Math.abs(points[i][1]-points[i+1][1]);
-            ans+=Math.min(dx, dy)+Math.abs(dx-dy);
+    } 
+    
+    public static boolean canMakeSquare(char[][] grid) {
+        
+        for (int i = 0; i < grid.length-1; i++) {
+            int wCount=0;
+            int bCount=0;
+            for (int j = 0; j < grid[0].length-1; j++) {
+                if(grid[i][j]=='B'){
+                    bCount++;
+                }else {
+                    wCount++;
+                }
+                if(grid[i+1][j]=='B'){
+                    bCount++;
+                }else {
+                    wCount++;
+                }
+                if(grid[i][j+1]=='B'){
+                    bCount++;
+                }else {
+                    wCount++;
+                }
+                if(grid[i+1][j+1]=='B'){
+                    bCount++;
+                }else {
+                    wCount++;
+                }
+            }
+            if(wCount>=3||bCount>=3){
+                return true;
+            }
         }
-        return ans;
+        return false;
     }
 }  
