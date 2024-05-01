@@ -9,9 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.xml.stream.events.EndElement;
+
 import java.lang.*;
 
-class problem3110{
+class problem1926{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,8 +45,10 @@ class problem3110{
                 nums[i][j]=scan.nextInt();
             }
         }*/
+
         //Taking String as input.
         //String s=scan.nextLine();
+
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -59,15 +64,41 @@ class problem3110{
         }*/
         //System.out.println(sol);
         scan.close();
-    }
+    } 
     
-    public static int scoreOfString(String s) {
-        int solution=0;
-        for (int i = 1; i < s.length(); i++) {
-            int val1=s.charAt(i)-'a';
-            int val2=s.charAt(i-1)-'a';
-            solution+=Math.abs(val2-val1);
+    public static int nearestExit(char[][] maze, int[] entrance) {
+        int row=maze.length;
+        int col=maze[0].length;
+        Queue<int[]> queue=new LinkedList<>();
+        queue.offer(entrance);
+        maze[entrance[0]][entrance[1]]='+';
+
+        int[][] directions=new int[][]{{0,1},{0,-1},{1,0},{-1,0}};
+
+        int steps=0;
+        int x,y;
+        while(!queue.isEmpty()){
+            steps++;
+            int n=queue.size();
+            for (int i = 0; i < n; i++) {
+                int[] current=queue.poll();
+                for (int[] dir : directions) {
+                    x=current[0]+dir[0];
+                    y=current[1]+dir[1];
+                    if(x<0||x>=row||y<0||y>=col){
+                        continue;
+                    }
+                    if(maze[x][y]=='+'){
+                        continue;
+                    }
+                    if(x==0||x==row-1||y==0||y==col-1){
+                        return steps;
+                    }
+                    maze[x][y]='+';
+                    queue.offer(new int[]{x,y});
+                }
+            }
         }
-        return solution;
+        return -1;
     }
 }  

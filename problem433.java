@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem3110{
+class problem433{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,8 +42,10 @@ class problem3110{
                 nums[i][j]=scan.nextInt();
             }
         }*/
+
         //Taking String as input.
         //String s=scan.nextLine();
+
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -59,15 +61,46 @@ class problem3110{
         }*/
         //System.out.println(sol);
         scan.close();
-    }
-    
-    public static int scoreOfString(String s) {
-        int solution=0;
-        for (int i = 1; i < s.length(); i++) {
-            int val1=s.charAt(i)-'a';
-            int val2=s.charAt(i-1)-'a';
-            solution+=Math.abs(val2-val1);
+    }  
+
+    public static int minMutation(String start, String end, String[] bank) {
+        if(start.equals(end)){
+            return 0;
         }
-        return solution;
+        char[] charSet=new char[]{'C','G','A','T'};
+        Set<String> visited=new HashSet<>();
+        Queue<String> queue=new LinkedList<>();
+        queue.add(start);
+        visited.add(start);
+        int level=0;
+        Set<String> banks=new HashSet<>();
+        for (int i = 0; i < bank.length; i++) {
+            banks.add(bank[i]);
+        }
+        while(!queue.isEmpty()){
+            int size=queue.size();
+            while(size!=0){
+                String current=queue.poll();
+                if(current.equals(end)){
+                    return level;
+                }
+                char[] charArr=current.toCharArray();
+                for (int i = 0; i < charArr.length; i++) {
+                    char old=charArr[i];
+                    for (char c : charArr) {
+                        charArr[i]=c;
+                        String newString=new String(charArr);
+                        if(!visited.contains(newString)&& banks.contains(newString)){
+                            visited.add(newString);
+                            queue.add(newString);
+                        }
+                    }
+                    charArr[i]=old;    
+                }
+                size--;
+            }
+            level++;
+        }
+        return -1;
     }
 }  

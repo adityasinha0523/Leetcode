@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem3110{
+class problem841{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,8 +42,10 @@ class problem3110{
                 nums[i][j]=scan.nextInt();
             }
         }*/
+
         //Taking String as input.
         //String s=scan.nextLine();
+
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -59,15 +61,31 @@ class problem3110{
         }*/
         //System.out.println(sol);
         scan.close();
-    }
+    } 
     
-    public static int scoreOfString(String s) {
-        int solution=0;
-        for (int i = 1; i < s.length(); i++) {
-            int val1=s.charAt(i)-'a';
-            int val2=s.charAt(i-1)-'a';
-            solution+=Math.abs(val2-val1);
+    public static boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        if(rooms.size()==0){
+            return true;
         }
-        return solution;
+        boolean[] visited=new boolean[rooms.size()];
+        dfs(0,rooms,visited);
+
+        for (int i = 0; i < visited.length; i++) {
+            if(!visited[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void dfs(int index,List<List<Integer>> rooms,boolean[] visited){
+        visited[index]=true;
+
+        List<Integer> val=rooms.get(index);
+        for (int i = 0; i < val.size(); i++) {
+            if(!visited[val.get(i)]){
+                dfs(val.get(i),rooms,visited);
+            }
+        }
     }
 }  

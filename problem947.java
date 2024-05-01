@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem3110{
+class problem947{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,8 +42,10 @@ class problem3110{
                 nums[i][j]=scan.nextInt();
             }
         }*/
+
         //Taking String as input.
         //String s=scan.nextLine();
+
         //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
@@ -61,13 +63,26 @@ class problem3110{
         scan.close();
     }
     
-    public static int scoreOfString(String s) {
-        int solution=0;
-        for (int i = 1; i < s.length(); i++) {
-            int val1=s.charAt(i)-'a';
-            int val2=s.charAt(i-1)-'a';
-            solution+=Math.abs(val2-val1);
+    public static int removeStones(int[][] stones){
+        Set<int[]> visited=new HashSet<>();
+        int numOfIslands=0;
+        for (int[] s1 : stones) {
+            if(!visited.contains(s1)){
+                dfs(s1,visited,stones);
+                numOfIslands++;
+            }
         }
-        return solution;
+        return stones.length-numOfIslands;
+    }
+
+    public void dfs(int[] s1,Set<int[]> visited,int[][] stones){
+        visited.add(s1);
+        for (int[] s2 : stones) {
+            if(!visited.contains(s2)){
+                if(s1[0]==s2[0]||s1[0]==s2[1]){
+                    dfs(s2,visited,stones);
+                }
+            }
+        }
     }
 }  
