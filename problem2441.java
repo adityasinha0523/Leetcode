@@ -53,17 +53,16 @@ class problem2441{
 
     public static int findMaxK(int[] nums) {
         Set<Integer> set=new HashSet<>();
-        Arrays.sort(nums);
+
+        int val=-1;
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
         }
-        for (int i = nums.length-1; i >=0; i--) {
-            int value=nums[i];
-            value=value*-1;
-            if(set.contains(value)){
-                return -1*value;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i]>0 && set.contains(-nums[i])){
+                val=Math.max(val, nums[i]);
             }
         }
-        return -1;
+        return val;
     }
 }  
