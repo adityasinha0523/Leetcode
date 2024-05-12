@@ -60,7 +60,7 @@ class problem2373{
     }  
 
     public static int[][] largestLocal(int[][] grid) {
-        int[][] solution=new int[grid.length-2][grid.length-2];
+        /*int[][] solution=new int[grid.length-2][grid.length-2];
         for (int i = 0; i < grid.length-2; i++) {
             for (int j = 0; j < grid.length-2; j++) {
                 int max=-1;
@@ -72,6 +72,25 @@ class problem2373{
                 solution[i][j]=max;
             }
         }
+        return solution;*/
+
+        int[][] solution=new int[grid.length-2][grid.length-2];
+        for (int i = 0; i < grid.length-2; i++) {
+            for (int j = 0; j < grid[0].length-2; j++) {
+                int sol=findMax(i,j,grid);
+                solution[i][j]=sol;
+            }
+        }
         return solution;
+    }
+
+    public static int findMax(int i,int j,int[][] grid){
+        int maxValue=-1;
+        for (int k = i; k < i+2; k++) {
+            for (int k2 = j; k2 < j+2; k2++) {
+                maxValue=Math.max(maxValue, grid[k][k2]);
+            }
+        }
+        return maxValue;
     }
 }  
