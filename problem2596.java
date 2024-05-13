@@ -4,14 +4,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.plaf.FontUIResource;
+
 import java.lang.*;
 
-class problem2105{
+class problem2596{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +33,10 @@ class problem2105{
         //To take int array as input
         
         //1D Array
-        int[] nums=new int[5];
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
+        }*/
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -45,8 +48,8 @@ class problem2105{
 
         //Taking String as input.
         //String s=scan.nextLine();
-        int sol=minimumRefill(nums,6,5);
 
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,42 +57,35 @@ class problem2105{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
+        //System.out.println(sol);
         scan.close();
-    }  
+    } 
+    boolean found;
+    public static boolean checkValidGrid(int[][] grid) {
+        found=false;
+        checkVal(grid,0,0,-1);
+        return false;
+    }
 
-    public static int minimumRefill(int[] plants, int capacityA, int capacityB) {
-        int refill=0;
-        int oca=capacityA;
-        int ocb=capacityB;
-        int i=0;
-        int j=plants.length-1;
-        while(i<=j){
-            if(i==j){
-                if(capacityA>=capacityB){
-                    if(plants[i]>capacityA){
-                        refill++;
-                    }
-                }else{
-                    if(plants[j]>capacityB){
-                        refill++;
-                    }
-                }
-                break;
-            }
-            if(plants[i]>capacityA){
-                refill++;
-                capacityA=oca;
-            }
-            if(plants[j]>capacityB){
-                refill++;
-                capacityB=ocb;
-            }
-            capacityA=capacityA-plants[i];
-            capacityB=capacityB-plants[j];
-            i++;
-            j--;
+    public static void checkVal(int[][] grid,int i,int j,int prev){
+        if(i<0 ||j<0||i>=grid.length||j>=grid[0].length||grid[i][j]!=prev+1){
+            return;
         }
-        return refill;
+        if(grid[i][j]==grid.length*grid[0].length-1){
+            found=true;
+        }
+        checkVal(grid,i+2,j+1,grid[i][j]);
+        checkVal(grid,i+2,j-1,grid[i][j]);
+        checkVal(grid,i+1,j+2,grid[i][j]);
+        checkVal(grid,i+1,j-2,grid[i][j]);
+        checkVal(grid,i-2,j+1,grid[i][j]);
+        checkVal(grid,i-2,j-1,grid[i][j]);
+        checkVal(grid,i-1,j+2,grid[i][j]);
+        checkVal(grid,i-1,j-2,grid[i][j]);
     }
 }  

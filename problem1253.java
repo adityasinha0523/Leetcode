@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2105{
+class problem1253{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -30,10 +30,10 @@ class problem2105{
         //To take int array as input
         
         //1D Array
-        int[] nums=new int[5];
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
+        }*/
 
         //Taking 2D Array as input
         /*int[][] nums=new int[3][3];
@@ -45,8 +45,8 @@ class problem2105{
 
         //Taking String as input.
         //String s=scan.nextLine();
-        int sol=minimumRefill(nums,6,5);
 
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,42 +54,42 @@ class problem2105{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
+        //System.out.println(sol);
         scan.close();
     }  
 
-    public static int minimumRefill(int[] plants, int capacityA, int capacityB) {
-        int refill=0;
-        int oca=capacityA;
-        int ocb=capacityB;
-        int i=0;
-        int j=plants.length-1;
-        while(i<=j){
-            if(i==j){
-                if(capacityA>=capacityB){
-                    if(plants[i]>capacityA){
-                        refill++;
-                    }
+    public static List<List<Integer>> reconstructMatrix(int upper, int lower, int[] colsum) {
+        List<List<Integer>> res=new ArrayList<>();
+        List<Integer> up=new ArrayList<>();
+        List<Integer> low=new ArrayList<>();
+        int diff=upper-lower,sum=0;
+        for (int i = 0; i < colsum.length; i++) {
+            sum+=colsum[i];
+            if(colsum[i]%2==0){
+                up.add(colsum[i]/2);
+                low.add(colsum[i]/2);
+            }else{
+                if(diff>=0){
+                    up.add(1);
+                    low.add(0);
+                    diff--;
                 }else{
-                    if(plants[j]>capacityB){
-                        refill++;
-                    }
+                    up.add(0);
+                    low.add(1);
+                    diff++;
                 }
-                break;
             }
-            if(plants[i]>capacityA){
-                refill++;
-                capacityA=oca;
-            }
-            if(plants[j]>capacityB){
-                refill++;
-                capacityB=ocb;
-            }
-            capacityA=capacityA-plants[i];
-            capacityB=capacityB-plants[j];
-            i++;
-            j--;
         }
-        return refill;
+        if(diff!=0||lower+upper!=sum){
+            return res;
+        }
+        res.add(up);
+        res.add(low);
+        return res;
     }
 }  
