@@ -42,7 +42,6 @@ class template{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 

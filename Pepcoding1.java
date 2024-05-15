@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem491{
+class Pepcoding1{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -29,43 +29,48 @@ class problem491{
         //scan.nextLine();
         //To take int array as input
         
-        int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
-        }
-        List<List<Integer>> sol=findSubsequences(nums);
+        }*/
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
-        for (List<Integer> integer : sol) {
-            System.out.println("Start");
-            for (Integer list : integer) {
-                System.out.println(list);
+        /*for (Integer integer : sol) {
+            System.out.println(integer);
+        }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
             }
-            System.out.println("Break");
-        }
+        }*/
         //System.out.println(sol);
+        int sol=print(2,4);
+        System.out.println(sol);
         scan.close();
-    }  
-
-    public static List<List<Integer>> findSubsequences(int[] nums) {
-        Set<List<Integer>> res=new HashSet<>();
-        List<Integer> holder=new ArrayList<>();
-        findSubsequence(res,holder,0,nums);
-        List<List<Integer>> result=new ArrayList<>(res);
-        return result;
     }
-
-    public void findSubsequence(Set<List<Integer>> res,List<Integer>holder,int index,int[]nums){
-        if(holder.size()>=2){
-            res.add(new ArrayList<>(holder));
+    
+    public static int print(int x,int n){
+        if(n==1){
+            return x;
         }
-        for (int i = index; i < nums.length; i++) {
-            if(holder.size()==0||holder.get(holder.size()-1)<=nums[i]){
-                holder.add(nums[i]);
-                findSubsequence(res, holder, i+1, nums);
-                holder.remove(holder.size()-1);
-            }
+        if(n%2==1){
+            return x*print(x, n/2)*print(x, n/2);
         }
+        return print(x, n/2)*print(x, n/2);
     }
 }  

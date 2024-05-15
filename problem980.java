@@ -63,6 +63,59 @@ class problem980{
         scan.close();
     }  
 
+    static int answer=0;
+    
+    public static int uniquePathsII(int[][] grid) {
+        int i=grid.length;
+        int j=grid[0].length;
+        int totalZero=1;
+        for (int j2 = 0; j2 < grid.length; j2++) {
+            for (int k = 0; k < grid[0].length; k++) {
+                if(grid[i][j]==0){
+                    totalZero++;
+                }
+            }
+        }
+        for (int k = 0; k < grid.length; k++) {
+            for (int k2 = 0; k2 < grid.length; k2++) {
+                if(grid[i][j]==1){
+                    backtrack(grid,i,j,0,totalZero);
+                }
+            }
+        }
+        return answer;
+    }
+
+    public void backtrack(int[][] grid,int i,int j,int count,int totalZero){
+        if(grid[i][j]==2 && count==totalZero){
+            answer++;
+        }
+        if(i<0||j<0||i>=grid.length||j>=grid[0].length||grid[i][j]==-1){
+            return;
+        }
+        int temp=grid[i][j];
+        grid[i][j]=-1;
+        backtrack(grid, i-1, j, count+1, totalZero);
+        backtrack(grid, i+1, j, count+1, totalZero);
+        backtrack(grid, i, j+1, count+1, totalZero);
+        backtrack(grid, i, j-1, count+1, totalZero);
+        if(temp==0||temp==1){
+            grid[i][j]=0;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public int uniquePathsIII(int[][] grid) {
         int a=0;
         int b=0;

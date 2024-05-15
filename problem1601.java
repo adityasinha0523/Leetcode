@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem77{
+class problem1601{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,11 +42,10 @@ class problem77{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,25 +60,30 @@ class problem77{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> ans=new ArrayList<>();
-        List<Integer> list=new ArrayList<>();
-        combine(ans,list,1,n,k);
-        return ans;
+    } 
+    int totalpermits;
+    public static int maximumRequests(int n, int[][] requests) {
+        totalpermits=0;
+        backtrack(0,0,requests,new int[n]);
+        return totalpermits;
     }
 
-    public static void combine(List<List<Integer>> ans,
-    List<Integer> answer,int start,int n,int k){
-        if(k==0){
-            ans.add(new ArrayList<>(answer));
+    void backtrack(int cur,int permits,int [][]requests,int[] indegree){
+        if(cur==requests.length){
+            for (int i : indegree) {
+                if(i!=0){
+                    return;
+                }
+            }
+            totalpermits=Math.max(totalpermits, permits);
             return;
         }
-        for (int i = start; i <=n; i++) {
-            answer.add(i);
-            combine(ans,answer,start+1,n ,k-1);
-            answer.remove(answer.size()-1);
-        }
+
+        indegree[requests[cur][0]]++;
+        indegree[requests[cur][1]]--;
+        backtrack(cur+1, permits+1, requests, indegree);
+        indegree[requests[cur][0]]--;
+        indegree[requests[cur][1]]++;
+        backtrack(cur+1, permits, requests, indegree);
     }
 }  

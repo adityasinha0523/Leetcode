@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 
 import javax.crypto.SealedObject;
+import javax.swing.border.Border;
 
 import java.lang.*;
 
@@ -65,13 +66,11 @@ class problem79{
         //System.out.println(sol);
         scan.close();
     }  
-
-    static boolean[][] visited;
-    public static boolean exist(char[][] board, String word) {
-        visited=new boolean[board.length][board[0].length];
+    //static boolean found;
+    public static  boolean exist(char[][] board, String word) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                if(word.charAt(0)==board[i][j] && search(board,word,i,j,0)){
+                if(backtrack(board,i,j,0,word)){
                     return true;
                 }
             }
@@ -79,56 +78,24 @@ class problem79{
         return false;
     }
 
-    public static boolean search(char[][] board,String word,int i,int j,int index){
+    public static boolean backtrack(char[][] board,int i,int j,int index,String word){
         if(index==word.length()){
             return true;
         }
-
-        if(i>=board.length ||i<0 ||j>=board[0].length ||j<0||board[i][j]!=word.charAt(index)||visited[i][j]){
+        if(i<0||i>=board.length||j<0||j>=board[0].length||board[i][j]=='$'){
             return false;
         }
-        visited[i][j]=true;
-        if(search(board, word, i+1, j, index)||
-        search(board, word, i-1, j, index)||
-        search(board, word, i, j+1, index)||
-        search(board, word, i, j-1, index)){
-            return true;
-        }
-
-        visited[i][j]=false;
-        return false;
-    }
-
-
-
-    static int[][] visited1;
-    public static boolean exist1(char[][] board, String word) {
-        visited1=new int[board.length][board[0].length];
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if(word.charAt(0)==board[i][j]&&search1(board,i,j,0,word)){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static boolean search1(char[][] board,int i,int j,int index,String word){
-        if(index==word.length()){
-            return true;
-        }
-        if(i<0||i>board.length||j<0||j>board[0].length||board[i][j]!=word.charAt(index)||visited[i][j]==true){
+        if(board[i][j]!=word.charAt(index)){
             return false;
         }
-        visited[i][j]=true;
-        if(search1(board, i+1, j, index+1,word)||
-        search1(board,  i-1, j, index+1,word)||
-        search1(board,  i, j+1, index+1,word)||
-        search1(board,  i, j-1, index+1,word)){
+        char temp=board[i][j];
+        board[i][j]='$';
+        if(backtrack(board, i+1, j, index+1, word)||backtrack(board,i-1,j,index+1,word)
+        ||backtrack(board, i, j+1, index+1, word)||backtrack(board, i, j-1, index, word)){
             return true;
         }
-        visited[i][j]=false;
+        board[i][j]=temp;
         return false;
     }
 }  
+
