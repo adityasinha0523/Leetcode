@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem78{
+class problem802{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,11 +42,10 @@ class problem78{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,41 +53,49 @@ class problem78{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    /*public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        helper(sol,new ArrayList<>(),nums,0);
-        return sol;
     }
+    
+    public static List<Integer> eventualSafeNodes(int[][] graph) {
+        int V=graph.length;
+        List<List<Integer>> adjRev=new ArrayList<>();
 
-    public static void helper(List<List<Integer>> sol,List<Integer> temp,int[] nums ,int start){
-        sol.add(temp);
-        for (int i = start; i < nums.length; i++) {
-            temp.add(nums[i]);
-            helper(sol, temp, nums, start+1);
-            temp.remove(nums[i]);
+        for (int i = 0; i < V; i++) {
+            adjRev.add(new ArrayList<>());
         }
-    }*/
-
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        List<Integer> temp=new ArrayList<>();
-        backtrack(sol,nums,temp,0);
-        return sol;
-    }
-
-    void backtrack(List<List<Integer>> sol,int[]nums,List<Integer> temp,int index){
-        sol.add(new ArrayList<>(temp));
-
-        for (int i = index; i < nums.length; i++) {
-            temp.add(nums[i]);
-            backtrack(sol, nums, temp, i+1);
-            temp.remove(temp.size()-1);
+        int[] indegree=new int[V];
+        for (int i = 0; i < V; i++) {
+            for (int it : graph[i]) {
+                adjRev.get(it).add(i);
+                indegree[i]++;
+            }
         }
+        Queue<Integer> q=new LinkedList<>();
+        List<Integer> safeNodes=new ArrayList<>();
+        for (int i = 0; i < V; i++) {
+            if(indegree[i]==0){
+                q.add(i);
+            }
+        }
+        while(!q.isEmpty()){
+            int node=q.peek();
+            q.remove();
+            safeNodes.add(node);
+
+            for (int i: adjRev.get(node)) {
+                indegree[i]--;
+                if(indegree[i]==0){
+                    q.add(i);
+                }
+            }
+        }
+        Collections.sort(safeNodes);
+        return safeNodes;
     }
 }  

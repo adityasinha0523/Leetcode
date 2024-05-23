@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem78{
+class problem210{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,11 +42,10 @@ class problem78{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,41 +53,45 @@ class problem78{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
-    /*public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        helper(sol,new ArrayList<>(),nums,0);
-        return sol;
-    }
-
-    public static void helper(List<List<Integer>> sol,List<Integer> temp,int[] nums ,int start){
-        sol.add(temp);
-        for (int i = start; i < nums.length; i++) {
-            temp.add(nums[i]);
-            helper(sol, temp, nums, start+1);
-            temp.remove(nums[i]);
+    public static int[] findOrder(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> adjList=new ArrayList<>();
+        for (int i = 0; i < prerequisites.length; i++) {
+            adjList.add(new ArrayList<>());
         }
-    }*/
-
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        List<Integer> temp=new ArrayList<>();
-        backtrack(sol,nums,temp,0);
-        return sol;
-    }
-
-    void backtrack(List<List<Integer>> sol,int[]nums,List<Integer> temp,int index){
-        sol.add(new ArrayList<>(temp));
-
-        for (int i = index; i < nums.length; i++) {
-            temp.add(nums[i]);
-            backtrack(sol, nums, temp, i+1);
-            temp.remove(temp.size()-1);
+        int[] indegree=new int[prerequisites.length];
+        for (int i = 0; i < prerequisites.length; i++) {
+            int first=prerequisites[i][0];
+            int second=prerequisites[i][1];
+            adjList.get(second).add(first);
+            indegree[first]++;
         }
+        Queue<Integer> q=new LinkedList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            if(indegree[i]==0){
+                q.add(i);
+            }
+        }
+        int[] sol=new int[prerequisites.length];
+        int k=0;
+        while(!q.isEmpty()){
+            int val=q.poll();
+            sol[k++]=val;
+            for (int i : adjList.get(val)) {
+                indegree[i]--;
+                if(indegree[i]==0){
+                    q.add(i);
+                }
+            }
+        }
+        return sol;
     }
 }  

@@ -60,49 +60,35 @@ class problem207{
     }  
 
     public static boolean canFinish(int numCourses, int[][] prerequisites) {
-        HashMap<Integer,List<Integer>> courseDict=new HashMap<>();
-        
-        for (int[] relation : prerequisites) {
-            if(courseDict.containsKey(relation[1])){
-                courseDict.get(relation[1]).add(relation[0]);
-            }else{
-                List<Integer> nextCourse=new LinkedList<>();
-                nextCourse.add(relation[0]);
-                courseDict.put(relation[1], nextCourse);
+        if(numCourses<=0){
+            return false;
+        }
+        Queue<Integer> queue=new LinkedList<>();
+        int[] inDegree=new int[numCourses];
+        for (int i = 0; i < prerequisites.length; i++) {
+            inDegree[prerequisites[i][0]]++;
+        }
+        for (int i = 0; i < inDegree.length; i++) {
+            if(inDegree[i]==0){
+                queue.add(i);
             }
         }
-
-        boolean[] path=new boolean[numCourses];
-        boolean[] checked=new boolean[numCourses];
-        for (int currCourse = 0; currCourse < numCourses; currCourse++) {
-            if(isCyclic(currCourse,courseDict,checked,path)){
+        while(!queue.isEmpty()){
+            int temp=queue.poll();
+            for (int i = 0; i < prerequisites.length; i++) {
+                if(temp==prerequisites[i][1]){
+                    inDegree[prerequisites[i][0]]--;
+                    if(inDegree[prerequisites[i][0]]==0){
+                        queue.add(prerequisites[i][0]);
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < inDegree.length; i++) {
+            if(inDegree[i]!=0){
                 return false;
             }
         }
-
         return true;
-    }
-
-    public static boolean isCyclic(Integer currCourse,HashMap<Integer,List<Integer>> courseDict,boolean[] checked,boolean[] path){
-        if(checked[currCourse]){
-            return false;
-        }
-        if(path[currCourse]){
-            return true;
-        }
-        if(!courseDict.containsKey(currCourse)){
-            return false;
-        }
-        path[currCourse]=true;
-        boolean ret=false;
-        for (Integer nextCourse : courseDict.get(currCourse)) {
-            ret=isCyclic(nextCourse, courseDict,checked, path);
-            if(ret){
-                break;
-            }
-        }
-        path[currCourse]=false;
-        checked[currCourse]=true;
-        return ret;
     }
 }  

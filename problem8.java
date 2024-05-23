@@ -4,16 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
-import java.util.function.LongFunction;
 import java.lang.*;
 
-class problem3{
+class problem8{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -31,40 +29,60 @@ class problem3{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        int sol=lengthOfLongestSubstring("abcabcbb");
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
-        scan.close();
-    }  
-
-    public static int lengthOfLongestSubstring(String s) {
-        if(s.length()==0){
-            return 0;
-        }
-        int left=0;
-        int right=0;
-        Set<Character> set=new HashSet<>();
-        int ans=0;
-        while(right<s.length()){
-            if(set.contains(s.charAt(right))){
-                while(set.contains(s.charAt(left))){
-                    set.remove(s.charAt(left));
-                    left++;
-                }
-            }else{
-                set.add(s.charAt(right));
-                ans=Math.max(ans, set.size());
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
             }
+        }*/
+        //System.out.println(sol);
+        scan.close();
+    }
+    
+    
+    public int myAtoi(String s) {
+        int sign=0;
+        int i=0;
+        int r=1;
+        s=s.trim();
+        if(s.charAt(i)=='+'){
+            sign=1;
+            i++;
         }
-        return ans;
+        if(s.charAt(i)=='-'){
+            sign=-1;
+            i++;
+        }
+        while(i<s.length() && Character.isDigit(s.charAt(i))){
+            int d=s.charAt(i)-'0';
+            if(r>(Integer.MAX_VALUE-d)/10){
+                return sign>1?Integer.MAX_VALUE:Integer.MIN_VALUE;
+            }
+            r=r*10+d;
+        }
+        return sign*r;
     }
 }  

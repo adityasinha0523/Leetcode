@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem78{
+class problem1863{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -42,11 +42,10 @@ class problem78{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -54,41 +53,38 @@ class problem78{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    /*public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        helper(sol,new ArrayList<>(),nums,0);
-        return sol;
+    }
+    
+    public int subsetXORSum(int[] nums) {
+        List<List<Integer>> subsets=new ArrayList<>();
+        List<Integer> list=new ArrayList<>();
+        backtrack(nums,0,list,subsets);
+        int solution=0;
+        for (int i = 0; i < subsets.size(); i++) {
+            List<Integer> list2=subsets.get(i);
+            int total=0;
+            for (int j = 0; j < list2.size(); j++) {
+                total=total^list2.get(j);
+            }
+            solution+=total;
+        }
+        return solution;
     }
 
-    public static void helper(List<List<Integer>> sol,List<Integer> temp,int[] nums ,int start){
-        sol.add(temp);
-        for (int i = start; i < nums.length; i++) {
-            temp.add(nums[i]);
-            helper(sol, temp, nums, start+1);
-            temp.remove(nums[i]);
+    public void backtrack(int[] nums,int index,List<Integer> subSet,List<List<Integer>>subsets){
+        if(index==nums.length){
+            subsets.add(new ArrayList<>(subSet));
         }
-    }*/
-
-    public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> sol=new ArrayList<>();
-        Arrays.sort(nums);
-        List<Integer> temp=new ArrayList<>();
-        backtrack(sol,nums,temp,0);
-        return sol;
-    }
-
-    void backtrack(List<List<Integer>> sol,int[]nums,List<Integer> temp,int index){
-        sol.add(new ArrayList<>(temp));
-
-        for (int i = index; i < nums.length; i++) {
-            temp.add(nums[i]);
-            backtrack(sol, nums, temp, i+1);
-            temp.remove(temp.size()-1);
-        }
+        subSet.add(nums[index]);
+        backtrack(nums, index+1, subSet, subsets);
+        subSet.remove(subSet.size()-1);
+        backtrack(nums, index+1, subSet, subsets);
     }
 }  

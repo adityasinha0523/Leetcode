@@ -8,11 +8,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.io.StreamCorruptedException;
 import java.util.*;
-import java.util.prefs.BackingStoreException;
 import java.lang.*;
 
-class problem90{
+class Preethi{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -43,11 +43,10 @@ class problem90{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -61,26 +60,50 @@ class problem90{
             }
         }*/
         //System.out.println(sol);
+        //String sol=replaceString("This is the val_uee ___newNumber ___secret_fun___");
+        //String sol=replaceString("This is the doc_stri_ng __for __secret_fun___");
+        String sol=replaceString("anotherVariable__");
+        System.out.println(sol);
         scan.close();
-    }  
-
-    public static List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> solution=new ArrayList<>();
-        List<Integer> temp=new ArrayList<>();
-        backtrack(solution,temp,nums,0);
-        return solution;
-    }
+    } 
     
-    public void backtrack(List<List<Integer>> solution,List<Integer> temp,int[] nums,int index){
-        solution.add(new ArrayList<>(temp));
-
-        for (int i = index; i < nums.length; i++) {
-            if(i>index &&nums[i]==nums[i-1]){
-                continue;
+    public static String replaceString(String src){
+        StringBuilder sb=new StringBuilder();
+        String[] strArr=src.split(" ");
+        for (int i = 0; i < strArr.length; i++) {
+            String s=strArr[i];
+            boolean foundChar=false;
+            for (int j = 0; j < s.length(); j++) {
+                if(s.charAt(j)=='_' && foundChar){
+                    int count=0;
+                    while(j<s.length() && s.charAt(j)=='_'){
+                        count++;
+                        j++;
+                    }
+                    if(j==s.length()){  
+                        while(count!=0){
+                            sb.append("_");
+                            count--;
+                        }
+                    }else{
+                        sb.append(Character.toUpperCase(s.charAt(j)));
+                    }
+                    
+                }else{
+                    if(s.charAt(j)=='_'){
+                        sb.append(s.charAt(j));
+                    }
+                    else{
+                        sb.append(s.charAt(j));
+                        foundChar=true;
+                    }
+                    
+                }
             }
-            temp.add(nums[i]);
-            backtrack(solution, temp, nums, i+1);
-            temp.add(nums[i]);
+            if(i!=strArr.length-1){
+                sb.append(" ");
+            }
         }
+        return sb.toString();
     }
 }  

@@ -4,16 +4,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
-import java.util.function.LongFunction;
 import java.lang.*;
 
-class problem3{
+class problem120{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -31,40 +29,53 @@ class problem3{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        int sol=lengthOfLongestSubstring("abcabcbb");
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
-        System.out.println(sol);
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
+        //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int lengthOfLongestSubstring(String s) {
-        if(s.length()==0){
-            return 0;
-        }
-        int left=0;
-        int right=0;
-        Set<Character> set=new HashSet<>();
-        int ans=0;
-        while(right<s.length()){
-            if(set.contains(s.charAt(right))){
-                while(set.contains(s.charAt(left))){
-                    set.remove(s.charAt(left));
-                    left++;
+    }
+    
+    public static int minimumTotal(List<List<Integer>> triangle) {
+        int solution=0;
+        int index=0;
+        for (int i = 1; i < triangle.size(); i++) {
+            List<Integer> list=triangle.get(i);
+            for (int j = 0; j < list.size()-1; j++) {
+                if(j==index){
+                    solution+=Math.max(j, j+1);
+                        int val1=list.get(j);
+                        int val2=list.get(j+1);
+                        index=val1>val2?j:j+1;
                 }
-            }else{
-                set.add(s.charAt(right));
-                ans=Math.max(ans, set.size());
             }
         }
-        return ans;
+        return solution;
     }
 }  

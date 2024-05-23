@@ -9,10 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
-import java.util.prefs.BackingStoreException;
 import java.lang.*;
 
-class problem90{
+class problem2115{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -43,11 +42,10 @@ class problem90{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -64,23 +62,52 @@ class problem90{
         scan.close();
     }  
 
-    public static List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> solution=new ArrayList<>();
-        List<Integer> temp=new ArrayList<>();
-        backtrack(solution,temp,nums,0);
-        return solution;
-    }
-    
-    public void backtrack(List<List<Integer>> solution,List<Integer> temp,int[] nums,int index){
-        solution.add(new ArrayList<>(temp));
-
-        for (int i = index; i < nums.length; i++) {
-            if(i>index &&nums[i]==nums[i-1]){
-                continue;
-            }
-            temp.add(nums[i]);
-            backtrack(solution, temp, nums, i+1);
-            temp.add(nums[i]);
+    public static List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
+        List<String> solution=new ArrayList<>();
+        List<String> sup=new ArrayList<>();
+        int[] indegree=new int[recipes.length];
+        Map<String,Integer> index=new HashMap<>();
+        Map<String,List<String>> ing=new HashMap<>();
+        for (int i = 0; i < supplies.length; i++) {
+            sup.add(supplies[i]);
         }
+        for (int i = 0; i < recipes.length; i++) {
+            index.put(recipes[i], i);
+        }
+        for (int i = 0; i < recipes.length; i++) {
+            for (String str : ingredients.get(i)) {
+                if(sup.contains(str)){
+                    continue;
+                }else{
+                    ing.putIfAbsent(str, new ArrayList<String>());
+                    //ing.put(str, recipes[i]);
+                    ing.get(str).add(recipes[i]);
+                    indegree[i]++;
+                }
+            }
+        }
+        Queue<Integer> q=new LinkedList<>();
+        for (int i = 0; i < indegree.length; i++) {
+            if(indegree[i]==0){
+                q.add(i);
+            }
+        }
+        while(!q.isEmpty()){
+            int val=q.poll();
+            solution.add(recipes[val]);
+            if(!ing.containsKey(recipes[val])){
+                continue;
+            }else{
+                List<String> str=ing.get(val);
+                for(int i=0;i<str.size();i++){
+                    indegree[index.get(str.get(i))]--;
+                    if(indegree[index.get(str.get(i))]==0){
+                        q.add(index.get(str.get(i)));
+                    }
+                }
+                
+            }
+        }
+        return solution;
     }
 }  

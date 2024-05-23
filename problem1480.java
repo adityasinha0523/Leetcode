@@ -49,11 +49,11 @@ class problem1480{
     }  
 
     public static int[] runningSum(int[] nums) {
-        int[] sol=new int[nums.length];
-        sol[0]=nums[0];
+        int[] sum=new int[nums.length];
+        sum[0]=nums[0];
         for (int i = 1; i < nums.length; i++) {
-            sol[i]=nums[i]+sol[i-1];
+            sum[i]=sum[i-1]+nums[i];
         }
-        return sol;
+        return sum;
     }   
 }  
