@@ -10,6 +10,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.io.StreamCorruptedException;
 import java.util.*;
+
+
 import java.lang.*;
 
 class Preethi{
@@ -58,52 +60,60 @@ class Preethi{
             for (int j = 0; j < nums.length; j++) {
                 System.out.println( sol[i][j]);
             }
-        }*/
-        //System.out.println(sol);
-        //String sol=replaceString("This is the val_uee ___newNumber ___secret_fun___");
-        //String sol=replaceString("This is the doc_stri_ng __for __secret_fun___");
-        String sol=replaceString("anotherVariable__");
+        */
+        List<Integer> list=new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(1);
+        list.add(3);
+        list.add(6);
+        list.add(1);
+       // list.add(6);
+        int sol=getMinLength(list, 6);
         System.out.println(sol);
         scan.close();
     } 
     
-    public static String replaceString(String src){
-        StringBuilder sb=new StringBuilder();
-        String[] strArr=src.split(" ");
-        for (int i = 0; i < strArr.length; i++) {
-            String s=strArr[i];
-            boolean foundChar=false;
-            for (int j = 0; j < s.length(); j++) {
-                if(s.charAt(j)=='_' && foundChar){
-                    int count=0;
-                    while(j<s.length() && s.charAt(j)=='_'){
-                        count++;
-                        j++;
+    public static List<List<String>> getMatch(List<List<String>> products,List<List<String>> queries){
+        List<List<String>> solution=new ArrayList<>();
+        for (int i = 0; i < queries.size(); i++) {
+            List<String> query=queries.get(i);
+            if(query.get(0)=="Type1"){
+                List<String> sol=new ArrayList<>();
+                String year=query.get(1);
+                for (int j = 0; j < products.size(); j++) {
+                    List<String> list=products.get(j);
+                    if(list.get(2).equals(year)){
+                        sol.add(list.get(0));
                     }
-                    if(j==s.length()){  
-                        while(count!=0){
-                            sb.append("_");
-                            count--;
-                        }
-                    }else{
-                        sb.append(Character.toUpperCase(s.charAt(j)));
-                    }
-                    
-                }else{
-                    if(s.charAt(j)=='_'){
-                        sb.append(s.charAt(j));
-                    }
-                    else{
-                        sb.append(s.charAt(j));
-                        foundChar=true;
-                    }
-                    
                 }
-            }
-            if(i!=strArr.length-1){
-                sb.append(" ");
+                solution.add(sol);
+            }else if(query.get(0)=="Type2"){
+                List<String> sol=new ArrayList<>();
+                String price=query.get(1);
+                int price1=Integer.parseInt(price);
+                for (int j = 0; j < products.size(); j++) {
+                    List<String> list=products.get(j);
+                    int currentPrice=Integer.parseInt(list.get(1));
+                    if(currentPrice<price1){
+                        sol.add(list.get(0));
+                    }
+                }
+                solution.add(sol);
+            }else{
+                List<String> sol=new ArrayList<>();
+                String price=query.get(1);
+                int price1=Integer.parseInt(price);
+                for (int j = 0; j < products.size(); j++) {
+                    List<String> list=products.get(j);
+                    int currentPrice=Integer.parseInt(list.get(1));
+                    if(currentPrice>price1){
+                        sol.add(list.get(0));
+                    }
+                }
+                solution.add(sol);
             }
         }
-        return sb.toString();
-    }
+        return solution;
+    } 
 }  
