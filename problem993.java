@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -14,7 +14,7 @@ import javax.swing.tree.TreeNode;
 
 import java.lang.*;
 
-class problem101{
+class problem993{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -32,76 +32,76 @@ class problem101{
         //scan.nextLine();
         //To take int array as input
         
-        /*int[] nums=new int[4];
+        //1D Array
+        /*int[] nums=new int[3];
         for (int i = 0; i < nums.length; i++) {
             nums[i]=scan.nextInt();
         }*/
-        
+
+        //Taking 2D Array as input
+        /*int[][] nums=new int[3][3];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                nums[i][j]=scan.nextInt();
+            }
+        }*/
+        //Taking String as input.
+        //String s=scan.nextLine();
+
+        //String xValue=Integer.toBinaryString(5);
+        //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
         }*/
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public boolean isSymmetric(TreeNode root) {
+    } 
+    
+    
+    public static boolean isCousins(TreeNode root, int x, int y) {
         Queue<TreeNode> q=new LinkedList<>();
         if(root==null){
-            return true;
+            return false;
         }
-        List<TreeNode> list=new ArrayList<>();
         q.add(root);
         while(!q.isEmpty()){
             int size=q.size();
+            Set<Integer> set=new HashSet<>();
             for (int i = 0; i < size; i++) {
                 TreeNode temp=q.poll();
-                if(temp.left==null){
-                    list.add(null);
-                }
                 if(temp.left!=null){
-                    q.add(temp.left);
-                    list.add(temp.left);
+                    if(temp.right!=null){
+                        if(temp.left.val==x && temp.right.val==y){
+                            return false;
+                        }else{
+                            q.add(temp.left);
+                            set.add(temp.left.val);
+                        }
+                    }else{
+                        q.add(temp.left);
+                        set.add(temp.left.val);
+                    }
+                    if(temp.left.val==x &&set.contains(y)){
+                        return true;
+                    }
                 }
                 if(temp.right!=null){
                     q.add(temp.right);
-                    list.add(temp.right);
+                    set.add(temp.right.val);
+                    if(temp.right.val==y &&set.contains(x)){
+                        return true;
+                    }
                 }
-                if(temp.right==null){
-                    list.add(null);
-                }
-            }
-            if(checkSymmetric(list)==false){
-                return false;
             }
         }
-        return true;
-    }
-
-    public boolean checkSymmetric(List<TreeNode> list){
-        int start=0;
-        int end=list.size()-1;
-        while(start<end){
-            TreeNode temp1=list.get(start);
-            TreeNode temp2=list.get(end);
-            if(temp1==null && temp2!=null){
-                return false;
-            }else if(temp1 !=null && temp2==null){
-                return false;
-            }else if(temp1==null && temp2==null){
-                start++;
-                end--;
-                continue;
-            }
-            
-            else if(temp1.val!=temp2.val){
-                return false;
-            }
-            start++;
-            end--;
-        }
-        return true;
+        return false;
     }
 }  

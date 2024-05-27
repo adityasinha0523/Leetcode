@@ -4,17 +4,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileWriter; 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 
-import javax.swing.tree.TreeNode;
+import org.w3c.dom.Node;
 
 import java.lang.*;
 
-class problem530{
+class problem559{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,11 +45,10 @@ class problem530{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -57,38 +56,30 @@ class problem530{
         /*for (Integer integer : sol) {
             System.out.println(integer);
         }*/
+        /*for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++) {
+                System.out.println( sol[i][j]);
+            }
+        }*/
         //System.out.println(sol);
         scan.close();
     }  
 
-    
-    public int getMinimumDifference(TreeNode root) {
-        List<Integer> list=new ArrayList<>();
-        if(root==null){
-            return 0;
-        }
-        Queue<TreeNode> q=new LinkedList<>();
+    public static int maxDepth(Node root) {
+        int count=0;
+        Queue<Node> q=new LinkedList<>();
         q.add(root);
         while(!q.isEmpty()){
             int size=q.size();
+            count++;
             for (int i = 0; i < size; i++) {
-                TreeNode temp=q.poll();
-                list.add(temp.val);
-                if(temp.left!=null){
-                    q.add(temp.left);
-                    
-                }
-                if(temp.right!=null){
-                    q.add(temp.right);
-                    
+                Node list=q.poll();
+                List<Node> l1=list.children;
+                for (int j = 0; j < l1.size(); j++) {
+                    q.add(l1.get(j));
                 }
             }
         }
-        Collections.sort(list);
-        int ans=Integer.MAX_VALUE;
-        for (int i = 1; i < list.size(); i++) {
-            ans=Math.min(ans, list.get(i)-list.get(i-1));
-        }
-        return ans;
+        return count;
     }
 }  

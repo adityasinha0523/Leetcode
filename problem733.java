@@ -9,12 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
-
-import javax.swing.tree.TreeNode;
-
 import java.lang.*;
 
-class problem102{
+class problem733{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -45,11 +42,10 @@ class problem102{
                 nums[i][j]=scan.nextInt();
             }
         }*/
-
         //Taking String as input.
         //String s=scan.nextLine();
 
-        
+        //String xValue=Integer.toBinaryString(5);
         //Printing 1D Array.
         /*for(int i=0;i<sol.length;i++){
             System.out.println(sol[i]);
@@ -64,29 +60,57 @@ class problem102{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> solution=new ArrayList<>();
-        if(root==null){
-            return solution;
-        }
-        Queue<TreeNode> q=new LinkedList<>();
+    }
+    
+    public static int[][] floodFill(int[][] image, int sr, int sc, int color) {
+        Queue<int[]> q=new LinkedList<>();
+        int[] arr=new int[2];
+        arr[0]=sr;
+        arr[1]=sc;
+        q.add(arr);
+        int valuee=image[sr][sc];
+        image[sr][sc]=color;
+        boolean[][] visited=new boolean[image.length][image[0].length];
         while(!q.isEmpty()){
             int size=q.size();
-            List<Integer> list=new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode temp=q.poll();
-                list.add(temp.val);
-                if(temp.left!=null){
-                    q.add(temp.left);
+                int[] val=q.poll();
+                int first=val[0];
+                int second=val[1];
+                if((first-1)>=0  && image[first-1][second]==valuee &&!visited[first-1][second]){
+                    int[] arr1=new int[2];
+                    arr1[0]=first-1;
+                    arr1[1]=second;
+                    image[first-1][second]=color;
+                    visited[first-1][second]=true;
+                    q.add(arr1);
                 }
-                if(temp.right!=null){
-                    q.add(temp.right);
+                if((first+1)<image.length && image[first+1][second]==valuee &&!visited[first+1][second]){
+                    int[] arr1=new int[2];
+                    arr1[0]=first+1;
+                    arr1[1]=second;
+                    image[first+1][second]=color;
+                    visited[first+1][second]=true;
+                    q.add(arr1);
+                }
+                if((second+1)<image[0].length && image[first][second+1]==valuee && !visited[first][second+1]){
+                    int[] arr1=new int[2];
+                    arr1[0]=first;
+                    arr1[1]=second+1;
+                    image[first][second+1]=color;
+                    visited[first][second+1]=true;
+                    q.add(arr1);
+                }
+                if((second-1)>=0 && image[first][second-1]==valuee && !visited[first][second-1]){
+                    int[] arr1=new int[2];
+                    arr1[0]=first;
+                    arr1[1]=second-1;
+                    image[first][second-1]=color;
+                    visited[first][second-1]=true;
+                    q.add(arr1);
                 }
             }
-            solution.add(list);
         }
-        return solution;
+        return image;
     }
 }  

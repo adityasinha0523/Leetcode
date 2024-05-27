@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.tree.TreeNode;
+
 import java.lang.*;
 
 class problem965{
@@ -57,21 +60,26 @@ class problem965{
         //System.out.println(sol);
         scan.close();
     }  
-
-    int val;
-    boolean ans=true;
+    //boolean xValue;
     public boolean isUnivalTree(TreeNode root) {
-        val=root.val;
-        helper(root);
-        return ans;
-    }
-    public void helper(TreeNode root){
-        if(root!=null){
-            if(root.val!=val){
-                ans=false;
+        Queue<TreeNode> q=new LinkedList<>();
+        q.add(root);
+        int val=root.val;
+        while(!q.isEmpty()){
+            int size=q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode temp=q.poll();
+                if(temp.val!=val){
+                    return false;
+                }
+                if(temp.left!=null){
+                    q.add(temp.left);
+                }
+                if(temp.right!=null){
+                    q.add(temp.right);
+                }
             }
-            helper(root.left);
-            helper(root.right);
         }
+        return true;
     }
 }  
