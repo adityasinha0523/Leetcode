@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import javax.swing.tree.TreeNode;
+
 import java.lang.*;
 
 class problem1261{
@@ -60,5 +63,36 @@ class problem1261{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
+    }
+    public Set<Integer> seen = new HashSet<>();
+    public FindElements(TreeNode root) {
+        
+        Queue<TreeNode> q=new LinkedList<>();
+        if(root==null){
+            return;
+        }
+        root.val=0;
+        seen.add(root.val);
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size=q.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode temp=q.poll();
+                if(temp.left!=null){
+                    temp.left.val=temp.val*2+1;
+                    seen.add(temp.left.val);
+                    q.add(temp.left);
+                }
+                if(temp.right!=null){
+                    temp.right.val=temp.val*2+2;
+                    seen.add(temp.right.val);
+                    q.add(temp.right);
+                }
+            }
+        }
+    }
+    
+    public boolean find(int target) {
+        return seen.contains(target);
+    }
 }  
