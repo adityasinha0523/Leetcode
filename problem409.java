@@ -49,29 +49,19 @@ class problem409{
     }  
 
     public static int longestPalindrome(String s) {
-        int solution=0;
-        Map<Character,Integer> map=new HashMap<>();
+        HashSet<Character> set=new HashSet<>();
+        int count=0;
         for (int i = 0; i < s.length(); i++) {
-            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
-        }
-        boolean  oddValue=false;
-        for(Map.Entry<Character,Integer> hEntry:map.entrySet()){
-            int value=hEntry.getValue();
-            if(value%2!=0 && oddValue==false){
-                if(value>2){
-                    int temp2=value/2;
-                    solution+=temp2*2;
-                    solution++;
-                }else{
-                    solution++;
-                }
-                oddValue=true;
-                
+            if(set.contains(s.charAt(i))){
+                set.remove(s.charAt(i));
+                count++;
             }else{
-                int temp=value/2;
-                solution+=temp*2;
+                set.add(s.charAt(i));
             }
         }
-        return solution;
+        if(set.size()!=0){
+            return count*2+1;
+        }
+        return count*2;
     }
 }  
