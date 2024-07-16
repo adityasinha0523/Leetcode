@@ -44,6 +44,15 @@ class problem1518{
     }  
 
     public static int numWaterBottles(int numBottles, int numExchange) {
+        /*int solution=numBottles;
+        while(numBottles>=numExchange){
+            int exchangeBottle=numBottles/numExchange;
+            int remainingBottle=numBottles%numExchange;
+            numBottles=exchangeBottle+remainingBottle;
+            solution+=exchangeBottle;
+        }
+        return solution;*/
+
         int solution=numBottles;
         while(numBottles>=numExchange){
             int exchangeBottle=numBottles/numExchange;
@@ -51,6 +60,7 @@ class problem1518{
             numBottles=exchangeBottle+remainingBottle;
             solution+=exchangeBottle;
         }
+
         return solution;
     }
 }  
