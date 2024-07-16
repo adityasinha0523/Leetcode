@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
+
+import apple.laf.JRSUIConstants.State;
+
 import java.lang.*;
 
 class problem2751{
@@ -62,5 +65,45 @@ class problem2751{
         scan.close();
     } 
     
-    
+    public static List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
+    int n=positions.length;
+    List<Integer> ind=new ArrayList<>();
+    for (int i = 0; i < n; i++) {
+        ind.add(i);
+    }
+    Stack<Integer> stack=new Stack<>();
+    Collections.sort(ind,(x,y)->Integer.compare(positions[x], positions[y]));
+    for (int x : ind) {
+        if(directions.charAt(x)=='L'){
+            while(!stack.isEmpty()){
+                int y=stack.peek();
+                if(healths[x]==healths[y]){
+                    healths[x]=0;
+                    healths[y]=0;
+                    stack.pop();
+                    break;
+                }
+                if(healths[x]>healths[y]){
+                    healths[x]--;
+                    healths[y]=0;
+                    stack.pop();
+                }
+                if(healths[x]<healths[y]){
+                    healths[x]=0;
+                    healths[y]--;
+                    break;
+                }
+            }
+        }else{
+            stack.add(x);
+        }
+    }
+    List<Integer> result=new ArrayList<>();
+    for (int val : healths) {
+        if(val!=0){
+            result.add(val);
+        }
+    }
+    return result;
+    }
 }  
