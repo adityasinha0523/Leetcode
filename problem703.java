@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2134{
+class problem703{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -60,27 +60,22 @@ class problem2134{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int minSwaps(int[] nums) {
-        int totalOnes=0;
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==1){
-                totalOnes++;
-            }
+    }
+    PriorityQueue<Integer> q;
+    int k;
+    public KthLargest(int k, int[] nums) {
+        this.k=k;
+        q=new PriorityQueue<>(k);
+        for (int i : nums) {
+            add(i);
         }
-        if (totalOnes == 0 || totalOnes == nums.length) return 0;
-        int currentOnes = 0;
-        for (int i = 0; i < totalOnes; i++) {
-            currentOnes+=nums[i];
+    }
+    
+    public int add(int val) {
+        q.offer(val);
+        if(q.size()> val){
+            q.poll();
         }
-        int maxOnes = currentOnes;
-        for (int i = 0; i < nums.length; i++) {
-            currentOnes -= nums[i];
-            currentOnes += nums[(i + totalOnes) % nums.length];
-            maxOnes = Math.max(maxOnes, currentOnes);
-        }
-
-        return totalOnes - maxOnes;
-    }   
+        return q.peek();
+    }
 }  

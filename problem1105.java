@@ -11,7 +11,7 @@ import java.io.PrintStream;
 import java.util.*;
 import java.lang.*;
 
-class problem2134{
+class problem1105{
     public static void main(String args[]) throws IOException{  
         if (System.getProperty("ONLINE_JUDGE") == null) {
             // Redirecting the I/O to external files
@@ -60,27 +60,9 @@ class problem2134{
         }*/
         //System.out.println(sol);
         scan.close();
-    }  
-
-    public static int minSwaps(int[] nums) {
-        int totalOnes=0;
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]==1){
-                totalOnes++;
-            }
-        }
-        if (totalOnes == 0 || totalOnes == nums.length) return 0;
-        int currentOnes = 0;
-        for (int i = 0; i < totalOnes; i++) {
-            currentOnes+=nums[i];
-        }
-        int maxOnes = currentOnes;
-        for (int i = 0; i < nums.length; i++) {
-            currentOnes -= nums[i];
-            currentOnes += nums[(i + totalOnes) % nums.length];
-            maxOnes = Math.max(maxOnes, currentOnes);
-        }
-
-        return totalOnes - maxOnes;
-    }   
+    } 
+    
+    public static int minHeightShelves(int[][] books, int shelfWidth) {
+        
+    }
 }  
