@@ -49,33 +49,37 @@ class problem682{
     public static int calPoints(String[] operations) {
         Stack<Integer> stack=new Stack<>();
         for (int i = 0; i < operations.length; i++) {
-            char c=operations[i].charAt(0);
-            if(Character.isDigit(c) ||c=='-'){
-                int i1=Integer.parseInt(operations[i]);
-                //stack.add(Character.getNumericValue(c));
-                stack.add(i1);
-            }else if(c=='+'){
-                int first=stack.pop();
-                int second=stack.pop();
-                int sum=first+second;
-                stack.add(second);
-                stack.add(first);
-                stack.add(sum);
-            }else if(c=='C'){
-                stack.pop();
-            }else{
-                int first=stack.pop();
-                //int second=stack.pop();
-                int product=first*2;
-                stack.add(first);
-                stack.add(product);
+            String s=operations[i];
+            Character c=s.charAt(0);
+            if(Character.isDigit(c)){
+                int value=Integer.valueOf(s);
+                stack.add(value);
+            }else if(c=='-'){
+                int value=Integer.valueOf(s);
+                stack.add(value);
+            }
+            else if(c=='+'){
+                int value1=stack.pop();
+                int value2=stack.pop();
+                int value3=value1+value2;
+                stack.add(value2);
+                stack.add(value1);
+                stack.add(value3);
+            }
+            else if(c=='D'){
+                int value1=stack.peek();
+                stack.add(value1*2);
+            }
+            else{
+                if(!stack.isEmpty()){
+                    stack.pop();
+                }
             }
         }
-        int size=stack.size();
-        int sol=0;
-        for (int i = 0; i < size; i++) {
-            sol+=stack.pop();
+        int solution=0;
+        while(!stack.isEmpty()){
+            solution+=stack.pop();
         }
-        return sol;
+        return solution;
     }
 }  
