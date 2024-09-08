@@ -98,38 +98,59 @@ class problem20{
         if(stack.size()==0?true:false);
     }
 
-
-
-
-
-    public static boolean isValid(String s) {
+    public boolean isValid(String s) {
         Stack<Character> stack=new Stack<>();
-        stack.add(s.charAt(0));
-        int k=1;
-        while(!stack.isEmpty()){
-            if(s.charAt(k)==')'){
-                if(stack.peek()!='('){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)=='}'){
-                if(stack.peek()!='{'){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else if(s.charAt(k)==']'){
-                if(stack.peek()!='['){
-                    return false;
-                }else{
-                    stack.pop();
-                }
-            }else{
-                stack.add(s.charAt(k));
+        for (int i = 0; i < s.length(); i++) {
+            Character c=s.charAt(i);
+            if(c=='('){
+                stack.add(c);
             }
-            k++;
+            else if(c==')'){
+                if(!stack.isEmpty()){
+                    if(stack.peek()=='('){
+                        stack.pop();
+                    }
+                    else{
+                        return false;
+                    }
+                }else{
+                    stack.add(c);
+                }
+            }
+            else if(c=='{'){
+                
+                stack.add(c);
+            }
+            else if(c=='}'){
+                if(!stack.isEmpty()){
+                    if(stack.peek()=='{'){
+                        stack.pop();
+                    }else{
+                        return false;
+                    }
+                }else{
+                    stack.add(c);
+                }
+            }
+            else if(c=='['){
+                stack.add(c);
+                
+            }
+            else if(c==']'){
+                if(!stack.isEmpty()){
+                    if(stack.peek()=='['){
+                        stack.pop();
+                    }else{
+                        return false;
+                    }
+                }else{
+                    stack.add(c);
+                }
+            }
         }
-        return true;
+        if(stack.isEmpty()){
+            return true;
+        }
+        return false;
     }
 }  
