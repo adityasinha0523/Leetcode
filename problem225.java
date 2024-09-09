@@ -63,6 +63,7 @@ class problem225{
         //System.out.println(sol);
         scan.close();
     }
+
     Queue<Integer> q1;
     Queue<Integer> q2;
     public MyStack() {
@@ -74,21 +75,20 @@ class problem225{
         q2.add(x);
         if(!q1.isEmpty()){
             while(!q1.isEmpty()){
-                q2.add(q1.remove());
+                q2.add(q1.poll());
             }
         }
         while(!q2.isEmpty()){
             q1.add(q2.poll());
         }
-
     }
     
     public int pop() {
-        q1.remove();
+        return q1.poll();
     }
     
     public int top() {
-        q1.peek();
+        return q1.peek();
     }
     
     public boolean empty() {
