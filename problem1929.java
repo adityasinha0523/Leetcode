@@ -36,7 +36,7 @@ class problem1929{
         return answer;
     }
 
-    public static int[] getConcatenation(int[] nums) {
+    /*public static int[] getConcatenation(int[] nums) {
         int[] sol=new int[nums.length*2];
         int k=0;
         for (int i = 0; i < nums.length; i++) {
@@ -44,6 +44,17 @@ class problem1929{
         }
         for (int i = 0; i < nums.length; i++) {
             sol[k++]=nums[i];
+        }
+        return sol;
+    }*/
+
+    public int[] getConcatenation(int[] nums) {
+        int[] sol=new int[nums.length*2];
+        int k=0;
+        int l=nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            sol[k++]=nums[i];
+            sol[l++]=nums[i];
         }
         return sol;
     }

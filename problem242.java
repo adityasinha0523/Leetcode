@@ -47,6 +47,33 @@ class problem242{
         System.out.println(sol);
         scan.close();
     }  
+
+    public static boolean isAnagram3(String s, String t) {
+        if(s.length()!=t.length()){
+            return false;
+        }
+        int[] isAnagram1=new int[26];
+        int[] isAnagram2=new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            isAnagram1[s.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            isAnagram2[t.charAt(i)-'a']++;
+        }
+        for (int i = 0; i < 26; i++) {
+            if(isAnagram1[i]!=isAnagram2[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+
+
     public static boolean isAnagram2(String s, String t) {
         int[] firstArr=new int[26];
         int[] secondArr=new int[26];
