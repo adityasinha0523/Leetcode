@@ -83,4 +83,23 @@ class problem1684{
         }
         return solution;
     }
+
+
+    public static int countConsistentStrings2(String allowed, String[] words) {
+        boolean[] arr=new boolean[26];
+        int count=words.length;
+        for (int i = 0; i < allowed.length(); i++) {
+            arr[allowed.charAt(i)-'a']=true;
+        }
+        for (int i = 0; i < words.length; i++) {
+            String s=words[i];
+            for (int j = 0; j < s.length(); j++) {
+                if(arr[s.charAt(j)-'a']==false){
+                    count--;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
 }  

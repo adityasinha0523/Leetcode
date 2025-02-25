@@ -62,32 +62,34 @@ class problem155{
         //System.out.println(sol);
         scan.close();
     }
-    Stack<Integer> stack;
-    Stack<Integer> minStack;
+    Stack<Integer> stack1;
+    Stack<Integer> minimumStack;
     public MinStack() {
-        
-        stack=new Stack<>();
-        minStack=new Stack<>();
+        stack1=new Stack<>();
+        minimumStack=new Stack<>();
     }
     
     public void push(int val) {
-        if(minStack.isEmpty()||val<=minStack.peek()){
-            minStack.add(val);
+        if(minimumStack.isEmpty()||val<=minimumStack.peek()){
+            minimumStack.add(val);
         }
+        stack1.add(val);
     }
     
     public void pop() {
-        if(stack.peek().equals(minStack.peek())){
-            minStack.pop();
+        if(stack1.peek().equals(minimumStack.peek())){
+            minimumStack.pop();
         }
-        stack.pop();
+        stack1.pop();
     }
     
     public int top() {
-        return stack.peek();
+        return stack1.peek();
     }
     
     public int getMin() {
-        return minStack.peek();
+        return minimumStack.peek();
     }
+
+    
 }  

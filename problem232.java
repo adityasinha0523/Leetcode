@@ -10,9 +10,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.*;
 
-import apple.laf.JRSUIConstants.State;
-
-import java.lang.*;
 
 class problem232{
     public static void main(String args[]) throws IOException{  
@@ -66,7 +63,7 @@ class problem232{
     } 
     Stack<Integer> stack1;
     Stack<Integer> stack2;
-    public MyQueue() {
+    public void MyQueue() {
         stack1=new Stack<>();
         stack2=new Stack<>();
     }

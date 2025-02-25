@@ -90,4 +90,32 @@ class problem150{
         }
         return stack.pop();
     }
+
+
+    public static int evalRPN2(String[] tokens) {
+        Stack<Integer> stack=new Stack<>();
+        for (int i = 0; i < tokens.length; i++) {
+            String s=tokens[i];
+            if(s.length()==1 && s.equals("+")){
+                int val1=stack.pop();
+                int val2=stack.pop();
+                stack.add(val1+val2);
+            }else if(s.length()==1 && s.equals("-")){
+                int val1=stack.pop();
+                int val2=stack.pop();
+                stack.add(val2-val1);
+            }else if(s.length()==1 && s.equals("*")){
+                int val1=stack.pop();
+                int val2=stack.pop();
+                stack.add(val1*val2);
+            }else if(s.length()==1 && s.equals("/")){
+                int val1=stack.pop();
+                int val2=stack.pop();
+                stack.add(val2/val1);
+            }else{
+                stack.add(Integer.valueOf(s));
+            }
+        }
+        return stack.pop();
+    }
 }  

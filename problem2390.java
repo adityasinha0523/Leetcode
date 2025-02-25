@@ -81,4 +81,23 @@ class problem2390{
         }
         return sb.reverse().toString();
     }
+
+
+    public static String removeStars2(String s) {
+        Stack<Character> stack=new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i)=='*'){
+                stack.pop();
+            }else{
+                stack.add(s.charAt(i));
+            }
+        }
+        StringBuilder sb=new StringBuilder();
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        sb.reverse();
+        return sb.toString();
+    }
+
 }  

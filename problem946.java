@@ -64,7 +64,7 @@ class problem946{
     }
     
     public static boolean validateStackSequences(int[] pushed, int[] popped) {
-        Stack<Integer> stack=new Stack<>();
+        /*Stack<Integer> stack=new Stack<>();
         int k=0;
         for (int i = 0; i < pushed.length; i++) {
             stack.add(pushed[i]);
@@ -75,7 +75,19 @@ class problem946{
                 }
             }
         }
-        return stack.isEmpty();
+        return stack.isEmpty();*/
 
+        Stack<Integer> stack=new Stack<>();
+        int k=0;
+        for (int i = 0; i < pushed.length; i++) {
+            stack.add(pushed[i]);
+            if(popped[k]==stack.peek()){
+                while(!stack.isEmpty() && stack.peek()==popped[k]){
+                    k++;
+                    stack.pop();
+                }
+            }
+        }
+        return stack.isEmpty();
     }
 }  
