@@ -51,6 +51,22 @@ class problem14{
         System.out.println(sol);
         scan.close();
     }
+
+    public static String longestCommonPrefix5(String[] strs) {
+        Arrays.sort(strs);
+        String s1 = strs[0];
+        String s2 = strs[strs.length-1];
+        StringBuilder sb=new StringBuilder();
+        int len=Math.min(s1.length(), s2.length());
+        for (int i = 0; i < len; i++) {
+            if(s1.charAt(i)==s2.charAt(i)){
+                sb.append(s1.charAt(i));
+            }
+        }
+        
+        return sb.toString();
+    }
+
     
     public static String longestCommonPrefix2(String[] strs) {
         String first=strs[0];
