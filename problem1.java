@@ -58,7 +58,7 @@ class problem1{
         scan.close();
     }  
 
-    public static int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum2(int[] nums, int target) {
         Map<Integer,Integer> map=new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             int val=nums[i];
@@ -73,6 +73,21 @@ class problem1{
         }
         int[] sol=new int[]{-1,-1};
         
+        return sol;
+    }
+
+    public static int[] twoSum3(int[] nums, int target) {
+        HashMap<Integer,Integer> hMap=new HashMap<>();
+        int[] sol=new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if(hMap.containsKey(target-nums[i])){
+                sol[0]=hMap.get(target-nums[i]);
+                sol[1]=i;
+                return sol;
+            }else{
+                hMap.put(nums[i], i);
+            }
+        }
         return sol;
     }
 

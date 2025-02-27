@@ -60,16 +60,18 @@ class problem1524{
 
     public static int numOfSubarrays(int[] arr) {
         int solution=0;
+        int oddCount=0;
+        int mod = 1000000007;
+        int evenCount=1;
+        int prefix=0;
         for (int i = 0; i < arr.length; i++) {
-            int count=arr[i];
-            if(count%2!=0){
-                solution++;
-            }
-            for (int j = i+1; j < arr.length; j++) {
-                count+=arr[j];
-                if(count%2!=0){
-                    solution++;
-                }
+            prefix=(prefix+arr[i])%2;
+            if(prefix%2==0){
+                solution=(solution+oddCount)%mod;
+                evenCount++;
+            }else{
+                solution=(solution + evenCount) %mod;
+                oddCount++;
             }
         }
         return solution;

@@ -61,7 +61,7 @@ class problem392{
         scan.close();
     }
     
-    public static boolean isSubsequence2(String s, String t) {
+    /*public static boolean isSubsequence2(String s, String t) {
         int firstStart=0;
         int secondStart=0;
         while(firstStart<s.length() && secondStart<t.length()){
@@ -77,6 +77,23 @@ class problem392{
         }else{
             return false;
         }
+    }*/
+
+    public static boolean isSubsequence2(String s, String t) {
+        int firstStart=0;
+        int secondStart=0;
+        while(firstStart<s.length() && secondStart<t.length()){
+            if(s.charAt(firstStart)==t.charAt(secondStart)){
+                firstStart++;
+                secondStart++;
+            }else{
+                secondStart++;
+            }
+        }
+        if(firstStart==s.length()){
+            return true;
+        }
+        return false;
     }
 
     public static boolean isSubsequence(String s, String t) {
