@@ -72,16 +72,15 @@ class problem217{
     }*/
 
     public static boolean containsDuplicate(int[] nums) {
-        Set<Integer> set=new HashSet<>();
+        Set<Integer> set =new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             if(set.contains(nums[i])){
-                return false;
-            }
-            else{
+                return true;
+            }else{
                 set.add(nums[i]);
             }
         }
-        return true;
+        return false;
     }
 
 
