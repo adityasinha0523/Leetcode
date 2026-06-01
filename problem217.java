@@ -59,18 +59,6 @@ class problem217{
         scan.close();
     }  
 
-    /*public static boolean containsDuplicate(int[] nums) {
-        boolean solution=false;
-        Set<Integer> set=new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            if(set.contains(nums[i])){
-                return true;
-            }
-            set.add(nums[i]);
-        }
-        return solution;v
-    }*/
-
     public static boolean containsDuplicate(int[] nums) {
         Set<Integer> set =new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
